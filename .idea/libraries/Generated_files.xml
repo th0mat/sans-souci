@@ -1,0 +1,29 @@
+<component name="libraryTable">
+  <library name="Generated files" type="javaScript">
+    <properties>
+      <sourceFilesUrls>
+        <item url="file://$PROJECT_DIR$/node_modules/fsevents/node_modules/.bin/nopt-compiled.js" />
+        <item url="file://$PROJECT_DIR$/node_modules/fsevents/node_modules/.bin/rc-compiled.js" />
+        <item url="file://$PROJECT_DIR$/node_modules/fsevents/node_modules/.bin/har-validator-compiled.js" />
+        <item url="file://$PROJECT_DIR$/node_modules/fsevents/node_modules/.bin/uuid-compiled.js" />
+        <item url="file://$PROJECT_DIR$/node_modules/fsevents/node_modules/.bin/sshpk-conv-compiled.js" />
+        <item url="file://$PROJECT_DIR$/node_modules/fsevents/node_modules/.bin/sshpk-sign-compiled.js" />
+        <item url="file://$PROJECT_DIR$/node_modules/fsevents/node_modules/.bin/sshpk-verify-compiled.js" />
+        <item url="file://$PROJECT_DIR$/node_modules/fsevents/node_modules/.bin/semver-compiled.js" />
+        <item url="file://$PROJECT_DIR$/node_modules/fsevents/node_modules/.bin/rimraf-compiled.js" />
+      </sourceFilesUrls>
+    </properties>
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/node_modules/fsevents/node_modules/.bin/nopt-compiled.js" />
+      <root url="file://$PROJECT_DIR$/node_modules/fsevents/node_modules/.bin/rc-compiled.js" />
+      <root url="file://$PROJECT_DIR$/node_modules/fsevents/node_modules/.bin/har-validator-compiled.js" />
+      <root url="file://$PROJECT_DIR$/node_modules/fsevents/node_modules/.bin/uuid-compiled.js" />
+      <root url="file://$PROJECT_DIR$/node_modules/fsevents/node_modules/.bin/sshpk-conv-compiled.js" />
+      <root url="file://$PROJECT_DIR$/node_modules/fsevents/node_modules/.bin/sshpk-sign-compiled.js" />
+      <root url="file://$PROJECT_DIR$/node_modules/fsevents/node_modules/.bin/sshpk-verify-compiled.js" />
+      <root url="file://$PROJECT_DIR$/node_modules/fsevents/node_modules/.bin/semver-compiled.js" />
+      <root url="file://$PROJECT_DIR$/node_modules/fsevents/node_modules/.bin/rimraf-compiled.js" />
+    </CLASSES>
+    <SOURCES />
+  </library>
+</component>

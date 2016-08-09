@@ -1,0 +1,22 @@
+{
+  "name": "webterm",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "dependencies": {
+    "express": "^4.12.3",
+    "pty.js": "^0.3.0",
+    "socket.io": "^1.3.5"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.11.4",
+    "babel-preset-es2015": "^6.13.2",
+    "babel-preset-react": "^6.5.0"
+  },
+    "scripts": {
+         "start": "node out/server/server.js",
+        "prestart": "babel src -d out"
+    },
+  "author": "Thomas Natter",
+  "license": "MIT"
+}
