@@ -3,16 +3,10 @@ var http = require('http');
 var fs = require('fs');
 var pty = require('pty.js');
 var path = require('path');
-
+//var favicon = require('serve-favicon');
 
 var app = express();
 
-
-//app.set('port', 3000);
-
-// view engine setup
-//app.set('views', path.join(__dirname, 'views'));
-//app.set('view engine', 'jade');
 
 
 var server = http.createServer(app).listen(3000);
@@ -25,6 +19,7 @@ var history = require('./api/history');
 
 // Static file serving
 app.use(express.static('out'));
+//app.use(favicon(__dirname + '/favicon.ico'));
 
 app.use('/history', history);
 app.use('/', live);
@@ -57,4 +52,5 @@ io.on('connection', function(socket){
   });
 });
 
-console.log('server.js running on port 3000...');
+console.log('server.js running on port 3000...\n');
+console.log('__dirname: ' + __dirname);

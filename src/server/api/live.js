@@ -6,8 +6,6 @@ var path = require('path');
 // serve index.html and lot request
 router.get('/', function (req, res, next) {
     console.log(req.ip + " at " + new Date().toString()); 
-
-    
     res.sendFile(path.join(__dirname + "/index.html"));
 
 });

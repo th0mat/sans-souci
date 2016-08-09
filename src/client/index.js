@@ -11,7 +11,7 @@ var socket = io.connect(url);
 //
 // var tsec = [
 //    {
-//        "id": "NEMA_Sam",
+//        "id": "4ca56d2e03d5",
 //        "dname": "Nema",
 //        "avatar": "img/Nema.jpg",
 //        "traffic": traffic.slice(0),
@@ -20,11 +20,10 @@ var socket = io.connect(url);
 
 
 function addPeriod(justIn) {
-    console.log("adding just in: " + JSON.stringify(justIn));
+    // todo: deal with invalid json, e.g. '{'
     var total = 0;
     for (var i = 0; i < tsec.length - 1; i++) { // don't include TOTAL in loop
         if (justIn[tsec[i].macHex]) {
-            console.log("found: " + tsec[i].macHex);
             tsec[i].traffic.unshift(justIn[tsec[i].macHex]);
             tsec[i].lastSeen = new Date();
         } else {
