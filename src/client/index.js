@@ -97,6 +97,12 @@ var Bullets = React.createClass({
 
 
 var Slot = React.createClass({
+
+    callHistory: function () {
+        document.getElementById("Traffic").className = "hidden";
+        document.getElementById("History").className = "";
+    },
+
     render() {
         var lastSeen = "not yet";
         if (this.props.lastSeen) {
@@ -113,7 +119,7 @@ var Slot = React.createClass({
         return ( < div className="media">
                 < div className="media-left">
                     < a href="#">
-                        < img className="media-object"
+                        < img onClick={this.callHistory} className="media-object"
                               height="75"
                               width="75"
                               src={
@@ -140,6 +146,8 @@ var Slot = React.createClass({
 })
 
 
+
+
 var Traffic = React.createClass({
 
     getInitialState() {
@@ -160,31 +168,36 @@ var Traffic = React.createClass({
     },
 
     render() {
-        return ( < div > {
-            this.state.tsec.map(function (person) {
-                return ( < Slot key={
-                        person.id
-                    }
-                                dname={
-                                    person.dname
-                                }
-                                avatar={
-                                    person.avatar
-                                }
-                                lastSeen={
-                                    person.lastSeen
-                                }
-                                traffic={
-                                    person.traffic
-                                }> </Slot>
-                )
-            })
-        } </div>)
+        return (
+            <div id="Traffic">
+                < div> {
+                    this.state.tsec.map(function (person) {
+                        return ( < Slot key={
+                                person.id
+                            }
+                                        dname={
+                                            person.dname
+                                        }
+                                        avatar={
+                                            person.avatar
+                                        }
+                                        lastSeen={
+                                            person.lastSeen
+                                        }
+                                        traffic={
+                                            person.traffic
+                                        }> </Slot>
+                        )
+                    })
+                } </div>
+                <div><br/>Click picture for traffic history</div>
+            </div>
+        )
     }
 });
 
 
-ReactDOM.render(<Traffic/>, document.getElementById('targets'));
+// ReactDOM.render(<Traffic/>, document.getElementById('targets'));
 
 ////// history
 
@@ -197,6 +210,14 @@ var fromServer = fetch(url + "history/0/asdfasdf").then(function (response) {
 
 
 var History = React.createClass({
+
+    callLive: function () {
+        displayHistory = false;
+        displayTraffic = true;
+        document.getElementById("History").className = "hidden";
+        document.getElementById("Traffic").className = "";
+    },
+
 
     getInitialState() {
         return {
@@ -212,21 +233,56 @@ var History = React.createClass({
             return response.json()
         }).then((responseJson) => {
             this.setState({
-                addr1 : responseJson.addr1,
-                addr2 : responseJson.addr2,
-                addr3 : responseJson.addr3
+                addr1: responseJson.addr1,
+                addr2: responseJson.addr2,
+                addr3: responseJson.addr3
             })
         });
     },
 
     render() {
-        return ( < div >
+        return ( < div id="History" className='hidden' >
             <br/>
             <br/>
             Second result with state variable: { this.state.addr1 }
+            <br/>
+            <br/>
+            <br/>
+            <button type="button" onClick={this.callLive} class="btn btn-link">Back to overview</button>
         </div>)
     }
 });
 
 
-ReactDOM.render(<History/>, document.getElementById('history'));
+//// top level
+
+// global variables to show/hide components
+
+var displayTraffic = true;
+var displayHistory = false;
+function rerender(){
+    React.render();
+}
+
+var TopLevel = React.createClass({
+
+    getInitialState() {
+        return {
+            hideTraffic: false
+        };
+    },
+
+    componentDidMount() {
+        // var that = this;
+    },
+
+    render() {
+        return ( < div >
+            <Traffic shouldHide={this.state.hideTraffic}></Traffic>
+            <History></History>
+        </div>)
+    }
+});
+
+
+ReactDOM.render(<TopLevel/>, document.getElementById('topLevel'));

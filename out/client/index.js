@@ -92,6 +92,13 @@ var Bullets = React.createClass({
 
 var Slot = React.createClass({
     displayName: "Slot",
+
+
+    callHistory: function callHistory() {
+        document.getElementById("Traffic").className = "hidden";
+        document.getElementById("History").className = "";
+    },
+
     render: function render() {
         var lastSeen = "not yet";
         if (this.props.lastSeen) {
@@ -114,7 +121,7 @@ var Slot = React.createClass({
                 React.createElement(
                     "a",
                     { href: "#" },
-                    React.createElement("img", { className: "media-object",
+                    React.createElement("img", { onClick: this.callHistory, className: "media-object",
                         height: "75",
                         width: "75",
                         src: "../" + this.props.avatar,
@@ -173,25 +180,35 @@ var Traffic = React.createClass({
     render: function render() {
         return React.createElement(
             "div",
-            null,
-            " ",
-            this.state.tsec.map(function (person) {
-                return React.createElement(
-                    Slot,
-                    { key: person.id,
-                        dname: person.dname,
-                        avatar: person.avatar,
-                        lastSeen: person.lastSeen,
-                        traffic: person.traffic },
-                    " "
-                );
-            }),
-            " "
+            { id: "Traffic" },
+            React.createElement(
+                "div",
+                null,
+                " ",
+                this.state.tsec.map(function (person) {
+                    return React.createElement(
+                        Slot,
+                        { key: person.id,
+                            dname: person.dname,
+                            avatar: person.avatar,
+                            lastSeen: person.lastSeen,
+                            traffic: person.traffic },
+                        " "
+                    );
+                }),
+                " "
+            ),
+            React.createElement(
+                "div",
+                null,
+                React.createElement("br", null),
+                "Click picture for traffic history"
+            )
         );
     }
 });
 
-ReactDOM.render(React.createElement(Traffic, null), document.getElementById('targets'));
+// ReactDOM.render(<Traffic/>, document.getElementById('targets'));
 
 ////// history
 
@@ -204,6 +221,15 @@ var fromServer = fetch(url + "history/0/asdfasdf").then(function (response) {
 
 var History = React.createClass({
     displayName: "History",
+
+
+    callLive: function callLive() {
+        displayHistory = false;
+        displayTraffic = true;
+        document.getElementById("History").className = "hidden";
+        document.getElementById("Traffic").className = "";
+    },
+
     getInitialState: function getInitialState() {
         return {
             addr1: "notyet",
@@ -228,13 +254,51 @@ var History = React.createClass({
     render: function render() {
         return React.createElement(
             "div",
-            null,
+            { id: "History", className: "hidden" },
             React.createElement("br", null),
             React.createElement("br", null),
             "Second result with state variable: ",
-            this.state.addr1
+            this.state.addr1,
+            React.createElement("br", null),
+            React.createElement("br", null),
+            React.createElement("br", null),
+            React.createElement(
+                "button",
+                { type: "button", onClick: this.callLive, "class": "btn btn-link" },
+                "Back to overview"
+            )
         );
     }
 });
 
-ReactDOM.render(React.createElement(History, null), document.getElementById('history'));
+//// top level
+
+// global variables to show/hide components
+
+var displayTraffic = true;
+var displayHistory = false;
+function rerender() {
+    React.render();
+}
+
+var TopLevel = React.createClass({
+    displayName: "TopLevel",
+    getInitialState: function getInitialState() {
+        return {
+            hideTraffic: false
+        };
+    },
+    componentDidMount: function componentDidMount() {
+        // var that = this;
+    },
+    render: function render() {
+        return React.createElement(
+            "div",
+            null,
+            React.createElement(Traffic, { shouldHide: this.state.hideTraffic }),
+            React.createElement(History, null)
+        );
+    }
+});
+
+ReactDOM.render(React.createElement(TopLevel, null), document.getElementById('topLevel'));
