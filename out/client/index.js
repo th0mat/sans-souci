@@ -119,10 +119,8 @@ var Slot = React.createClass({
                         width: "75",
                         src: "../" + this.props.avatar,
                         alt: "" })
-                ),
-                " "
+                )
             ),
-            "     ",
             React.createElement(
                 "div",
                 { className: "media-body" },
@@ -139,11 +137,9 @@ var Slot = React.createClass({
                     { traffic: this.props.traffic },
                     " "
                 ),
-                " ",
                 React.createElement(
                     "p",
                     null,
-                    " ",
                     React.createElement(
                         "small",
                         null,
@@ -152,8 +148,7 @@ var Slot = React.createClass({
                         " "
                     )
                 )
-            ),
-            " "
+            )
         );
     }
 });
@@ -197,3 +192,49 @@ var Traffic = React.createClass({
 });
 
 ReactDOM.render(React.createElement(Traffic, null), document.getElementById('targets'));
+
+////// history
+
+var fromServer = fetch(url + "history/0/asdfasdf").then(function (response) {
+    return response.json();
+}).then(function (responseJson) {
+    console.log(responseJson);
+    return responseJson;
+});
+
+var History = React.createClass({
+    displayName: "History",
+    getInitialState: function getInitialState() {
+        return {
+            addr1: "notyet",
+            addr2: "notyet",
+            addr3: "notyet"
+        };
+    },
+    componentDidMount: function componentDidMount() {
+        var _this = this;
+
+        // var that = this;
+        fetch(url + "history/0/asdfasdf").then(function (response) {
+            return response.json();
+        }).then(function (responseJson) {
+            _this.setState({
+                addr1: responseJson.addr1,
+                addr2: responseJson.addr2,
+                addr3: responseJson.addr3
+            });
+        });
+    },
+    render: function render() {
+        return React.createElement(
+            "div",
+            null,
+            React.createElement("br", null),
+            React.createElement("br", null),
+            "Second result with state variable: ",
+            this.state.addr1
+        );
+    }
+});
+
+ReactDOM.render(React.createElement(History, null), document.getElementById('history'));

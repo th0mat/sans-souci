@@ -5,7 +5,6 @@ var socket = io.connect(url);
 // Wait for data from the server
 
 
-
 // imported via script file:
 // var traffic = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 //
@@ -44,7 +43,7 @@ function addPeriod(justIn) {
 
 // from http://tristen.ca/hcl-picker/#/hlc/14/1/242937/E1FB75
 var palette = ["#242937", "#285864", "#256970", "#257A7A", "#298B81", "#369D85",
-        "#48AE86", "#60BF85", "#7BCF82", "#9ADF7D", "#BCEE79", "#E1FB75"].reverse();
+    "#48AE86", "#60BF85", "#7BCF82", "#9ADF7D", "#BCEE79", "#E1FB75"].reverse();
 
 
 function makeOne(color) {
@@ -86,10 +85,10 @@ var Bullets = React.createClass({
                 __html: makeTen(colors)
             };
         };
-        return ( < div className = "bullets"
-            dangerouslySetInnerHTML = {
-                createMarkup()
-            }
+        return ( < div className="bullets"
+                       dangerouslySetInnerHTML={
+                           createMarkup()
+                       }
             />
         );
     }
@@ -111,25 +110,30 @@ var Slot = React.createClass({
             }
         }
 
-        return ( < div className = "media" >
-            < div className = "media-left" >
-            < a href = "#" >
-            < img className = "media-object"
-            height = "75"
-            width = "75"
-            src = {
-                "../" + this.props.avatar
-            }
-            alt = "" />
-            </a> </div>     < div className = "media-body" >
-            < h4 className = "media-heading" > {
-                this.props.dname
-            } </h4> < Bullets traffic = {
-                this.props.traffic
-            } > </Bullets> < p > < small > last activity: {
-                lastSeen
-            } </small></p >
-            </div> </div>
+        return ( < div className="media">
+                < div className="media-left">
+                    < a href="#">
+                        < img className="media-object"
+                              height="75"
+                              width="75"
+                              src={
+                                  "../" + this.props.avatar
+                              }
+                              alt=""/>
+                    </a></div>
+                < div className="media-body">
+                    < h4 className="media-heading"> {
+                        this.props.dname
+                    } </h4> < Bullets traffic={
+                    this.props.traffic
+                }> </Bullets>
+                    < p >
+                        < small > last activity: {
+                            lastSeen
+                        } </small>
+                    </p >
+                </div>
+            </div>
         );
     }
 
@@ -139,45 +143,90 @@ var Slot = React.createClass({
 var Traffic = React.createClass({
 
     getInitialState() {
-            return {
+        return {
+            tsec: tsec
+        };
+    },
+
+    componentDidMount() {
+        var that = this;
+        socket.on('output', function (data) {
+            var justIn = JSON.parse(data);
+            addPeriod(justIn);
+            that.setState({
                 tsec: tsec
-            };
-        },
+            });
+        });
+    },
 
-        componentDidMount() {
-            var that = this;
-            socket.on('output', function (data) {
-                var justIn = JSON.parse(data);
-                addPeriod(justIn);
-                that.setState({
-                    tsec: tsec
-                });
-          });
-        },
-
-        render() {
-            return ( < div > {
-                this.state.tsec.map(function (person) {
-                    return ( < Slot key = {
-                            person.id
-                        }
-                        dname = {
-                            person.dname
-                        }
-                        avatar = {
-                            person.avatar
-                        }
-                        lastSeen = {
-                            person.lastSeen
-                        }
-                        traffic = {
-                            person.traffic
-                        } > </Slot>
-                    )
-                })
-            } </div>)
-        }
+    render() {
+        return ( < div > {
+            this.state.tsec.map(function (person) {
+                return ( < Slot key={
+                        person.id
+                    }
+                                dname={
+                                    person.dname
+                                }
+                                avatar={
+                                    person.avatar
+                                }
+                                lastSeen={
+                                    person.lastSeen
+                                }
+                                traffic={
+                                    person.traffic
+                                }> </Slot>
+                )
+            })
+        } </div>)
+    }
 });
 
 
-ReactDOM.render( <Traffic/> , document.getElementById('targets'));
+ReactDOM.render(<Traffic/>, document.getElementById('targets'));
+
+////// history
+
+var fromServer = fetch(url + "history/0/asdfasdf").then(function (response) {
+    return response.json()
+}).then((responseJson) => {
+    console.log(responseJson);
+    return responseJson
+});
+
+
+var History = React.createClass({
+
+    getInitialState() {
+        return {
+            addr1: "notyet",
+            addr2: "notyet",
+            addr3: "notyet"
+        };
+    },
+
+    componentDidMount() {
+        // var that = this;
+        fetch(url + "history/0/asdfasdf").then(function (response) {
+            return response.json()
+        }).then((responseJson) => {
+            this.setState({
+                addr1 : responseJson.addr1,
+                addr2 : responseJson.addr2,
+                addr3 : responseJson.addr3
+            })
+        });
+    },
+
+    render() {
+        return ( < div >
+            <br/>
+            <br/>
+            Second result with state variable: { this.state.addr1 }
+        </div>)
+    }
+});
+
+
+ReactDOM.render(<History/>, document.getElementById('history'));

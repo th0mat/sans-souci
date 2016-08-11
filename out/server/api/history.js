@@ -4,8 +4,13 @@ var express = require('express');
 var router = express.Router();
 
 router.get('/:day/:mac', function (req, res, next) {
-    req.app.iruka.count++;
-    res.send("History in the making for " + logFileDayRel(30));
+    console.log("request received");
+    res.setHeader('Content-Type', 'application/json');
+    res.json({
+        "addr1": "first",
+        "addr2": "second",
+        "addr3": "third"
+    });
 });
 
 function logFileDayRel() {
@@ -18,11 +23,11 @@ function logFileDayRel() {
 }
 
 function getData() {
-    return {
-        "this": "first",
-        "that": "second",
-        "any": "third"
-    };
+    return JSON.stringify({
+        "addr1": "first",
+        "addr2": "second",
+        "addr3": "third"
+    });
 }
 
 module.exports = router;
