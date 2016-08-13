@@ -22,7 +22,8 @@
   },
   "devDependencies": {},
   "scripts": {
-    "start": "node server/out/server.js",
+    "prestart": "babel server -d outserver",
+    "start": "node outserver/server.js",
     "dev": "./node_modules/.bin/webpack-dev-server --content-base app --inline --hot"
   },
   "author": "th.natter@gmail.com",
