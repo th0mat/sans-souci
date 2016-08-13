@@ -14,7 +14,7 @@ var history = require('./api/history');
 
 
 // Static file serving
-app.use(express.static('out'));
+app.use(express.static('dist'));
 
 app.use('/history', history);
 app.use('/', live);
@@ -49,4 +49,4 @@ io.on('connection', function (socket) {
 });
 
 console.log('server.js running on port 3000...\n');
-console.log('__dirname: ' + __dirname);
+//console.log('__dirname: ' + __dirname);
