@@ -44,5 +44,5 @@ var tsec = [{
         "lastSeen": null
     }];
 
+export default tsec;
 
-module.exports = tsec;
