@@ -41,3 +41,6 @@ jspm_packages
 # iruka executable plus data files
 iruka
 iruka.data
+
+bundle.js
+outserver

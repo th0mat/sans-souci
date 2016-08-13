@@ -138,7 +138,7 @@ var Slot = React.createClass({
                     this.props.traffic
                 }> </Bullets>
                     < p >
-                        < small > last activity: {
+                        < small > last seen: {
                             lastSeen
                         } </small>
                     </p >
