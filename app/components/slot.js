@@ -5,13 +5,9 @@
 import React from 'react';
 import Bullets from './bullets.js';
 
+import {Link} from 'react-router';
 
 export default React.createClass({
-
-    callHistory: function () {
-        document.getElementById("Traffic").className = "hidden";
-        document.getElementById("History").className = "";
-    },
 
     render() {
         var lastSeen = "not yet";
@@ -28,15 +24,15 @@ export default React.createClass({
 
         return ( < div className="media">
                 < div className="media-left">
-                    < a href="#">
-                        < img onClick={this.callHistory} className="media-object"
+                    < Link to={"history/0/" + this.props.macHex}>
+                        < img className="media-object"
                               height="75"
                               width="75"
                               src={
                                   "../" + this.props.avatar
                               }
                               alt=""/>
-                    </a></div>
+                    </Link></div>
                 < div className="media-body">
                     < h4 className="media-heading"> {
                         this.props.dname

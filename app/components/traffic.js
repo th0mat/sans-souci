@@ -4,13 +4,14 @@
 
 import React from 'react';
 
+import {Link} from 'react-router';
 
 var url = "http://171.101.236.255:3000/";
 
 import socketio from 'socket.io-client';
 var socket = socketio(url);
 
-import tsec from "../macMonitored.js";
+import tsec from "../config/macMonitored.js";
 import Slot from './slot.js';
 
 
@@ -57,14 +58,21 @@ export default React.createClass({
         });
     },
 
+    componentWillUnmount() {
+        socket.removeAllListeners('output');
+    },
+
     render() {
         return (
             <div id="Traffic">
                 < div> {
                     this.state.tsec.map(function (person) {
                         return ( < Slot key={
-                                person.id
+                                person.macHex
                             }
+                                        macHex={
+                                            person.macHex
+                                        }
                                         dname={
                                             person.dname
                                         }
@@ -80,7 +88,8 @@ export default React.createClass({
                         )
                     })
                 } </div>
-                <div><br/>Click picture for traffic history</div>
+                <div><br/><Link to='history/3/Nema'>Test Link to User History</Link></div>
+                <div><br/><Link to='about'>About Sans-Souci</Link></div>
             </div>
         )
     }
