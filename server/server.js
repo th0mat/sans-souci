@@ -17,7 +17,7 @@ var history = require('./api/history');
 app.use(express.static('app'));
 app.use(express.static('dist'));
 
-//app.use('/history', history);
+app.use('/history', history);
 //app.use('/', live);
 
 app.iruka = {};

@@ -3,13 +3,15 @@ var router = express.Router();
 
 
 router.get('/:day/:mac', function (req, res, next) {
-    console.log("request received");
-    res.setHeader('Content-Type', 'application/json');
-    res.json({
-        "addr1": "first",
-        "addr2": "second",
-        "addr3": "third"
-    });
+
+    console.log("about to redirect");
+    // res.setHeader('Content-Type', 'application/json');
+    res.redirect('/');
+    // res.json({
+    //     "addr1": "first",
+    //     "addr2": "second",
+    //     "addr3": "third"
+    // });
 
 
 });
