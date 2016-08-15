@@ -1,24 +1,27 @@
-var express = require('express');
-var http = require('http');
-var fs = require('fs');
-var pty = require('pty.js');
-var path = require('path');
+import express from 'express';
+import http from 'http';
+//import fs from 'fs';
+import pty from 'pty.js';
+import path from 'path';
 
 var app = express();
-
-
 var server = http.createServer(app).listen(3000);
 
-var live = require('./api/live');
-var history = require('./api/history');
+import apiRouter from './api/router.js';
 
 
 // Static file serving
 app.use(express.static('app'));
 app.use(express.static('dist'));
 
-app.use('/history', history);
-//app.use('/', live);
+app.use('/api', apiRouter);
+
+app.get('/history*', function(req, res) {
+    res.redirect('/');
+});
+app.get('/about*', function(req, res) {
+    res.redirect('/');
+});
 
 app.iruka = {};
 app.iruka.tom = 'thomas natter';

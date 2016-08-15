@@ -8,9 +8,7 @@ import {Link} from 'react-router';
 import tsec from "../config/macMonitored.js";
 import {incognito} from "../config/macMonitored.js";
 
-
-// get person profile based on mac
-
+import Data from "../components/history.user.js";
 
 
 // routed via address of type: history/:day/:user  user = macHex
@@ -39,6 +37,10 @@ export default React.createClass({
                 <br/>
                 <p>The user covered here will be {this.props.params.user}</p>
                 <p>The date covered will be {this.props.params.day} days before today</p>
+                <Data
+                    day={this.props.params.day}
+                    user={this.props.params.user}  >
+                </Data>
                 <Link to="/">Back to Live</Link>
             </div>
         )

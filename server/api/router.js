@@ -1,20 +1,7 @@
-var express = require('express');
+import express from 'express';
 var router = express.Router();
 
 
-router.get('/:day/:mac', function (req, res, next) {
-
-    console.log("about to redirect");
-    // res.setHeader('Content-Type', 'application/json');
-    res.redirect('/');
-    // res.json({
-    //     "addr1": "first",
-    //     "addr2": "second",
-    //     "addr3": "third"
-    // });
-
-
-});
 
 function logFileDayRel(daysBeforeToday = 0) {
     var today = new Date();
@@ -32,6 +19,14 @@ function getData(){
 }
 
 
+export default router.get('/history/:day/:mac', function (req, res, next) {
+    console.log('now inside the api/router.js and /:day/:mac')
 
+    res.setHeader('Content-Type', 'application/json');
+    res.json({
+        "addr1": "first",
+        "addr2": "second",
+        "addr3": "third"
+    });
 
-module.exports = router;
+});
