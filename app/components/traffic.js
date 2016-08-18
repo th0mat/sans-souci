@@ -88,8 +88,7 @@ export default React.createClass({
                         )
                     })
                 } </div>
-                <div><br/><Link to='history/3/Nema'>Test Link to User History</Link></div>
-                <div><br/><Link to='about'>About Sans-Souci</Link></div>
+                <div><br/><small><Link to='about'>About Sans-Souci</Link></small></div>
             </div>
         )
     }

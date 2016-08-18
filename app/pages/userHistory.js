@@ -30,13 +30,11 @@ export default React.createClass({
 
         return (
             <div>
-                <h2>User History for {found.dname}</h2>
+                <h2>Traffic History for {found.dname}</h2>
                 <br/>
-                <img src={"../../" + found.avatar} className="media-object"
-                     height="75" width="75"/>
+                <Link to="/"> <img src={"../../" + found.avatar} className="media-object"
+                     height="75" width="75"/> </Link>
                 <br/>
-                <p>The user covered here will be {this.props.params.user}</p>
-                <p>The date covered will be {this.props.params.day} days before today</p>
                 <Data
                     day={this.props.params.day}
                     user={this.props.params.user}  >

@@ -33,10 +33,10 @@ export default React.createClass({
 
     render() {
         return ( <div>
-                    <h3>Records for Today</h3>
+                    <h3>Raw Data</h3>
 
-                    <p>Data for user: {this.props.user}</p>
-                    <p>Day of data: {this.props.day}</p>
+                    <p>Device mac address: {this.props.user}</p>
+                    <br/>
                     <div>{JSON.stringify(this.state.data)}</div>
                     <br/>
 
