@@ -1,4 +1,4 @@
-var debug = process.env.NODE_ENV !== "production";
+var debug = true;  // change to false for webpack to build bundle.min.js
 var webpack = require('webpack');
 
 var config = {

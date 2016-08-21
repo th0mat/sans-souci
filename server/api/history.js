@@ -35,7 +35,13 @@ class HourMap {
 ////////// load files
 
 function addDay(whichDay, raw) {
-    let data = fs.readFileSync(rootDir + logFileDayRel(whichDay));
+    var fileName = rootDir + logFileDayRel(whichDay);
+    try {
+        var data = fs.readFileSync(fileName);
+    } catch (e) {
+        console.log("*** could not load file ", fileName);
+        return;
+    }
     console.log("*** loading: ", logFileDayRel(whichDay));
     var array = data.toString().split("\n");
     raw.push.apply(raw, array);
@@ -46,14 +52,13 @@ function addDay(whichDay, raw) {
 function logFileDayRel(daysBeforeToday = 0) {
     var today = new Date();
     var targetDate = new Date(today.setDate(today.getDate() - daysBeforeToday));
-    var fileName = "/" + today.toISOString().substr(0, 10) + ".log";
+    var fileName = today.toISOString().substr(0, 10) + ".log";
     return fileName;
 }
 
 
 export function fetchHistory(numberOfDays) {
     var raw = [];
-    // todo: exception handling for days w/o log file
     for (let i = 0; i < numberOfDays; i++) {
         addDay(i, raw);
     }
@@ -76,7 +81,7 @@ export function fetchHistory(numberOfDays) {
     macSet.delete(undefined);
     macSet.delete(null);
 
-    console.log("*** number of mac addresses: ", macSet.size);
+    console.log("*** number of unique mac addresses: ", macSet.size);
 
     // add empty hourMaps to macMap
     for (let i of macSet) {
