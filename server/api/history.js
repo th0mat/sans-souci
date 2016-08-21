@@ -5,6 +5,8 @@
 
 var fs = require('fs');
 var path = require('path');
+//import moment from 'moment';
+
 
 var rootDir = path.normalize(__dirname + '/../../iruka.data/');
 
@@ -34,6 +36,7 @@ class HourMap {
 
 function addDay(whichDay, raw) {
     let data = fs.readFileSync(rootDir + logFileDayRel(whichDay));
+    console.log("*** loading: ", logFileDayRel(whichDay));
     var array = data.toString().split("\n");
     raw.push.apply(raw, array);
 
@@ -105,5 +108,8 @@ export function showSet() {
 
 
 export function json(mac) {
-    return JSON.stringify([...all.get(mac).hours]);
+    var result = {};
+    result.mac = [...all.get(mac).hours];
+    result.sysup = [...all.get('1000000000000').hours];
+    return JSON.stringify(result);
 }

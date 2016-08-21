@@ -8,7 +8,7 @@ console.log(history.json("1000000000000"));
 // reload iruka.data in 1 minute intervals
 // todo: sync with full min
 setInterval(
-    history.fetchHistory.bind(null, 2)
+    history.fetchHistory.bind(null, 3)
     , 60000
 );
 
