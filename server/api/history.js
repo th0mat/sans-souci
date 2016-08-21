@@ -5,7 +5,6 @@
 
 var fs = require('fs');
 var path = require('path');
-//import moment from 'moment';
 
 
 var rootDir = path.normalize(__dirname + '/../../iruka.data/');

@@ -11,11 +11,11 @@ var url = "http://171.101.236.255:3000/";
 import socketio from 'socket.io-client';
 var socket = socketio(url);
 
-import tsec from "../config/macMonitored.js";
+//import tsec from "../config/macMonitored.js";
 import Slot from './slot.js';
 
 
-function addPeriod(justIn) {
+function addPeriod(tsec, justIn) {
     // todo: deal with invalid json, e.g. '{'
     var total = 0;
     for (var i = 0; i < tsec.length - 1; i++) { // don't include TOTAL in loop
@@ -43,7 +43,7 @@ export default React.createClass({
 
     getInitialState() {
         return {
-            tsec: tsec
+            tsec: []
         };
     },
 
@@ -51,9 +51,9 @@ export default React.createClass({
         var that = this;
         socket.on('output', function (data) {
             var justIn = JSON.parse(data);
-            addPeriod(justIn);
+            addPeriod(that.props.targets, justIn);
             that.setState({
-                tsec: tsec
+                tsec: that.props.targets
             });
         });
     },
@@ -67,24 +67,12 @@ export default React.createClass({
             <div id="Traffic">
                 < div> {
                     this.state.tsec.map(function (person) {
-                        return ( < Slot key={
-                                person.macHex
-                            }
-                                        macHex={
-                                            person.macHex
-                                        }
-                                        dname={
-                                            person.dname
-                                        }
-                                        avatar={
-                                            person.avatar
-                                        }
-                                        lastSeen={
-                                            person.lastSeen
-                                        }
-                                        traffic={
-                                            person.traffic
-                                        }> </Slot>
+                        return ( < Slot key={ person.macHex }
+                                        macHex={ person.macHex }
+                                        dname={ person.dname }
+                                        avatar={ person.avatar }
+                                        lastSeen={ person.lastSeen }
+                                        traffic={ person.traffic } > </Slot>
                         )
                     })
                 } </div>
