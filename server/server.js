@@ -23,10 +23,6 @@ app.get('/about*', function(req, res) {
     res.redirect('/');
 });
 
-// app.iruka = {};
-// app.iruka.tom = 'thomas natter';
-// app.iruka.count = 0;
-// app.iruka.rootDir = path.normalize(__dirname + '/../..');
 
 
 // SOCKET IO SETUP for live page

@@ -5,8 +5,8 @@
 import React from 'react';
 import {Link} from 'react-router';
 
-import tsec from "../config/macMonitored.js";
-import {incognito} from "../config/macMonitored.js";
+///import tsec from "../config/macMonitored.js";
+import {incognito} from "../config/config.client.js";
 
 import Data from "../components/history.user.js";
 
