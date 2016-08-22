@@ -1,7 +1,6 @@
-call macMonitored.js from client, don't bundle it
 last seen information
 auto-refresh for history screen
-more less component
+more-less component
 total link fix
 hourly component
 
@@ -18,4 +17,6 @@ total traffic by mac
 
 
 DONE
+call macMonitored.js from client, don't bundle it
+fix utc based date in logfile loading
 log file exception handling

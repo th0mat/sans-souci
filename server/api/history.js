@@ -3,8 +3,11 @@
  */
 "use strict";
 
+import moment from 'moment';
+
 var fs = require('fs');
 var path = require('path');
+
 
 
 var rootDir = path.normalize(__dirname + '/../../iruka.data/');
@@ -49,9 +52,8 @@ function addDay(whichDay, raw) {
 
 
 function logFileDayRel(daysBeforeToday = 0) {
-    var today = new Date();
-    var targetDate = new Date(today.setDate(today.getDate() - daysBeforeToday));
-    var fileName = today.toISOString().substr(0, 10) + ".log";
+    var day = moment().subtract(daysBeforeToday, 'days');
+    var fileName = day.format("YYYY-MM-DD") + ".log";
     return fileName;
 }
 
