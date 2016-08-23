@@ -6,13 +6,11 @@ import React from 'react';
 import {Link} from 'react-router';
 import {connect} from 'react-redux';
 
-///import tsec from "../config/macMonitored.js";
 import {incognito} from "../config/config.client.js";
 
 import Data from "../components/history.user.js";
 
 
-// routed via address of type: history/:day/:user  user = macHex
 
 
 @connect((store) => {

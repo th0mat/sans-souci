@@ -1,4 +1,3 @@
-refactor action dispatch
 last seen information
 auto-refresh for history screen
 more-less component
@@ -16,6 +15,7 @@ total traffic by mac
 
 
 DONE
+refactor action dispatch
 implement redux & connect history component
 allow cross domain requests to api
 call macMonitored.js from client, don't bundle it

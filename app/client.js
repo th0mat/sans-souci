@@ -2,28 +2,17 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import {Router, Route, Link, IndexRoute, browserHistory} from 'react-router'
 import {Provider} from 'react-redux';
-import axios from 'axios';
 
 import Live from  './pages/liveMonitor.js';
 import History from  './pages/userHistory.js';
 import About from  './pages/about.js';
 
-
-import store from './redux/store'
-
-var url = "http://171.101.236.255:3000/";
+import store from './redux/store';
+import * as actions from './redux/actions';
 
 
-store.dispatch((dispatch) => {
-    dispatch({type: 'WAKE_UP', payload: 0});
-    axios.get(url + "api/config/targets")
-        .then((response) => {
-            dispatch({type: 'TARGETS_RECEIVED', payload: response.data})
-        })
-        .catch((err) => {
-            dispatch({type: 'FETCH_TARGETS_ERROR', payload: err})
-        });
-})
+
+store.dispatch(actions.fetchConfig());
 
 
 var Layout = React.createClass({

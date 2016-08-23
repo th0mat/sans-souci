@@ -1,4 +1,6 @@
-
+/**
+ * Created by thomasnatter on 8/23/16.
+ */
 
 
 const initialState = {
