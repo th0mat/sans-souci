@@ -1,9 +1,9 @@
+refactor action dispatch
 last seen information
 auto-refresh for history screen
 more-less component
 total link fix
 hourly component
-
 
 
 nav bar
@@ -16,6 +16,9 @@ total traffic by mac
 
 
 DONE
+implement redux & connect history component
+allow cross domain requests to api
 call macMonitored.js from client, don't bundle it
 fix utc based date in logfile loading
 log file exception handling
+added config.client.js with incognito info

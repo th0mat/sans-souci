@@ -1,11 +1,29 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Router, Route, Link, IndexRoute, browserHistory } from 'react-router'
-
+import {Router, Route, Link, IndexRoute, browserHistory} from 'react-router'
+import {Provider} from 'react-redux';
+import axios from 'axios';
 
 import Live from  './pages/liveMonitor.js';
 import History from  './pages/userHistory.js';
 import About from  './pages/about.js';
+
+
+import store from './redux/store'
+
+var url = "http://171.101.236.255:3000/";
+
+
+store.dispatch((dispatch) => {
+    dispatch({type: 'WAKE_UP', payload: 0});
+    axios.get(url + "api/config/targets")
+        .then((response) => {
+            dispatch({type: 'TARGETS_RECEIVED', payload: response.data})
+        })
+        .catch((err) => {
+            dispatch({type: 'FETCH_TARGETS_ERROR', payload: err})
+        });
+})
 
 
 var Layout = React.createClass({
@@ -20,15 +38,16 @@ var Layout = React.createClass({
 });
 
 
-
 ReactDOM.render(
-    <Router history={browserHistory}>
+    <Provider store={store}>
+        <Router history={browserHistory}>
 
-        <Route path="/" component={Layout}>
-            <IndexRoute component={Live} />
-            <Route path="history/:day/:user" component={History}/>
-            <Route path="about" component={About}/>
-        </Route>
+            <Route path="/" component={Layout}>
+                <IndexRoute component={Live}/>
+                <Route path="history/:day/:user" component={History}/>
+                <Route path="about" component={About}/>
+            </Route>
 
-    </Router>
+        </Router>
+    </Provider>
     , document.getElementById('layout'));
