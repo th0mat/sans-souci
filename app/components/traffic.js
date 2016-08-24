@@ -41,9 +41,14 @@ function addPeriod(tsec, justIn) {
 
 export default React.createClass({
 
+    configLoaded(){
+        this.setState({tsec: this.props.targets})
+    },
+
     getInitialState() {
+        setTimeout(()=>this.setState({tsec: this.props.tsec}), 3000);
         return {
-            tsec: []
+            tsec: this.props.tsec
         };
     },
 
@@ -51,9 +56,9 @@ export default React.createClass({
         var that = this;
         socket.on('output', function (data) {
             var justIn = JSON.parse(data);
-            addPeriod(that.props.targets, justIn);
+            addPeriod(that.state.tsec, justIn);
             that.setState({
-                tsec: that.props.targets
+                tsec: that.state.tsec
             });
         });
     },

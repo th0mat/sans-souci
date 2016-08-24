@@ -4,12 +4,19 @@
 
 
 const initialState = {
-    targets: [],
+    targetsLoaded: false,
+    targets: [{
+        macHex: "TOTAL",
+        dname: "Total traffic",
+        avatar: "img/Wifi.jpg",
+        traffic: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        lastSeen: null
+    }],
     initial: 'I am part of the inititial state'
 }
 
 
-function reducer(state=initialState, action) {
+function reducer(state = initialState, action) {
 
     switch (action.type) {
         case "WAKE_UP": {
@@ -17,11 +24,14 @@ function reducer(state=initialState, action) {
             break;
         }
         case "TARGETS_RECEIVED": {
-            return {...state, targets: action.payload};
+            return {
+                ...state, targets: action.payload,
+                targetsLoaded: true
+            };
             break;
         }
         case "FETCH_TARGETS_ERROR": {
-            return {...state, error : action.payload }
+            return {...state, error: action.payload}
             break;
         }
             return state;

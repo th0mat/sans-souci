@@ -10,8 +10,7 @@ import About from  './pages/about.js';
 import store from './redux/store';
 import * as actions from './redux/actions';
 
-
-
+store.dispatch({type: 'WAKE_UP', payload: 0})
 store.dispatch(actions.fetchConfig());
 
 
@@ -25,6 +24,9 @@ var Layout = React.createClass({
         )
     }
 });
+
+
+console.log("***store config loaded state: ", store.getState().targetsLoaded)
 
 
 ReactDOM.render(
