@@ -14,6 +14,7 @@ var rootDir = path.normalize(__dirname + '/../../iruka.data/');
 
 export var all = 'run fetchHistory() before accessing this property';
 export var macSet;
+export var lastSeen;
 
 class HourMap {
 
@@ -56,6 +57,27 @@ function logFileDayRel(daysBeforeToday = 0) {
     var fileName = day.format("YYYY-MM-DD") + ".log";
     return fileName;
 }
+
+export function fetchLastSeen(){
+    var fileName = rootDir + "allStations.log";
+    try {
+        var data = fs.readFileSync(fileName);
+    } catch (e) {
+        console.log("*** could not load file ", fileName);
+        return;
+    }
+    data = data.toString().split("\n");
+    for (let i in data) {
+        data[i] = data[i].split(" ");
+        data[i][1] = parseInt(data[i][1]);
+        data[i][2] = parseInt(data[i][2]);
+    }
+    lastSeen = data;
+    console.log("*** allStations no 4: ", data[3]);
+}
+
+
+
 
 
 export function fetchHistory(numberOfDays) {

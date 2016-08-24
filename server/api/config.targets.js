@@ -23,6 +23,9 @@ export default function getJson() {
         consoloe.log("*** config file is not valid JSON\ncheck file ", configFile);
         return;
     }
-    console.log(targetsJson);
+    //console.log(targetsJson);
+    // addLastSeen(targetsJson);
     return targetsJson;
 }
+
+

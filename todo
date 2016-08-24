@@ -1,4 +1,4 @@
-connect traffic to store
+
 last seen information
 auto-refresh for history screen
 more-less component
@@ -16,6 +16,7 @@ total traffic by mac
 
 
 DONE
+connect traffic to store
 refactor action dispatch
 implement redux & connect history component
 allow cross domain requests to api

@@ -6,19 +6,20 @@ import React from 'react';
 import Bullets from './bullets.js';
 
 import {Link} from 'react-router';
+import moment from 'moment';
 
 export default React.createClass({
 
     render() {
         var lastSeen = "not yet";
         if (this.props.lastSeen) {
-            var date = this.props.lastSeen;
+            var date = new Date(this.props.lastSeen);
             lastSeen = date.getHours() + ":";
             lastSeen += date.getMinutes() < 10 ? '0' + date.getMinutes() : date.getMinutes();
             if (date.getDate() === new Date().getDate()) {
                 lastSeen += " today";
             } else {
-                lastSeen += "on " + lastSeen.getFullYear() + "-" + lastSeen.getMonth() + "-" + lastSeen.getDay();
+                lastSeen = moment(date).format("MMMM Do, h:mm a");
             }
         }
 
