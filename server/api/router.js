@@ -3,9 +3,7 @@ var router = express.Router();
 import * as history from './history.js';
 
 
-
 var numberOfDays = 3;
-
 
 
 history.fetchHistory(numberOfDays);
@@ -17,15 +15,18 @@ import targets from './config.targets';
 var targetsJson = targets();
 
 
-
-
 // reload iruka.data in 1 minute intervals
 setInterval(
     history.fetchHistory.bind(null, numberOfDays)
     , 60000
 );
+setInterval(
+    history.fetchLastSeen
+    , 60000
+);
 
-router.get('/config/targets', function(req, res, next) {
+
+router.get('/config/targets', function (req, res, next) {
     res.setHeader('Access-Control-Allow-Origin', 'http://localhost:8080');
     targetsJson = addLastSeen(targetsJson);
     console.log(targetsJson);
@@ -34,9 +35,8 @@ router.get('/config/targets', function(req, res, next) {
 });
 
 
-
 export default router.get('/history/:day/:mac', function (req, res, next) {
-    var notAvail = JSON.stringify({ "request result" : "no data available" });
+    var notAvail = JSON.stringify({"request result": "no data available"});
     var response = history.macSet.has(req.params.mac) ? history.json(req.params.mac) : notAvail;
     res.setHeader('Access-Control-Allow-Origin', 'http://localhost:8080');
     res.setHeader('Content-Type', 'application/json');
@@ -45,12 +45,11 @@ export default router.get('/history/:day/:mac', function (req, res, next) {
 });
 
 
-function addLastSeen(targets){
+function addLastSeen(targets) {
     var all = history.lastSeen;
-    for (let i in targets){
-        let found = all.find((x)=>x[0]==targets[i].macHex);
-        console.log("***target: ", found);
-        if (found) targets[i].lastSeen = found[2]*1000;
+    for (let i in targets) {
+        let found = all.find((x)=>x[0] == targets[i].macHex);
+        if (found) targets[i].lastSeen = found[2] * 1000;
     }
     return targets;
 }

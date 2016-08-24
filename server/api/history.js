@@ -73,7 +73,7 @@ export function fetchLastSeen(){
         data[i][2] = parseInt(data[i][2]);
     }
     lastSeen = data;
-    console.log("*** allStations no 4: ", data[3]);
+    console.log("*** allStations lastSeen loaded");
 }
 
 
