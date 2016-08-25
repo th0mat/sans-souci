@@ -3,8 +3,8 @@ import ReactDOM from 'react-dom';
 import {Router, Route, Link, IndexRoute, browserHistory} from 'react-router'
 import {Provider} from 'react-redux';
 
-import Live from  './pages/liveMonitor.js';
-import History from  './pages/userHistory.js';
+import Live from  './pages/live.js';
+import History from  './pages/history.js';
 import About from  './pages/about.js';
 
 import store from './redux/store';

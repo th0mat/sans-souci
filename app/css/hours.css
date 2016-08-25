@@ -1,5 +1,20 @@
+#user-info {
+    padding-left: 15px;
+    background: white;
+
+}
+
+.user-pix {
+    float: left;
+    border-right-style: solid;
+    border-bottom-style: solid;
+    border-color: white;
+    border-width: 15px;
+}
+
 #historyContainer {
     background: whitesmoke;
+    margin-left: 15px;
 }
 
 .time-left {

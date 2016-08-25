@@ -54,7 +54,6 @@ export default React.createClass({
     render(){
         return (
             <div>
-                <h3>Hourly Data</h3>
 
                 <p>Device mac address: {this.props.user}</p>
                 <br/>
