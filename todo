@@ -1,4 +1,7 @@
-hourly component
+add fromHour toHour
+reverse hours
+cutoff after now hours of today
+refactor history.user.js
 auto-refresh for history screen
 more-less component
 total link fix
@@ -14,6 +17,7 @@ total traffic by mac
 
 
 DONE
+rough hourly component
 initial last seen information on live screen via targets.json
 connect traffic to store
 refactor action dispatch

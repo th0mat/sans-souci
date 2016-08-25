@@ -6,16 +6,21 @@ import React from 'react';
 import moment from 'moment';
 
 
+// expected props: hour, traffic array with 12 elements
+
+
 // from http://tristen.ca/hcl-picker/#/hlc/14/1/242937/E1FB75
 var palette = ["#242937", "#285864", "#256970", "#257A7A", "#298B81", "#369D85",
-    "#48AE86", "#60BF85", "#7BCF82", "#9ADF7D", "#BCEE79", "#E1FB75"].reverse();
+    "#48AE86", "#60BF85", "#7BCF82", "#9ADF7D", "#BCEE79", "lightgrey"].reverse();
+// var palette = ["#242937", "#285864", "#256970", "#257A7A", "#298B81", "#369D85",
+//     "#48AE86", "#60BF85", "#7BCF82", "#9ADF7D", "#BCEE79", "#E1FB75"].reverse();
 
 
 
 export default React.createClass({
+
+
     render() {
-        var fromHour = moment(this.props.hour * 1000).format('hh');
-        var toHour = fromHour;
         var traffic = this.props.traffic;
         var colors = traffic.map(x => {
             if (x === 0) return palette[0];
@@ -33,34 +38,35 @@ export default React.createClass({
         });
 
 
+
         return (
-            <div class="container">
-                <div class="time">{this.fromHour}</div>
+            <div id="historyContainer">
+                <div class="time-left"><span>{moment(this.props.hour * 1000).format("Do, HH:mm")}</span></div>
 
 
                 <div class="quarter">
-                    <div {'className="min" style="background:' + color[0] + '"'} >1</div>
-                    <div {'className="min" style="background:' + color[1] + '"'} >1</div>
-                    <div {'className="min" style="background:' + color[2] + '"'} >1</div>
+                    <div class="min" style={{background: colors[0]}} ></div>
+                    <div class="min" style={{background: colors[1]}} ></div>
+                    <div class="min" style={{background: colors[2]}} ></div>
                 </div>
                 <div class="quarter">
-                    <div {'className="min" style="background:' + color[3] + '"'} >1</div>
-                    <div {'className="min" style="background:' + color[4] + '"'} >1</div>
-                    <div {'className="min" style="background:' + color[5] + '"'} >1</div>
+                    <div class="min" style={{background: colors[3]}} ></div>
+                    <div class="min" style={{background: colors[4]}} ></div>
+                    <div class="min" style={{background: colors[5]}} ></div>
                 </div>
                 <div class="quarter">
-                    <div {'className="min" style="background:' + color[6] + '"'} >1</div>
-                    <div {'className="min" style="background:' + color[7] + '"'} >1</div>
-                    <div {'className="min" style="background:' + color[8] + '"'} >1</div>
+                    <div class="min" style={{background: colors[6]}} ></div>
+                    <div class="min" style={{background: colors[7]}} ></div>
+                    <div class="min" style={{background: colors[8]}} ></div>
                 </div>
                 <div class="quarter">
-                    <div {'className="min" style="background:' + color[9] + '"'} >1</div>
-                    <div {'className="min" style="background:' + color[10] + '"'} >1</div>
-                    <div {'className="min" style="background:' + color[11] + '"'} >1</div>
+                    <div class="min" style={{background: colors[9]}} ></div>
+                    <div class="min" style={{background: colors[10]}} ></div>
+                    <div class="min" style={{background: colors[11]}} ></div>
                 </div>
 
 
-                <div class="time">{this.toHour}</div>
+                <div class="time-right">{moment((this.props.hour + 3600)* 1000).format("HH:mm")}</div>
 
             </div>
 

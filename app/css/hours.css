@@ -1,21 +1,43 @@
-.time {
-    float: left;
+#historyContainer {
+    background: whitesmoke;
+}
+
+.time-left {
     width: 10%;
+    float: left;
     height: 40px;
     line-height: 40px;
-    vertical-align: middle;
+    font-size: 8pt;
     text-align: center;
-    background: blue;
-    color: white;
+    background: whitesmoke;
+    color: darkblue;
+    margin-right: 0px;
+}
+
+.time-left span {
+    display: inline-block;
+    vertical-align: middle;
+    line-height: 12px;
+}
+
+.time-right {
+    width: 10%;
+    float: left;
+    height: 40px;
+    line-height: 40px;
+    font-size: 8pt;
+    text-align: center;
+    background: whitesmoke;
+    color: darkblue;
     margin-right: 0px;
 }
 
 
 .traffic {
+    width: 70%;
     padding-left: 0px;
     float: left;
-    width: 70%;
-    background: yellow;
+    background: whitesmoke;
     height: 40px;
     border-style: solid;
     border-width: 1px;
@@ -24,8 +46,9 @@
 
 
 .quarter {
-    margin-top: 4px;
     width: 20%;
+    margin-top: 4px;
+    background: whitesmoke;
     float: left;
 }
 
