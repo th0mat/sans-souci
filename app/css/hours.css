@@ -1,0 +1,42 @@
+.time {
+    float: left;
+    width: 10%;
+    height: 40px;
+    line-height: 40px;
+    vertical-align: middle;
+    text-align: center;
+    background: blue;
+    color: white;
+    margin-right: 0px;
+}
+
+
+.traffic {
+    padding-left: 0px;
+    float: left;
+    width: 70%;
+    background: yellow;
+    height: 40px;
+    border-style: solid;
+    border-width: 1px;
+    margin: 0px;
+}
+
+
+.quarter {
+    margin-top: 4px;
+    width: 20%;
+    float: left;
+}
+
+.min {
+    width: 27%;
+    float: left;
+    border-style: solid;
+    border-width: 1px;
+    background: orange;
+    height: 25px;
+    margin: 2px;
+}
+
+

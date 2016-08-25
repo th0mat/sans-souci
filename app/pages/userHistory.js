@@ -5,12 +5,12 @@
 import React from 'react';
 import {Link} from 'react-router';
 import {connect} from 'react-redux';
+import '../css/hours.css';
+
 
 import {incognito} from "../config/config.client.js";
 
 import Data from "../components/history.user.js";
-
-
 
 
 @connect((store) => {
@@ -33,6 +33,7 @@ export default class Hisotry extends React.Component {
         var found = this.target();
 
         return (
+
             <div>
                 <h2>Traffic History for {found.dname}</h2>
                 <br/>
