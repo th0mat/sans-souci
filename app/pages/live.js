@@ -7,8 +7,8 @@ import {connect} from 'react-redux'
 
 var url = "http://171.101.236.255:3000/";
 
-
-import Traffic from '../components/traffic.js';
+import Navbar from '../components/navbar'
+import Traffic from '../components/traffic';
 
 @connect((store) => {
     return {
@@ -20,7 +20,14 @@ export default class Live extends React.Component {
 
     render() {
         return (
-            <Traffic tsec={this.props.tsec}></Traffic>
+            <div>
+            <Navbar/>
+             <div class="page-header">
+             <h1>Live <small>realtime monitoring</small></h1>
+             </div>
+
+                <Traffic tsec={this.props.tsec}></Traffic>
+            </div>
         )
     }
 };

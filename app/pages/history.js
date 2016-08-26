@@ -10,7 +10,8 @@ import '../css/hours.css';
 
 import {incognito} from "../config/config.client.js";
 
-import Hours from "../components/hours.js";
+import Navbar from '../components/navbar';
+import Hours from "../components/hours";
 
 @connect((store) => {
     return {
@@ -34,16 +35,22 @@ export default class Hisotry extends React.Component {
         return (
 
             <div>
+                <Navbar/>
+                <div class="page-header">
+                    <h1>Recent history <small>hour by hour</small></h1>
+                </div>
                 <Link to="/"> <img src={"../../" + found.avatar} class="user-pix"
                                    height="120" width="120"/> </Link>
                 <div id="user-info">
-                    <h2>Traffic History for {found.dname}</h2>
-                    <h3>Hourly Data</h3>
+                    <h2>{found.dname}</h2>
+                    <p>Device mac address: {this.props.params.user}</p>
                 </div>
+                <br/><br/>
                 <Hours
                     day={this.props.params.day}
                     user={this.props.params.user}>
                 </Hours>
+                <br/>
                 <Link to="/">Back to Live</Link>
             </div>
         )

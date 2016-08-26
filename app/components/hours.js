@@ -55,7 +55,7 @@ export default React.createClass({
         return (
             <div>
 
-                <p>Device mac address: {this.props.user}</p>
+
                 <br/>
 
                 {

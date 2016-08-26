@@ -26,8 +26,6 @@ var Layout = React.createClass({
 });
 
 
-console.log("***store config loaded state: ", store.getState().targetsLoaded)
-
 
 ReactDOM.render(
     <Provider store={store}>
