@@ -16,7 +16,6 @@ import Slot from './slot.js';
 
 
 function addPeriod(tsec, justIn) {
-    // todo: deal with invalid json, e.g. '{'
     var total = 0;
     for (var i = 0; i < tsec.length - 1; i++) { // don't include TOTAL in loop
         if (justIn[tsec[i].macHex]) {
@@ -41,9 +40,9 @@ function addPeriod(tsec, justIn) {
 
 export default React.createClass({
 
-    configLoaded(){
-        this.setState({tsec: this.props.targets})
-    },
+    // configLoaded(){
+    //     this.setState({tsec: this.props.targets})
+    // },
 
     getInitialState() {
         setTimeout(()=>this.setState({tsec: this.props.tsec}), 3000);

@@ -10,17 +10,17 @@ import { browserHistory } from 'react-router';
 
 function handleSelect(selectedKey) {
     switch (selectedKey){
-        case 3.1: {
-            console.log("match");
+        case 1: {
             browserHistory.push('/');
+            break }
+        case 2: {
+            browserHistory.push('/hogs');
             break
-        }case 3.6: {
-            console.log("match");
+        }case 3.1: {
             browserHistory.push('/about');
             break
         }
     }
-    console.log(selectedKey);
 }
 
 function sayHello(){
@@ -29,7 +29,7 @@ function sayHello(){
 
 
 const navbarInstance = (
-    <Navbar inverse>
+    <Navbar default>
         <Navbar.Header>
             <Navbar.Brand>
                 <a onClick={sayHello} href="#">Sans-Souci</a>
@@ -38,17 +38,20 @@ const navbarInstance = (
         </Navbar.Header>
         <Navbar.Collapse>
             <Nav pullRight onSelect={handleSelect}>
-                {/*<NavItem eventKey={1} href="#"></NavItem>*/}
-                {/*<NavItem eventKey={2} href="#"></NavItem>*/}
-                <NavDropdown eventKey={3} title="Menu" id="basic-nav-dropdown">
-                    <MenuItem eventKey={3.1}>Search</MenuItem>
-                    <MenuItem eventKey={3.2}>Notifications</MenuItem>
-                    <MenuItem eventKey={3.3}>All recent traffic</MenuItem>
-                    <MenuItem divider/>
-                    <MenuItem eventKey={3.4}>Settings</MenuItem>
-                    <MenuItem eventKey={3.5}>Help</MenuItem>
-                    <MenuItem eventKey={3.6}>About</MenuItem>
-                </NavDropdown>
+                <NavItem eventKey={1} href="#">live</NavItem>
+                <NavItem eventKey={2} href="#">scan</NavItem>
+                <NavItem eventKey={3} href="#">notify</NavItem>
+                <NavItem eventKey={3.1} href="#">about</NavItem>
+                {/*<NavItem divider/>*/}
+                <NavItem eventKey={4} href="#">settings</NavItem>
+                {/*<NavDropdown eventKey={3} title="Menu" id="basic-nav-dropdown">*/}
+                    {/*<MenuItem eventKey={3.1}>Search</MenuItem>*/}
+                    {/*<MenuItem eventKey={3.2}>Notifications</MenuItem>*/}
+                    {/*<MenuItem eventKey={3.3}>All recent traffic</MenuItem>*/}
+                    {/*<MenuItem eventKey={3.4}>Settings</MenuItem>*/}
+                    {/*<MenuItem eventKey={3.5}>Help</MenuItem>*/}
+                    {/*<MenuItem eventKey={3.6}>About</MenuItem>*/}
+                {/*</NavDropdown>*/}
             </Nav>
             {/*<Nav pullRight>*/}
                 {/*<NavItem eventKey={1} href="#">Link Right</NavItem>*/}

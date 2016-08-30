@@ -27,7 +27,6 @@ export default React.createClass({
         return fetch(url + 'api/history/' + this.props.day + "/" + this.props.user)
             .then((response) => response.json())
             .then((responseJson) => {
-                console.log("***responseJson: ", responseJson);
                 var tmp = JSON.parse(responseJson);
                 tmp.mac = tmp.mac.filter((x)=>{
                     let now = moment();

@@ -6,6 +6,7 @@ import {Provider} from 'react-redux';
 import Live from  './pages/live.js';
 import History from  './pages/history.js';
 import About from  './pages/about.js';
+import Hogs from  './pages/hogs.js';
 
 import store from './redux/store';
 import * as actions from './redux/actions';
@@ -34,6 +35,7 @@ ReactDOM.render(
             <Route path="/" component={Layout}>
                 <IndexRoute component={Live}/>
                 <Route path="history/:day/:user" component={History}/>
+                <Route path="hogs" component={Hogs}/>
                 <Route path="about" component={About}/>
             </Route>
 

@@ -12,6 +12,7 @@ const initialState = {
         traffic: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
         lastSeen: null
     }],
+    hogs: new Map().set('initial', 1000),
     initial: 'I am part of the inititial state'
 }
 
@@ -34,8 +35,29 @@ function reducer(state = initialState, action) {
             return {...state, error: action.payload}
             break;
         }
-            return state;
+        case "ADD_LAST_IN": {
+            var neu = addLastIn(state.hogs, action.payload);
+            return {...state, hogs: neu}
+            break;
+        }
+        return state;
     }
 }
 
 export default reducer;
+
+
+function addLastIn(hogs, justIn) {
+    console.log(justIn);
+    for (var x in justIn) {
+        if (justIn.hasOwnProperty(x)) {
+            if (hogs.has(x)) {
+                hogs.set(x, hogs.get(x) + parseInt(justIn[x]));
+            }
+            else {
+                hogs.set(x, parseInt(justIn[x]))
+            }
+        }
+    }
+    return hogs;
+}

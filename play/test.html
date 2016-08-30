@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>SaSuTe!</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.3.1/react.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.3.1/react-dom.js"></script>
+    <script src="https://npmcdn.com/babel-core@5.8.38/browser.min.js"></script>
+</head>
+<body>
+<div id="example"></div>
+<script type="text/babel">
+    window.divStyle = {
+        color: 'red',
+        fontSize: 24
+    };
+
+    var renderme = (
+            <div style={divStyle} id="ft"><h1>renderme element</h1></div>
+    );
+    renderme.props.style.color = 'blue';
+    renderme.props.style.borderStyle = "solid";
+    console.log(renderme);
+
+
+    var Compo = React.createClass({
+
+        render(){
+            console.log("component: ", this);
+            console.log("component type: ", typeof this);
+            return (
+                    <h4>I am a component</h4>);
+        }
+    });
+
+
+    ReactDOM.render(
+            renderme,  document.getElementById('example'), ()=>{console.log("i was just rendered")}
+    );
+</script>
+</body>
+</html>
