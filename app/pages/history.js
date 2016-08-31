@@ -15,7 +15,8 @@ import Hours from "../components/hours";
 
 @connect((store) => {
     return {
-        tsec: store.targets
+        tsec: store.targets,
+        returnToLink: store.returnToLink
     };
 })
 export default class Hisotry extends React.Component {
@@ -39,7 +40,7 @@ export default class Hisotry extends React.Component {
                 <div class="page-header">
                     <h1>Recent history <small>hour by hour</small></h1>
                 </div>
-                <Link to="/"> <img src={"../../" + found.avatar} class="user-pix"
+                <Link to={this.props.returnToLink}> <img src={"../../" + found.avatar} class="user-pix"
                                    height="120" width="120"/> </Link>
                 <div id="user-info">
                     <h2>{found.dname}</h2>

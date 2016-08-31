@@ -23,6 +23,9 @@ export default class Live extends React.Component {
 
 
     render() {
+        this.props.dispatch({type: "SET_RETURN_TO_LINK",
+            payload: "/"});
+
         return (
             <div>
             <Navbar/>

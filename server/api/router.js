@@ -29,7 +29,7 @@ setInterval(
 router.get('/config/targets', function (req, res, next) {
     res.setHeader('Access-Control-Allow-Origin', 'http://localhost:8080');
     targetsJson = addLastSeen(targetsJson);
-    console.log(targetsJson);
+    //console.log(targetsJson);
     res.send(targetsJson);
 
 });
@@ -37,7 +37,8 @@ router.get('/config/targets', function (req, res, next) {
 
 export default router.get('/history/:day/:mac', function (req, res, next) {
     var notAvail = JSON.stringify({"request result": "no data available"});
-    var response = history.macSet.has(req.params.mac) ? history.json(req.params.mac) : notAvail;
+    var response = history.macSet.has(req.params.mac) ? history.macAndSysupHistoryJson(req.params.mac) : notAvail;
+    console.log("*** response data: ", JSON.stringify(response))
     res.setHeader('Access-Control-Allow-Origin', 'http://localhost:8080');
     res.setHeader('Content-Type', 'application/json');
     res.json(response);

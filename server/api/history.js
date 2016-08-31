@@ -135,7 +135,7 @@ export function showSet() {
 }
 
 
-export function json(mac) {
+export function macAndSysupHistoryJson(mac) {
     var result = {};
     result.mac = [...all.get(mac).hours];
     result.sysup = [...all.get('1000000000000').hours];

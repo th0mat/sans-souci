@@ -14,7 +14,7 @@ function handleSelect(selectedKey) {
             browserHistory.push('/');
             break }
         case 2: {
-            browserHistory.push('/hogs');
+            browserHistory.push('/scan');
             break
         }case 3.1: {
             browserHistory.push('/about');

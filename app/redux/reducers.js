@@ -5,6 +5,7 @@
 
 const initialState = {
     targetsLoaded: false,
+    returnToLink: '/',
     targets: [{
         macHex: "TOTAL",
         dname: "Total traffic",
@@ -12,8 +13,8 @@ const initialState = {
         traffic: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
         lastSeen: null
     }],
-    hogs: new Map(), //.set('initial', 1000),
-    initial: 'I am part of the inititial state'
+    hogs: new Map(),
+    scannerOn: true
 }
 
 
@@ -38,6 +39,10 @@ function reducer(state = initialState, action) {
         case "ADD_LAST_IN": {
             var newHogs = addLastIn(state.hogs, action.payload);
             return {...state, hogs: newHogs}
+            break;
+        }
+        case "SET_RETURN_TO_LINK": {
+            return {...state, returnToLink: action.payload}
             break;
         }
         case "RESET_HOGS": {
