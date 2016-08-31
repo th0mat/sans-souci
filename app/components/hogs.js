@@ -28,7 +28,8 @@ function mapDispatchToProps(dispatch) {
 @connect((store)=>{
     return {
         hogs: store.hogs,
-        hogCount: store.hogs.size
+        targets: store.targets
+        //hogCount: store.hogs.size
     }
 })
 export default class Hogs extends React.Component {
@@ -46,16 +47,31 @@ export default class Hogs extends React.Component {
         // socket.removeAllListeners('output');
     };
 
+    resetHogs(event){
+        console.log("clicked");
+        this.props.dispatch({
+            type: 'RESET_HOGS'
+        })
+    };
+
     render() {
+        var hogs = Array.from(this.props.hogs);
+        var targets = this.props.targets;
+        this.resetHogs = this.resetHogs.bind(this);
+
+        hogs = hogs.sort((x, y)=>y[1] - x[1]);
 
         return (
             <div>
                 < div>
-                    <span>Number of macs: {this.props.hogCount}</span>
+                    <span>Number of macs: {hogs.length}</span>
+                    <button class="btn btn-primary btn-xs" onClick={this.resetHogs}>reset</button>
                     <br/><br/>
-                    {Array.from(this.props.hogs).map(x=>{
+                    {hogs.map(x=>{
+                        var target = targets.find(t=>t['macHex'] === x[0]);
+                        var dname = (target) ? target.dname : 'incognito';
                         return (
-                            <p>{x[0]} - {x[1]}</p>
+                            <p>{x[0]} - {x[1]} - {dname}</p>
                         )
                 })}
                 </div>
