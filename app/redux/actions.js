@@ -5,7 +5,7 @@
 
 import axios from "axios";
 import Config from '../config/config';
-
+import moment from 'moment'
 var url = Config.url;
 
 
@@ -22,10 +22,10 @@ export function fetchTargets() {
 }
 
 export function fetchHistory(mac){
-    return function(sipatch) {
+    return function(dispatch) {
         dispatch({type: 'FETCH_NEW_HISTORY'});
-        axioa.get(url + 'api/history/' + this.props.day + "/" + this.props.user)
-            .then((response) => response.json())
+        axios.get(url + 'api/history/0/' + mac)
+            .then((response) => response.data)
             .then((responseJson) => {
                 var tmp = JSON.parse(responseJson);
                 tmp.mac = tmp.mac.filter((x)=>{

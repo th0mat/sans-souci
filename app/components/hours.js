@@ -4,61 +4,35 @@
 
 import React from 'react';
 import 'history';
-import moment from 'moment';
+import * as actions from '../redux/actions';
 import Hour from "../components/hour";
-
+import {connect} from 'react-redux';
 import Config from '../config/config';
 var url = Config.url;
 
 
-export default React.createClass({
-
-    getInitialState() {
-        return {
-            mac: [],
-            data: {
-                test: "data",
-                tableHtml: ""
-            }
-        };
-    },
-
-    getDataFromApiAsync() {
-        return fetch(url + 'api/history/' + this.props.day + "/" + this.props.user)
-            .then((response) => response.json())
-            .then((responseJson) => {
-                var tmp = JSON.parse(responseJson);
-                tmp.mac = tmp.mac.filter((x)=>{
-                    let now = moment();
-                    let one = moment(x[0]*1000);
-                    return !(now.date() == one.date() && now.hour() < one.hour());
-                });
-                tmp.mac = tmp.mac.reverse();
-                this.setState({
-                    mac: tmp.mac,
-                })
-            })
-            .catch((error) => {
-                console.error(error);
-            });
-    },
-
+@connect((store) => {
+    return {
+        tsec: store.targets,
+        mac: store.macHistory
+    };
+})
+export default class hours extends React.Component {
+    
     componentDidMount()
     {
-        this.getDataFromApiAsync();
+        this.props.dispatch(actions.fetchHistory(this.props.user));
     }
-    ,
 
 
     render(){
         return (
             <div>
 
-
                 <br/>
 
                 {
-                    this.state.mac.map((x) => {
+                    this.props.mac.map((x) => {
                             return (
                                 <Hour
                                     key={x[0]}
@@ -71,8 +45,8 @@ export default React.createClass({
                 }
             </div>
         )
-    },
+    }
 
-});
+};
 
 
