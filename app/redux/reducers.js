@@ -6,6 +6,7 @@
 const initialState = {
     targetsLoaded: false,
     returnToLink: '/',
+    macHistory: {},
     targets: [{
         macHex: "TOTAL",
         dname: "Total traffic",
@@ -34,6 +35,14 @@ function reducer(state = initialState, action) {
         }
         case "FETCH_TARGETS_ERROR": {
             return {...state, error: action.payload}
+            break;
+        }
+        case "FETCH_NEW_HISTORY": {
+            return {...state, macHistory: {}}
+            break;
+        }
+        case "HISTORY_RECEIVED": {
+            return {...state, macHistory: action.payload}
             break;
         }
         case "ADD_LAST_IN": {

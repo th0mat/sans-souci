@@ -8,10 +8,11 @@ import {connect} from 'react-redux';
 import '../css/hours.css';
 
 
-import {incognito} from "../config/config.client.js";
+import Config from "../config/config.js";
 
 import Navbar from '../components/navbar';
 import Hours from "../components/hours";
+
 
 @connect((store) => {
     return {
@@ -26,9 +27,8 @@ export default class Hisotry extends React.Component {
                 return this.props.tsec[i];
             }
         }
-        return incognito;
+        return Config.incognito;
     }
-
 
     render() {
         var found = this.target();

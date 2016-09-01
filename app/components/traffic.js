@@ -5,8 +5,9 @@
 import React from 'react';
 
 import {Link} from 'react-router';
+import Config from '../config/config';
 
-var url = "http://171.101.236.255:3000/";
+var url = Config.url;
 
 import socketio from 'socket.io-client';
 var socket = socketio(url);

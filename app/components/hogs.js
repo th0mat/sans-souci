@@ -12,7 +12,8 @@ import {bindActionCreators} from 'redux';
 import {Link} from 'react-router';
 
 import * as actionCreators from '../redux/actions'
-var url = "http://171.101.236.255:3000/";
+import Config from '../config/config';
+var url = Config.url;
 var socket = socketio(url);
 
 

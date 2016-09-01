@@ -12,7 +12,7 @@ import store from './redux/store';
 import * as actions from './redux/actions';
 
 store.dispatch({type: 'WAKE_UP', payload: 0})
-store.dispatch(actions.fetchConfig());
+store.dispatch(actions.fetchTargets());
 
 
 var Layout = React.createClass({

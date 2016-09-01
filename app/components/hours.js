@@ -7,8 +7,8 @@ import 'history';
 import moment from 'moment';
 import Hour from "../components/hour";
 
-
-var url = "http://171.101.236.255:3000/";
+import Config from '../config/config';
+var url = Config.url;
 
 
 export default React.createClass({
