@@ -13,8 +13,8 @@
   <component name="ChangeListManager">
     <list default="true" id="5b4af9d7-3b8e-4f6f-a062-9da5a8c437d8" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/components/hours.js" afterPath="$PROJECT_DIR$/app/components/hours.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/redux/actions.js" afterPath="$PROJECT_DIR$/app/redux/actions.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/redux/reducers.js" afterPath="$PROJECT_DIR$/app/redux/reducers.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/pages/history.js" afterPath="$PROJECT_DIR$/app/pages/history.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/pages/live.js" afterPath="$PROJECT_DIR$/app/pages/live.js" />
     </list>
     <ignored path="sans-souci.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -41,18 +41,30 @@
       <file leaf-file-name="history.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/pages/history.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="6" column="36" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="36" />
+            <state relative-caret-position="75">
+              <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="hours.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="live.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/pages/live.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="540">
+              <caret line="38" column="0" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
+              <folding>
+                <element signature="e#48#74#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="hours.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/components/hours.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="178">
-              <caret line="20" column="4" selection-start-line="20" selection-start-column="4" selection-end-line="20" selection-end-column="4" />
+            <state relative-caret-position="165">
+              <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
               <folding>
                 <element signature="e#48#74#0" expanded="true" />
               </folding>
@@ -120,14 +132,14 @@
         <option value="$PROJECT_DIR$/play/test.js" />
         <option value="$PROJECT_DIR$/app/config/config.client.js" />
         <option value="$PROJECT_DIR$/webpack.config.js" />
-        <option value="$PROJECT_DIR$/app/pages/live.js" />
         <option value="$PROJECT_DIR$/app/config/config.js" />
         <option value="$PROJECT_DIR$/app/components/hogs.js" />
         <option value="$PROJECT_DIR$/app/components/traffic.js" />
-        <option value="$PROJECT_DIR$/app/pages/history.js" />
         <option value="$PROJECT_DIR$/app/redux/reducers.js" />
         <option value="$PROJECT_DIR$/app/redux/actions.js" />
         <option value="$PROJECT_DIR$/app/components/hours.js" />
+        <option value="$PROJECT_DIR$/app/pages/history.js" />
+        <option value="$PROJECT_DIR$/app/pages/live.js" />
       </list>
     </option>
   </component>
@@ -587,13 +599,13 @@
       <workItem from="1471740471762" duration="7710000" />
       <workItem from="1471764781874" duration="86738000" />
       <workItem from="1472517904566" duration="11606000" />
-      <workItem from="1472533337857" duration="32054000" />
+      <workItem from="1472533337857" duration="33687000" />
     </task>
     <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="293130000" />
+    <option name="totallyTimeSpent" value="294763000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -926,17 +938,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/pages/live.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="8" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-          <folding>
-            <element signature="e#48#74#0" expanded="true" />
-            <element signature="e#158#199#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/components/traffic.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
@@ -986,18 +987,28 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/components/hours.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+          <folding>
+            <element signature="e#48#74#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/pages/history.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="6" column="36" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="36" />
+        <state relative-caret-position="75">
+          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/components/hours.js">
+    <entry file="file://$PROJECT_DIR$/app/pages/live.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="178">
-          <caret line="20" column="4" selection-start-line="20" selection-start-column="4" selection-end-line="20" selection-end-column="4" />
+        <state relative-caret-position="540">
+          <caret line="38" column="0" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
           <folding>
             <element signature="e#48#74#0" expanded="true" />
           </folding>

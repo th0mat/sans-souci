@@ -4,13 +4,8 @@
 
 import React from 'react';
 import {connect} from 'react-redux'
-
-// var url = "http://171.101.236.255:3000/";
-
 import Navbar from '../components/navbar'
 import Traffic from '../components/traffic';
-
-
 
 
 
