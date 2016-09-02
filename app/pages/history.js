@@ -10,7 +10,8 @@ import {connect} from 'react-redux';
 
 import Navbar from '../components/navbar';
 import Hours from "../components/hours";
-
+import Daily from "../components/dailyTotals"
+import HistoryHeader from "../components/historyHeader";
 
 @connect((store) => {
     return {
@@ -26,13 +27,15 @@ export default class Hisotry extends React.Component {
 
             <div>
                 <Navbar/>
-                <br/><br/>
+                <HistoryHeader user={this.props.params.user}/>
+                <Daily/>
                 <Hours
                     day={this.props.params.day}
                     user={this.props.params.user}>
                 </Hours>
-                <br/>
-                <Link to="/">Back to Live</Link>
+                <div>
+                    <Link to={this.props.returnToLink}>Back</Link>
+                </div>
             </div>
         )
     }

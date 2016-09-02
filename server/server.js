@@ -1,6 +1,5 @@
 import express from 'express';
 import http from 'http';
-//import fs from 'fs';
 import pty from 'pty.js';
 import path from 'path';
 
@@ -10,20 +9,27 @@ var server = http.createServer(app).listen(3000);
 import apiRouter from './api/router.js';
 
 
+
+
+
 // Static file serving
+
 app.use(express.static('app'));
 app.use(express.static('dist'));
 
+
+
 app.use('/api', apiRouter);
 
-app.get('/history*', function(req, res) {
-    res.redirect('/');
-});
+
 app.get('/about*', function(req, res) {
     res.redirect('/');
 });
 
 
+app.get('/history*', function(req, res) {
+    res.redirect('/');
+});
 
 // SOCKET IO SETUP for live page
 // Bind socket.io to the server
@@ -47,6 +53,31 @@ io.on('connection', function (socket) {
         console.log("disconnected at " + new Date().toString() + "\n");
     });
 });
+
+
+var auth = function(req, res, next) {
+
+    function unauthorized(res){
+        res.set('WWW-Authenticate', 'Basic realm=Authorization Required');
+        return res.send(401)
+    }
+
+    const auth = {login: 'yes', password: 'no'} // change this
+
+    const b64auth = (req.headers.authorization || '').split(' ')[1] || ''
+    const [login, password] = new Buffer(b64auth, 'base64').toString().split(':')
+
+    if (!login || !password || login !== auth.login || password !== auth.password){
+        return unauthorized(res);
+    }
+    return next();
+
+}
+
+
+
+
+
 
 
 console.log('server.js running on port 3000...\n');
