@@ -1,4 +1,4 @@
-var debug = true;  // change to false for webpack to build bundle.min.js
+var debug = false;  // change to false for webpack to build bundle.min.js
 var webpack = require('webpack');
 
 var config = {

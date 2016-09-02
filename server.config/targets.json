@@ -4,6 +4,7 @@
         "dname": "Nema",
         "avatar": "img/Nema.jpg",
         "traffic": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        "monitor": {"back" : false, "away": false },
         "lastSeen": null
     },
     {
@@ -11,6 +12,7 @@
         "dname": "Thomas",
         "avatar": "img/Tom.jpg",
         "traffic": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        "monitor": {"back" : false, "away": false },
         "lastSeen": null
     },
     {
@@ -18,6 +20,7 @@
         "dname": "Nim",
         "avatar": "img/Nim.jpg",
         "traffic": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        "monitor": {"back" : false, "away": false },
         "lastSeen": null
     },
     {
@@ -25,6 +28,7 @@
         "dname": "Mint",
         "avatar": "img/Mint.jpg",
         "traffic": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        "monitor": {"back" : false, "away": false },
         "lastSeen": null
     },
     {
@@ -32,6 +36,7 @@
         "dname": "TV",
         "avatar": "img/TV.jpg",
         "traffic": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        "monitor": {"back" : false, "away": false },
         "lastSeen": null
     },
     {
@@ -39,6 +44,7 @@
         "dname": "Security",
         "avatar": "img/Camera.jpg",
         "traffic": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        "monitor": {"back" : false, "away": false },
         "lastSeen": null
     },
     {
@@ -46,6 +52,7 @@
         "dname": "Total traffic",
         "avatar": "img/Wifi.jpg",
         "traffic": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        "monitor": {"back" : false, "away": false },
         "lastSeen": null
     }
 ]

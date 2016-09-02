@@ -4,9 +4,11 @@ import {Router, Route, Link, IndexRoute, browserHistory} from 'react-router'
 import {Provider} from 'react-redux';
 
 import Live from  './pages/live.js';
-import History from  './pages/history.js';
-import About from  './pages/about.js';
-import Scan from  './pages/scan.js';
+import History from  './pages/history';
+import SearchHistory from  './pages/search';
+import About from  './pages/about';
+import Scan from  './pages/scan';
+import Notify from './pages/notify';
 
 import store from './redux/store';
 import * as actions from './redux/actions';
@@ -34,8 +36,10 @@ ReactDOM.render(
 
             <Route path="/" component={Layout}>
                 <IndexRoute component={Live}/>
+                <Route path="search" component={SearchHistory}/>
                 <Route path="history/:day/:user" component={History}/>
                 <Route path="scan" component={Scan}/>
+                <Route path="notify" component={Notify}/>
                 <Route path="about" component={About}/>
             </Route>
 

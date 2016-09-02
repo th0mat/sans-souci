@@ -50,7 +50,6 @@ export default class Hogs extends React.Component {
     };
 
     resetHogs(event){
-        console.log("clicked");
         this.props.dispatch({
             type: 'RESET_HOGS'
         })
@@ -84,8 +83,11 @@ export default class Hogs extends React.Component {
                         var target = targets.find(t=>t['macHex'] === x[0]);
                         var dname = (target) ? target.dname : 'incognito';
                         return (
-                            <tr><td>< Link to={"history/0/" + x[0]}>{dname}</Link></td>
-                                <td style={{fontFamily: "monospace"}}>{x[0]}</td><td class="text-right">{x[1].toLocaleString()}</td></tr>
+                            <tr key={x[0]}>
+                                <td>< Link to={"history/0/" + x[0]}>{dname}</Link></td>
+                                <td style={{fontFamily: "monospace"}}>{x[0]}</td>
+                                <td class="text-right">{x[1].toLocaleString()}</td>
+                            </tr>
                         )
                 })}
                         </tbody>
