@@ -3,17 +3,20 @@
  */
 
 
+const total = {
+    macHex: "TOTAL",
+    dname: "Total traffic",
+    avatar: "img/Wifi.jpg",
+    traffic: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    lastSeen: null
+};
+
 const initialState = {
     targetsLoaded: false,
     returnToLink: '/',
     macHistory: [],
-    targets: [{
-        macHex: "TOTAL",
-        dname: "Total traffic",
-        avatar: "img/Wifi.jpg",
-        traffic: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-        lastSeen: null
-    }],
+    total: total,
+    targets: [total],
     hogs: new Map(),
     scannerOn: true
 }
@@ -27,8 +30,10 @@ function reducer(state = initialState, action) {
             break;
         }
         case "TARGETS_RECEIVED": {
+            var totalAdded = [...action.payload, state.total];
+            console.log(totalAdded);
             return {
-                ...state, targets: action.payload,
+                ...state, targets: totalAdded,
                 targetsLoaded: true
             };
             break;

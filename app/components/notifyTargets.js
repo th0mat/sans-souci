@@ -31,8 +31,8 @@ export default class NotifyTargets extends React.Component {
                     <thead>
                     <tr>
                         <th>Name</th>
-                        <th>Leave</th>
-                        <th>Return</th>
+                        <th>Departed</th>
+                        <th>Returned</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -41,8 +41,8 @@ export default class NotifyTargets extends React.Component {
                                 return (
                                     <tr key={x.macHex}>
                                         <td>{x.dname}</td>
-                                        <td><input type="checkbox"/></td>
-                                        <td><input type="checkbox"/></td>
+                                        <td><input type="checkbox" checked={x.notify.departed}/></td>
+                                        <td><input type="checkbox" checked={x.notify.returned}/></td>
                                     </tr>
                                 )
                             }
