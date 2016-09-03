@@ -15,6 +15,7 @@ const initialState = {
     targetsLoaded: false,
     returnToLink: '/',
     macHistory: [],
+    searchTarget: 'abcdef123456',
     total: total,
     targets: [total],
     hogs: new Map(),
@@ -30,16 +31,18 @@ function reducer(state = initialState, action) {
             break;
         }
         case "TARGETS_RECEIVED": {
-            var totalAdded = [...action.payload, state.total];
-            console.log(totalAdded);
             return {
-                ...state, targets: totalAdded,
+                ...state, targets: [...action.payload, state.total],
                 targetsLoaded: true
             };
             break;
         }
         case "FETCH_TARGETS_ERROR": {
             return {...state, error: action.payload}
+            break;
+        }
+        case "UPDATE_SEARCH_TARGET": {
+            return {...state, searchTarget: action.payload}
             break;
         }
         case "FETCH_NEW_HISTORY": {

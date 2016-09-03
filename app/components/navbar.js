@@ -46,8 +46,8 @@ const navbarInstance = (
         <Navbar.Collapse>
             <Nav pullRight onSelect={handleSelect}>
                 <NavItem eventKey={1} href="#">live</NavItem>
-                <NavItem eventKey={5} href="#">history</NavItem>
                 <NavItem eventKey={2} href="#">scan</NavItem>
+                <NavItem eventKey={5} href="#">history</NavItem>
                 <NavItem eventKey={3} href="#">notify</NavItem>
                 <NavItem eventKey={3.1} href="#">about</NavItem>
                 {/*<NavItem divider/>*/}

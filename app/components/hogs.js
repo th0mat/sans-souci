@@ -81,7 +81,7 @@ export default class Hogs extends React.Component {
                         <tbody>
                     {hogs.map(x=>{
                         var target = targets.find(t=>t['macHex'] === x[0]);
-                        var dname = (target) ? target.dname : 'incognito';
+                        var dname = (target) ? target.dname : 'Incognito';
                         return (
                             <tr key={x[0]}>
                                 <td>< Link to={"history/0/" + x[0]}>{dname}</Link></td>
