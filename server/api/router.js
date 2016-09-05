@@ -48,6 +48,8 @@ function addLastSeen(targets) {
     for (let i in targets) {
         let found = all.find((x)=>x[0] == targets[i].macHex);
         if (found) targets[i].lastSeen = found[2] * 1000;
+        console.log(targets[i].macHex, targets[i].dname, targets[i].lastSeen)
     }
+    console.log(targets);
     return targets;
 }

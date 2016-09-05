@@ -11,17 +11,6 @@ import moment from 'moment';
 export default React.createClass({
 
     render() {
-        var lastSeen = "not yet";
-        if (this.props.lastSeen) {
-            var date = new Date(this.props.lastSeen);
-            lastSeen = date.getHours() + ":";
-            lastSeen += date.getMinutes() < 10 ? '0' + date.getMinutes() : date.getMinutes();
-            if (date.getDate() === new Date().getDate()) {
-                lastSeen += " today";
-            } else {
-                lastSeen = moment(date).format("MMMM Do, h:mm a");
-            }
-        }
 
         return ( < div className="media">
                 < div className="media-left">
@@ -42,7 +31,7 @@ export default React.createClass({
                 }> </Bullets>
                     < p >
                         < small > last seen: {
-                            lastSeen
+                            moment(this.props.lastSeen).calendar()
                         } </small>
                     </p >
                 </div>
