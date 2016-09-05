@@ -3,7 +3,7 @@
  */
 
 import React from 'react';
-import Bullets from './bullets.js';
+import MonitorData from './monitorData';
 
 import {Link} from 'react-router';
 import moment from 'moment';
@@ -26,10 +26,10 @@ export default React.createClass({
                 < div className="media-body">
                     < h4 className="media-heading"> {
                         this.props.dname
-                    } </h4> < Bullets traffic={
+                    } </h4> < MonitorData traffic={
                     this.props.traffic
-                }> </Bullets>
-                    < p >
+                }> </MonitorData>
+                    <p style={{clear: "left"}} >
                         < small > last seen: {
                             moment(this.props.lastSeen).calendar()
                         } </small>

@@ -3,7 +3,7 @@
  */
 
 import React from 'react';
-
+import {connect} from 'react-redux'
 import {Link} from 'react-router';
 import Config from '../config/config';
 
@@ -13,7 +13,7 @@ import socketio from 'socket.io-client';
 var socket = socketio(url);
 
 //import tsec from "../config/macMonitored.js";
-import Slot from './slot.js';
+import MonitorTarget from './monitorTarget.js';
 
 
 function addPeriod(tsec, justIn) {
@@ -38,46 +38,40 @@ function addPeriod(tsec, justIn) {
     tsec[tsec.length - 1].traffic.pop();
 }
 
+@connect((store) => {
+    return {
+        tsec: store.targets
+    };
+})
+export default class MonitorConnect extends React.Component{
 
-export default React.createClass({
-
-    // configLoaded(){
-    //     this.setState({tsec: this.props.targets})
-    // },
-
-    getInitialState() {
-        setTimeout(()=>this.setState({tsec: this.props.tsec}), 3000);
-        return {
-            tsec: this.props.tsec
-        };
-    },
 
     componentDidMount() {
         var that = this;
         socket.on('output', function (data) {
             var justIn = JSON.parse(data);
-            addPeriod(that.state.tsec, justIn);
+            addPeriod(that.props.tsec, justIn);
             that.setState({
-                tsec: that.state.tsec
+                tsec: that.props.tsec
             });
         });
-    },
+    }
 
     componentWillUnmount() {
         socket.removeAllListeners('output');
-    },
+    }
 
     render() {
         return (
             <div id="Traffic">
                 < div> {
-                    this.state.tsec.map(function (person) {
-                        return ( < Slot key={ person.macHex }
+                    this.props.tsec.map(function (person) {
+                        return ( < MonitorTarget key={ person.macHex }
                                         macHex={ person.macHex }
                                         dname={ person.dname }
                                         avatar={ person.avatar }
                                         lastSeen={ person.lastSeen }
-                                        traffic={ person.traffic } > </Slot>
+                                        traffic={ person.traffic } > </MonitorTarget>
                         )
                     })
                 } </div>
@@ -85,4 +79,5 @@ export default React.createClass({
             </div>
         )
     }
-});
+
+}

@@ -7,7 +7,7 @@ const total = {
     macHex: "TOTAL",
     dname: "Total traffic",
     avatar: "img/Wifi.jpg",
-    traffic: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    traffic: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
     lastSeen: null
 };
 

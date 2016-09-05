@@ -18,6 +18,11 @@
     margin-left: 15px;
 }
 
+#trafficBoxContainer {
+    background: whitesmoke;
+    margin-left: 0px;
+}
+
 .time-left {
     width: 10%;
     float: left;
@@ -71,10 +76,23 @@
 .min {
     width: 27%;
     float: left;
+    border-radius: 5px;
     border-style: solid;
     border-width: 1px;
     background: orange;
     height: 25px;
+    margin: 2px;
+}
+
+
+.sec {
+    width: 7%;
+    float: left;
+    border-radius: 7px;
+    border-style: solid;
+    border-width: 1px;
+    background: yellow;
+    height: 32px;
     margin: 2px;
 }
 

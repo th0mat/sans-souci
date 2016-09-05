@@ -5,16 +5,15 @@
 import React from 'react';
 import {connect} from 'react-redux'
 import Navbar from '../components/navbar'
-import Traffic from '../components/traffic';
+import MonitorConnect from '../components/monitorConnect';
 
 
 
 @connect((store) => {
     return {
-        tsec: store.targets
     };
 })
-export default class Live extends React.Component {
+export default class Monitor extends React.Component {
 
 
     render() {
@@ -27,12 +26,12 @@ export default class Live extends React.Component {
              <div class="page-header">
              <h1>Live <small>realtime monitoring</small></h1>
              </div>
-
-                <Traffic tsec={this.props.tsec}></Traffic>
+                <MonitorConnect />
             </div>
         )
     }
 };
+
 
 
 

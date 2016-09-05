@@ -3,12 +3,12 @@ import ReactDOM from 'react-dom';
 import {Router, Route, Link, IndexRoute, browserHistory} from 'react-router'
 import {Provider} from 'react-redux';
 
-import Live from  './pages/live.js';
 import History from  './pages/history';
 import SearchHistory from  './pages/search';
 import About from  './pages/about';
 import Scan from  './pages/scan';
 import Notify from './pages/notify';
+import Monitor from './pages/monitor';
 
 import store from './redux/store';
 import * as actions from './redux/actions';
@@ -35,12 +35,13 @@ ReactDOM.render(
         <Router history={browserHistory}>
 
             <Route path="/" component={Layout}>
-                <IndexRoute component={Live}/>
+                <IndexRoute component={Monitor}/>
                 <Route path="search" component={SearchHistory}/>
                 <Route path="history/:day/:user" component={History}/>
                 <Route path="scan" component={Scan}/>
                 <Route path="notify" component={Notify}/>
                 <Route path="about" component={About}/>
+                <Route path="monitor" component={Monitor}/>
             </Route>
 
         </Router>
