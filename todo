@@ -2,16 +2,16 @@ auto-refresh for history screen
 more-less component
 total link fix
 
-all macs seen
 config screen
 swipe or touch anywhere to go back to main
 email notification for return of someone
 email notificaiton for departure of someone
-total traffic by mac
 
 
 
 DONE
+total traffic by mac
+all macs seen
 nav bar
 implement react-bootstrap
 refactor history.user.js

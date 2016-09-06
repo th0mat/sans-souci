@@ -7,7 +7,7 @@ import React from 'react';
 var url = "http://171.101.236.255:3000/";
 
 import Navbar from '../components/navbar'
-import AllHogs from '../components/hogs';
+import AllHogs from '../components/scanHogs';
 
 
 
@@ -19,7 +19,7 @@ export default class Hogs extends React.Component {
             <div>
             <Navbar/>
              <div class="page-header">
-             <h1>Currently active macs <small>munching data</small></h1>
+             <h1>Active devices <small>munching data</small></h1>
              </div>
 
                 <AllHogs></AllHogs>

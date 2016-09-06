@@ -55,7 +55,7 @@ const navbarInstance = (
                 <NavItem eventKey={3} href="#">notify</NavItem>
                 <NavItem eventKey={3.1} href="#">about</NavItem>
                 {/*<NavItem divider/>*/}
-                <NavItem eventKey={6} href="#">settings</NavItem>
+                <NavItem eventKey={6} href="#">settings &nbsp;&nbsp;</NavItem>
                 {/*<NavDropdown eventKey={3} title="Menu" id="basic-nav-dropdown">*/}
                 {/*<MenuItem eventKey={3.1}>Search</MenuItem>*/}
                 {/*<MenuItem eventKey={3.2}>Notifications</MenuItem>*/}

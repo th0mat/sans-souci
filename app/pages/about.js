@@ -14,7 +14,7 @@ export default React.createClass({
             <div>
                 <Navbar />
                 <div class="page-header">
-                    <h1>About wifi-monitoring <small>good to know</small></h1>
+                    <h1>Wifi-monitoring <small>good to know</small></h1>
                 </div>
 
                 <h4>How does it work?</h4>

@@ -5,7 +5,7 @@
 import React from 'react';
 import 'history';
 import * as actions from '../redux/actions';
-import Hour from "../components/hour";
+import Hour from "./historyHour";
 import {connect} from 'react-redux';
 import '../css/hours.css';
 import {Link} from 'react-router';

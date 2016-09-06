@@ -19,8 +19,6 @@ export default class Daily extends React.Component {
             <div>
                 <br/>
                 <br/>
-                <br/>
-                <br/>
                 <h4>Daily totals</h4>
                 <table class="table table-striped">
                     <thead>
