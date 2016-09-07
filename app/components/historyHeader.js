@@ -9,7 +9,7 @@ import React from 'react';
 import 'history';
 import {connect} from 'react-redux';
 import Config from '../config/config';
-import '../css/hours.css';
+import '../css/iruka.css';
 import {Link} from 'react-router';
 
 

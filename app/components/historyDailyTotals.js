@@ -6,6 +6,20 @@ import React from 'react';
 import {connect} from 'react-redux';
 import moment from 'moment';
 
+
+Number.prototype.formatMoney = function(decPlaces, thouSeparator, decSeparator) {
+    var n = this,
+        decPlaces = isNaN(decPlaces = Math.abs(decPlaces)) ? 2 : decPlaces,
+        decSeparator = decSeparator == undefined ? "." : decSeparator,
+        thouSeparator = thouSeparator == undefined ? "," : thouSeparator,
+        sign = n < 0 ? "-" : "",
+        i = parseInt(n = Math.abs(+n || 0).toFixed(decPlaces)) + "",
+        j = (j = i.length) > 3 ? j % 3 : 0;
+    return sign + (j ? i.substr(0, j) + thouSeparator : "") + i.substr(j).replace(/(\d{3})(?=\d)/g,
+            "$1" + thouSeparator) + (decPlaces ? decSeparator + Math.abs(n - i).toFixed(decPlaces).slice(2) : "");
+};
+
+
 @connect((store) => {
     return {
         mac: store.macHistory,
@@ -30,9 +44,9 @@ export default class Daily extends React.Component {
                     </thead>
                     <tbody>
                             <tr>
-                                <td class="text-right">{totals[0].toLocaleString()}</td>
-                                <td class="text-right">{totals[1].toLocaleString()}</td>
-                                <td class="text-right">{totals[2].toLocaleString()}</td>
+                                <td class="text-right">{totals[0].formatMoney(0)}</td>
+                                <td class="text-right">{totals[1].formatMoney(0)}</td>
+                                <td class="text-right">{totals[2].formatMoney(0)}</td>
                             </tr>
                     </tbody>
                 </table>

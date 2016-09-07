@@ -1,3 +1,5 @@
+import './css/iruka.css';
+
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {Router, Route, Link, IndexRoute, browserHistory} from 'react-router'
@@ -9,6 +11,8 @@ import About from  './pages/about';
 import Scan from  './pages/scan';
 import Notify from './pages/notify';
 import Monitor from './pages/monitor';
+
+
 
 import store from './redux/store';
 import * as actions from './redux/actions';
