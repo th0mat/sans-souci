@@ -1,17 +1,12 @@
 import express from 'express';
 var router = express.Router();
 import * as history from './history.js';
+import {getTargetsJson} from './sendConfig';
 
 
 var numberOfDays = 3;
-
-
 history.fetchHistory(numberOfDays);
 history.fetchLastSeen();
-
-
-import targets from './config.targets';
-var targetsJson = targets();
 
 
 // reload iruka.data in 1 minute intervals
@@ -27,7 +22,7 @@ setInterval(
 
 router.get('/config/targets', function (req, res, next) {
     res.setHeader('Access-Control-Allow-Origin', 'http://localhost:8080');
-    targetsJson = addLastSeen(targetsJson);
+    var targetsJson = getTargetsJson(history.lastSeen);
     res.send(targetsJson);
 
 });
@@ -43,13 +38,3 @@ export default router.get('/history/:day/:mac', function (req, res, next) {
 });
 
 
-function addLastSeen(targets) {
-    var all = history.lastSeen;
-    for (let i in targets) {
-        let found = all.find((x)=>x[0] == targets[i].macHex);
-        if (found) targets[i].lastSeen = found[2] * 1000;
-        console.log(targets[i].macHex, targets[i].dname, targets[i].lastSeen)
-    }
-    console.log(targets);
-    return targets;
-}

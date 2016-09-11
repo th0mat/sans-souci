@@ -3,55 +3,43 @@
         "macHex": "4ca56d2e03d5",
         "dname": "Nema",
         "avatar": "img/Nema.jpg",
-        "traffic": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
         "notifyGone": false,
-        "notifyBack": false,
-        "lastSeen": null
+        "notifyBack": false
     },
     {
         "macHex": "ac5f3eefd2d3",
         "dname": "Thomas",
         "avatar": "img/Tom.jpg",
-        "traffic": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
         "notifyGone": false,
-        "notifyBack": false,
-        "lastSeen": null
+        "notifyBack": false
     },
     {
         "macHex": "28faa0c76b80",
         "dname": "Nim",
         "avatar": "img/Nim.jpg",
-        "traffic": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
         "notifyGone": false,
-        "notifyBack": true,
-        "lastSeen": null
+        "notifyBack": true
     },
     {
         "macHex": "08eca9ce83b0",
         "dname": "Mint",
         "avatar": "img/Mint.jpg",
-        "traffic": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
         "notifyGone": false,
-        "notifyBack": false,
-        "lastSeen": null
+        "notifyBack": false
     },
     {
         "macHex": "bc8ccdf91ddd",
         "dname": "TV",
         "avatar": "img/TV.jpg",
-        "traffic": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
         "notifyGone": false,
-        "notifyBack": false,
-        "lastSeen": null
+        "notifyBack": false
     },
     {
         "macHex": "00d000017c11",
         "dname": "Security",
         "avatar": "img/Camera.jpg",
-        "traffic": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
         "notifyGone": true,
-        "notifyBack": false,
-        "lastSeen": null
+        "notifyBack": false
     }
 ]
 
