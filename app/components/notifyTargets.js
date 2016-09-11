@@ -13,16 +13,38 @@ import {Link} from 'react-router';
 
 @connect((store) => {
     return {
-        targets: store.targets
+        targets: store.targetsOnly
     };
 })
 export default class NotifyTargets extends React.Component {
 
-    render() {
-        var unsaved = this.props.targets;
-        unsaved = unsaved.filter(x=>{
-            return x.dname !== "Total traffic";
+    handleChangeGone(event) {
+        this.props.dispatch({
+            type: 'TOGGLE_NOTIFY_GONE',
+            payload: event.target.name
         });
+    }
+
+    handleChangeBack(event) {
+        this.props.dispatch({
+            type: 'TOGGLE_NOTIFY_BACK',
+            payload: event.target.name
+        });
+    }
+
+    cancelChanges(event) {
+        this.props.dispatch({
+            type: "CANCEL_NOTIFY_CHANGES"
+        })
+    }
+
+
+    render() {
+        this.handleChangeBack = this.handleChangeBack.bind(this);
+        this.handleChangeGone = this.handleChangeGone.bind(this);
+        this.cancelChanges = this.cancelChanges.bind(this);
+
+        var unsaved = this.props.targets;
         return (
             <div>
                 <h4>Notification targets</h4>
@@ -31,8 +53,8 @@ export default class NotifyTargets extends React.Component {
                     <thead>
                     <tr>
                         <th>Name</th>
-                        <th>Departed</th>
-                        <th>Returned</th>
+                        <th>Gone</th>
+                        <th>Back</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -41,8 +63,10 @@ export default class NotifyTargets extends React.Component {
                                 return (
                                     <tr key={x.macHex}>
                                         <td>{x.dname}</td>
-                                        <td><input type="checkbox" checked={x.notify.departed}/></td>
-                                        <td><input type="checkbox" checked={x.notify.returned}/></td>
+                                        <td><input type="checkbox" checked={x.notifyGone} name={x.macHex}
+                                                   onChange={this.handleChangeGone}/></td>
+                                        <td><input type="checkbox" checked={x.notifyBack} name={x.macHex}
+                                                   onChange={this.handleChangeBack}/></td>
                                     </tr>
                                 )
                             }
@@ -50,7 +74,8 @@ export default class NotifyTargets extends React.Component {
                     }
                     </tbody>
                 </table>
-                <button class="btn btn-default">cancel</button><button class="btn btn-default">save changes</button>
+                <button class="btn btn-default" onClick={this.cancelChanges}>cancel</button>
+                <button class="btn btn-default">save changes</button>
             </div>
         )
     }

@@ -17,6 +17,8 @@ const initialState = {
     macHistory: [],
     searchTarget: 'abcdef123456',
     total: total,
+    targetsOnly: [],
+    targetsOnlyBup: [],
     targets: [total],
     hogs: new Map(),
     scannerOn: true
@@ -33,6 +35,8 @@ function reducer(state = initialState, action) {
         case "TARGETS_RECEIVED": {
             return {
                 ...state, targets: [...action.payload, state.total],
+                targetsOnly: action.payload,
+                targetsOnlyBup: JSON.parse(JSON.stringify(action.payload)),
                 targetsLoaded: true
             };
             break;
@@ -64,6 +68,22 @@ function reducer(state = initialState, action) {
         }
         case "RESET_HOGS": {
             return {...state, hogs: new Map()}
+            break;
+        }
+        case "TOGGLE_NOTIFY_BACK": {
+            var t = state.targetsOnly.find((x)=>x.macHex === action.payload)
+            t.notifyBack = !t.notifyBack;
+            return {...state, targetsOnly: [...state.targetsOnly]}
+            break;
+        }
+        case "TOGGLE_NOTIFY_GONE": {
+            var t = state.targetsOnly.find((x)=>x.macHex === action.payload)
+            t.notifyGone = !t.notifyGone;
+            return {...state, targetsOnly: [...state.targetsOnly]}
+            break;
+        }
+        case "CANCEL_NOTIFY_CHANGES": {
+            return {...state, targetsOnly: JSON.parse(JSON.stringify(state.targetsOnlyBup))};
             break;
         }
         return state;
