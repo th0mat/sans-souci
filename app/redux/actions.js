@@ -21,6 +21,7 @@ export function fetchTargets() {
     }
 }
 
+
 export function fetchHistory(mac){
     return function(dispatch) {
         dispatch({type: 'FETCH_NEW_HISTORY'});
@@ -42,3 +43,18 @@ export function fetchHistory(mac){
     }
 }
 
+
+export function postNotifyChanges(targets) {
+    return function(dispatch) {
+
+        axios.post( url + "api/config/updateNotify", {
+            targets: targets
+        })
+            .then((response) => {
+                dispatch({type: "NOTIFY_UPDATED", payload: response})
+            })
+            .catch((err) => {
+                dispatch({type: "NOTIFY_UPDATE_ERROR", payload: err})
+            })
+    }
+}

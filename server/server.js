@@ -7,7 +7,7 @@ var app = express();
 var server = http.createServer(app).listen(3000);
 
 import apiRouter from './api/router.js';
-
+import bodyParser from 'body-parser';
 
 
 
@@ -17,7 +17,7 @@ import apiRouter from './api/router.js';
 app.use(express.static('app'));
 app.use(express.static('dist'));
 
-
+app.use(bodyParser.json());
 
 app.use('/api', apiRouter);
 

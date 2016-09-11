@@ -5,7 +5,6 @@
 import React from 'react';
 import 'history';
 import * as actions from '../redux/actions';
-import Hour from "./historyHour";
 import {connect} from 'react-redux';
 import '../css/iruka.css';
 import {Link} from 'react-router';
@@ -39,10 +38,15 @@ export default class NotifyTargets extends React.Component {
     }
 
 
+    saveChanges(event) {
+        this.props.dispatch(actions.postNotifyChanges(this.props.targets));
+    }
+
     render() {
         this.handleChangeBack = this.handleChangeBack.bind(this);
         this.handleChangeGone = this.handleChangeGone.bind(this);
         this.cancelChanges = this.cancelChanges.bind(this);
+        this.saveChanges = this.saveChanges.bind(this);
 
         var unsaved = this.props.targets;
         return (
@@ -75,7 +79,7 @@ export default class NotifyTargets extends React.Component {
                     </tbody>
                 </table>
                 <button class="btn btn-default" onClick={this.cancelChanges}>cancel</button>
-                <button class="btn btn-default">save changes</button>
+                <button class="btn btn-default" onClick={this.saveChanges}>save changes</button>
             </div>
         )
     }

@@ -2,6 +2,7 @@ import express from 'express';
 var router = express.Router();
 import * as history from './history.js';
 import {getTargetsJson} from './sendConfig';
+import updateNotify from './updateNotify';
 
 
 var numberOfDays = 3;
@@ -24,8 +25,19 @@ router.get('/config/targets', function (req, res, next) {
     res.setHeader('Access-Control-Allow-Origin', 'http://localhost:8080');
     var targetsJson = getTargetsJson(history.lastSeen);
     res.send(targetsJson);
+});
+
+
+router.post('/config/updateNotify', function (req, res, next) {
+    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:8080');
+    var updateResponse = updateNotify(req.body.targets);
+    res.send("confirm receipt");
 
 });
+
+
+
+
 
 
 export default router.get('/history/:day/:mac', function (req, res, next) {

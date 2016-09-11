@@ -82,6 +82,16 @@ function reducer(state = initialState, action) {
             return {...state, targetsOnly: [...state.targetsOnly]}
             break;
         }
+        case "NOTIFY_UPDATED": {
+            return state;
+            break;
+        }
+        case "NOTIFY_UPDATE_ERROR": {
+            return state;
+            break;
+        }
+
+
         case "CANCEL_NOTIFY_CHANGES": {
             return {...state, targetsOnly: JSON.parse(JSON.stringify(state.targetsOnlyBup))};
             break;
