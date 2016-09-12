@@ -1,13 +1,13 @@
 import express from 'express';
 import http from 'http';
 import pty from 'pty.js';
-import path from 'path';
+// import path from 'path';
+import bodyParser from 'body-parser';
 
 var app = express();
 var server = http.createServer(app).listen(3000);
 
 import apiRouter from './api/router.js';
-import bodyParser from 'body-parser';
 
 // CORS middleware
 var allowCrossDomain = function(req, res, next) {
@@ -61,9 +61,6 @@ io.on('connection', function (socket) {
         console.log("disconnected at " + new Date().toString() + "\n");
     });
 });
-
-
-
 
 
 console.log('server.js running on port 3000...\n');

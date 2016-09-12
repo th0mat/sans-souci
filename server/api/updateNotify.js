@@ -7,26 +7,15 @@
 import fs from 'fs';
 import path from 'path';
 
-var configFile = path.normalize(__dirname + '/../../server.config/targets.json');
+var configNotify = path.normalize(__dirname + '/../../server.config/notify.json');
 
-function getTargetsFile() {
-    try {
-        var data = fs.readFileSync(configFile);
-    } catch (e) {
-        console.log("*** could not load config file ", configFile);
-        console.log("*** error message ", e.stack);
-        return;
-    }
-    try {
-        var targetsJson = JSON.parse(data);
-    } catch (e) {
-        consoloe.log("*** config file is not valid JSON\ncheck file ", configFile);
-        return;
-    }
-    return targetsJson;
-}
 
-export default function updateNotify(targets){
-    console.log("*** targets file received via post: ", targets);
-    return '*** coolerest ***';
+
+export default function promiseNotifyUpdate(targets) {
+    return new Promise(function (resolve, reject) {
+        fs.writeFile(configNotify, JSON.stringify(targets), function (err) {
+            if (err) reject('save of notify config data failed');
+            else resolve('notify config data was saved');
+        });
+    });
 }

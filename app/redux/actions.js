@@ -55,6 +55,7 @@ export function postNotifyChanges(targets) {
             targets: targets
         }, axiosConfigJson)
             .then((response) => {
+                console.log(response);
                 dispatch({type: "NOTIFY_UPDATED", payload: response})
             })
             .catch((err) => {

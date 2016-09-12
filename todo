@@ -1,3 +1,5 @@
+save notify settings server-side
+separate notify settings from targets config
 auto-refresh for history screen
 more-less component
 total link fix
