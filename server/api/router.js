@@ -22,14 +22,12 @@ setInterval(
 
 
 router.get('/config/targets', function (req, res, next) {
-    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:8080');
     var targetsJson = getTargetsJson(history.lastSeen);
     res.send(targetsJson);
 });
 
 
 router.post('/config/updateNotify', function (req, res, next) {
-    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:8080');
     var updateResponse = updateNotify(req.body.targets);
     res.send("confirm receipt");
 

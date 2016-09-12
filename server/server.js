@@ -9,27 +9,35 @@ var server = http.createServer(app).listen(3000);
 import apiRouter from './api/router.js';
 import bodyParser from 'body-parser';
 
+// CORS middleware
+var allowCrossDomain = function(req, res, next) {
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+    res.header('Access-Control-Allow-Headers', 'Content-Type');
+    next();
+}
 
 
-
-// Static file serving
+// apply middleware
 
 app.use(express.static('app'));
 app.use(express.static('dist'));
 
 app.use(bodyParser.json());
-
+app.use(allowCrossDomain);
 app.use('/api', apiRouter);
 
 
+// redirects
 app.get('/about*', function(req, res) {
     res.redirect('/');
 });
-
-
 app.get('/history*', function(req, res) {
     res.redirect('/');
 });
+
+
+
 
 // SOCKET IO SETUP for live page
 // Bind socket.io to the server
@@ -53,28 +61,6 @@ io.on('connection', function (socket) {
         console.log("disconnected at " + new Date().toString() + "\n");
     });
 });
-
-
-var auth = function(req, res, next) {
-
-    function unauthorized(res){
-        res.set('WWW-Authenticate', 'Basic realm=Authorization Required');
-        return res.send(401)
-    }
-
-    const auth = {login: 'yes', password: 'no'} // change this
-
-    const b64auth = (req.headers.authorization || '').split(' ')[1] || ''
-    const [login, password] = new Buffer(b64auth, 'base64').toString().split(':')
-
-    if (!login || !password || login !== auth.login || password !== auth.password){
-        return unauthorized(res);
-    }
-    return next();
-
-}
-
-
 
 
 

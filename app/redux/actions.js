@@ -7,6 +7,10 @@ import axios from "axios";
 import Config from '../config/config';
 import moment from 'moment'
 var url = Config.url;
+var axiosConfigJson = {
+    headers: {'Content-Type': 'application/json'}
+};
+
 
 
 export function fetchTargets() {
@@ -49,7 +53,7 @@ export function postNotifyChanges(targets) {
 
         axios.post( url + "api/config/updateNotify", {
             targets: targets
-        })
+        }, axiosConfigJson)
             .then((response) => {
                 dispatch({type: "NOTIFY_UPDATED", payload: response})
             })
