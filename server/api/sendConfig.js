@@ -8,6 +8,7 @@ import fs from 'fs';
 import path from 'path';
 
 var configFile = path.normalize(__dirname + '/../../server.config/targets.json');
+var notifyFile = path.normalize(__dirname + '/../../server.config/notify.json');
 
 export function getTargetsFile() {
     try {
@@ -44,10 +45,35 @@ function addTrafficArray(targets){
 
 }
 
+function addNotify(targets) {
+    try {
+        var data = fs.readFileSync(notifyFile);
+        var notifyJson = JSON.parse(data);
+    } catch (e) {
+        notifyJson = [];
+    }
+    for (var t of targets) {
+        console.log("targets t: ", t);
+        var f = notifyJson.find((x)=>{
+            return x.macHex === t.macHex
+        });
+        if (f) {
+            t['notifyBack'] = f.notifyBack;
+            t['notifyGone'] = f.notifyGone;
+        } else {
+            t['notifyBack'] = false;
+            t['notifyGone'] = false;
+        }
+    }
+    return targets;
+
+}
+
+
 export function getTargetsJson(history){
     var targets = getTargetsFile();
     targets = addTrafficArray(targets);
     targets = addLastSeen(targets, history);
+    targets = addNotify(targets);
     return targets;
-
 }
