@@ -78,7 +78,7 @@ export default class NotifyTargets extends React.Component {
                     }
                     </tbody>
                 </table>
-                <button class="btn btn-default" onClick={this.cancelChanges}>cancel</button>
+                <button class="btn btn-default" onClick={this.cancelChanges}>reset</button>
                 <button class="btn btn-default" onClick={this.saveChanges}>save changes</button>
             </div>
         )
