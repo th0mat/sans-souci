@@ -53,7 +53,6 @@ function addNotify(targets) {
         notifyJson = [];
     }
     for (var t of targets) {
-        console.log("targets t: ", t);
         var f = notifyJson.find((x)=>{
             return x.macHex === t.macHex
         });

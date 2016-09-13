@@ -35,6 +35,9 @@ export default class HistoryHeader extends React.Component {
 
     render(){
         var found = this.target();
+        var sub = (this.props.user === '1000000000000')
+            ? 'System uptime data'
+            : 'Device mac address: ' + this.props.user;
         return (
             <div>
                 <br/>
@@ -42,7 +45,7 @@ export default class HistoryHeader extends React.Component {
                                                          height="120" width="120"/> </Link>
                 <div id="user-info">
                     <h2>{found.dname}</h2>
-                    <p>Device mac address: {this.props.user}</p>
+                    <p>{sub}</p>
                 </div>
             </div>
         )

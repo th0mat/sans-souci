@@ -1,6 +1,7 @@
 /**
  * Created by thomasnatter on 9/13/16.
  */
+"use strict";
 
 import fs from 'fs';
 import path from 'path';

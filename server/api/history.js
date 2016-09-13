@@ -79,16 +79,13 @@ export function fetchLastSeen(){
 }
 
 
-
-
-
 export function fetchHistory(numberOfDays) {
+    var ts = Date.now();
     var raw = [];
     for (let i = 0; i < numberOfDays; i++) {
         addDay(i, raw);
     }
     for (let i in raw) {
-        //i = i.split(" ");
         raw[i] = raw[i].split(" ");
         raw[i][0] = parseInt(raw[i][0]);
         raw[i][2] = parseInt(raw[i][2]);
@@ -125,6 +122,8 @@ export function fetchHistory(numberOfDays) {
         }
     }
     all = history;
+
+    console.log("*** loading time: " + (Date.now() - ts) + " ms");
     return history;
 
 }

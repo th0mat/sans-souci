@@ -1,19 +1,17 @@
-auto-refresh for history screen
-remove 'firstHour' from HourMap
 more-less component
-total link fix
 reload from non root
 scan traffic number check
 server logging middleware
+history reload async
 config screen
 help help help
-swipe or touch anywhere to go back to main
-email notification for return of someone
-email notificaiton for departure of someone
-
+email notifications
+sys event log
+history differenctiation between away and sys-down
 
 
 DONE
+total link fix
 fix history url
 separate notify settings from targets config
 save notify settings server-side

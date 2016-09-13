@@ -22,18 +22,21 @@ Number.prototype.formatMoney = function(decPlaces, thouSeparator, decSeparator) 
 
 @connect((store) => {
     return {
-        mac: store.macHistory,
+        history: store.macHistory,
     };
 })
 export default class Daily extends React.Component {
     render(){
-        var totals = getDailyTotals(this.props.mac)
+        var totals = getDailyTotals(this.props.history)
+        var h4 = (this.props.mac === '1000000000000')
+            ? 'System uptime in minutes'
+            : 'Daily totals';
 
         return (
             <div>
                 <br/>
                 <br/>
-                <h4>Daily totals</h4>
+                <h4>{h4}</h4>
                 <table class="table table-striped">
                     <thead>
                     <tr>

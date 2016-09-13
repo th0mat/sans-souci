@@ -1,3 +1,5 @@
+"use strict";
+
 import express from 'express';
 var router = express.Router();
 import * as history from './history.js';
