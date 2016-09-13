@@ -29,7 +29,7 @@ export function fetchTargets() {
 export function fetchHistory(mac){
     return function(dispatch) {
         dispatch({type: 'FETCH_NEW_HISTORY'});
-        axios.get(url + 'api/history/0/' + mac)
+        axios.get(url + 'api/history/' + mac)
             .then((response) => response.data)
             .then((responseJson) => {
                 var tmp = JSON.parse(responseJson);

@@ -35,7 +35,7 @@ router.post('/config/updateNotify', function (req, res, next) {
 
 
 //export default router.get('/history/:day/:mac', function (req, res, next) {
-router.get('/history/:day/:mac', function (req, res, next) {
+router.get('/history/:mac', function (req, res, next) {
     var notAvail = JSON.stringify({"request result": "no data available"});
     var response = history.macSet.has(req.params.mac) ? history.macAndSysupHistoryJson(req.params.mac) : notAvail;
     res.json(response);

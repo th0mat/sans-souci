@@ -14,7 +14,7 @@ export default React.createClass({
 
         return ( < div className="media">
                 < div className="media-left">
-                    < Link to={"history/0/" + this.props.macHex}>
+                    < Link to={"history/" + this.props.macHex}>
                         < img className="media-object"
                               height="75"
                               width="75"

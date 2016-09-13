@@ -20,7 +20,7 @@ export default class Search extends React.Component {
 
     lookupMacHistory(event){
         this.props.dispatch({type: "SET_RETURN_TO_LINK", payload: "/search"});
-        browserHistory.push('/history/0/' + this.props.searchTarget)
+        browserHistory.push('/history/' + this.props.searchTarget)
     };
 
     handleChange(event) {

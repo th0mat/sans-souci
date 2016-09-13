@@ -41,7 +41,7 @@ ReactDOM.render(
             <Route path="/" component={Layout}>
                 <IndexRoute component={Monitor}/>
                 <Route path="search" component={SearchHistory}/>
-                <Route path="history/:day/:user" component={History}/>
+                <Route path="history/:user" component={History}/>
                 <Route path="scan" component={Scan}/>
                 <Route path="notify" component={Notify}/>
                 <Route path="about" component={About}/>

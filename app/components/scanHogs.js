@@ -84,7 +84,7 @@ export default class Hogs extends React.Component {
                         var dname = (target) ? target.dname : 'Incognito';
                         return (
                             <tr key={x[0]}>
-                                <td>< Link to={"history/0/" + x[0]}>{dname}</Link></td>
+                                <td>< Link to={"history/" + x[0]}>{dname}</Link></td>
                                 <td style={{fontFamily: "monospace"}}>{x[0]}</td>
                                 <td class="text-right">{x[1].toLocaleString()}</td>
                             </tr>

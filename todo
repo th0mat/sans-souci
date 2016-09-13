@@ -1,5 +1,3 @@
-save notify settings server-side
-separate notify settings from targets config
 auto-refresh for history screen
 more-less component
 total link fix
@@ -15,6 +13,9 @@ email notificaiton for departure of someone
 
 
 DONE
+fix history url
+separate notify settings from targets config
+save notify settings server-side
 CORS with POST
 total traffic by mac
 all macs seen
