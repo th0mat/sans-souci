@@ -46,7 +46,7 @@ function addDay(whichDay, raw) {
         console.log("*** could not load file ", fileName);
         return;
     }
-    console.log("*** loading: ", logFileDayRel(whichDay));
+    //console.log("*** loading: ", logFileDayRel(whichDay));
     var array = data.toString().split("\n");
     raw.push.apply(raw, array);
 
@@ -75,7 +75,7 @@ export function fetchLastSeen(){
     }
     prevLastSeen = (lastSeen.length === 0) ? data : lastSeen.slice(0);
     lastSeen = data;
-    console.log("*** allStations lastSeen loaded");
+    //console.log("*** allStations lastSeen loaded");
 }
 
 
@@ -93,7 +93,7 @@ export function fetchHistory(numberOfDays) {
         raw[i][0] = parseInt(raw[i][0]);
         raw[i][2] = parseInt(raw[i][2]);
     }
-    console.log("*** loaded raw records: ", raw.length);
+    console.log("*** raw records loaded: ", raw.length);
 
     macSet = new Set();
     var history = new Map();
