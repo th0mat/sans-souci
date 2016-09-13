@@ -14,7 +14,8 @@ var rootDir = path.normalize(__dirname + '/../../iruka.data/');
 
 export var all = 'run fetchHistory() before accessing this property';
 export var macSet;
-export var lastSeen;
+export var lastSeen = [];
+export var prevLastSeen = [];
 
 class HourMap {
 
@@ -72,6 +73,7 @@ export function fetchLastSeen(){
         data[i][1] = parseInt(data[i][1]);
         data[i][2] = parseInt(data[i][2]);
     }
+    prevLastSeen = (lastSeen.length === 0) ? data : lastSeen.slice(0);
     lastSeen = data;
     console.log("*** allStations lastSeen loaded");
 }

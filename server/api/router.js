@@ -3,11 +3,14 @@ var router = express.Router();
 import * as history from './history.js';
 import {getTargetsJson} from './sendConfig';
 import promiseNotifyUpdate from './updateNotify';
-
+import calcNotify from './calcNotify'
 
 var numberOfDays = 3;
 history.fetchHistory(numberOfDays);
 history.fetchLastSeen();
+
+
+var pendingNotifications = [];
 
 
 // reload iruka.data in 1 minute intervals
@@ -17,6 +20,11 @@ setInterval(
 );
 setInterval(
     history.fetchLastSeen
+    , 60000
+);
+
+setInterval(
+    calcNotify.bind(null, history)
     , 60000
 );
 
