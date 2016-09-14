@@ -16,8 +16,6 @@ export default function getPendingNotifications(history) {
     var lastSeen = history.lastSeen;
     var prevLastSeen = history.prevLastSeen;
     var notify = JSON.parse(fs.readFileSync(configNotify));
-    // if (notify === []) return [];
-    // if (!sysUpFull) return [];
     var pending = [];
     var now = Math.floor(Date.now() / 1000);
     now = now - (now % 60) + 60; // put on full min

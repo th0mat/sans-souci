@@ -2,7 +2,8 @@ more-less component
 reload from non root
 scan traffic number check
 server logging middleware
-history reload async
+trim allMacs to last 14 days
+fix yesterday today midnight minute
 config screen
 help help help
 email notifications
@@ -11,6 +12,7 @@ history differenctiation between away and sys-down
 
 
 DONE
+load history async
 total link fix
 fix history url
 separate notify settings from targets config

@@ -7,8 +7,8 @@ import {getTargetsJson} from './sendConfig';
 import promiseNotifyUpdate from './updateNotify';
 import calcNotify from './calcNotify'
 
-var numberOfDays = 3;
-history.fetchHistory(numberOfDays);
+// var numberOfDays = 3;
+history.fetchHistoryAsync();
 history.fetchLastSeen();
 
 
@@ -17,7 +17,7 @@ var pendingNotifications = [];
 
 // reload iruka.data in 1 minute intervals
 setInterval(
-    history.fetchHistory.bind(null, numberOfDays)
+    history.fetchHistoryAsync
     , 60000
 );
 setInterval(
@@ -30,6 +30,7 @@ setInterval(
     , 60000
 );
 
+// history.fetchHistoryAsync(3);
 
 router.get('/config/targets', function (req, res, next) {
     var targetsJson = getTargetsJson(history.lastSeen);

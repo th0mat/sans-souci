@@ -9,7 +9,6 @@ var fs = require('fs');
 var path = require('path');
 
 
-
 var rootDir = path.normalize(__dirname + '/../../iruka.data/');
 
 export var all = 'run fetchHistory() before accessing this property';
@@ -46,7 +45,6 @@ function addDay(whichDay, raw) {
         console.log("*** could not load file ", fileName);
         return;
     }
-    //console.log("*** loading: ", logFileDayRel(whichDay));
     var array = data.toString().split("\n");
     raw.push.apply(raw, array);
 
@@ -59,7 +57,7 @@ function logFileDayRel(daysBeforeToday = 0) {
     return fileName;
 }
 
-export function fetchLastSeen(){
+export function fetchLastSeen() {
     var fileName = rootDir + "allStations.log";
     try {
         var data = fs.readFileSync(fileName);
@@ -79,18 +77,23 @@ export function fetchLastSeen(){
 }
 
 
-export function fetchHistory(numberOfDays) {
-    var ts = Date.now();
-    var raw = [];
-    for (let i = 0; i < numberOfDays; i++) {
-        addDay(i, raw);
-    }
+// export function fetchHistory(numberOfDays) {
+//     var raw = [];
+//     for (let i = 0; i < numberOfDays; i++) {
+//         addDay(i, raw);
+//     }
+//
+//     return processRaw(raw)
+// }
+
+
+function processRaw(raw) {
     for (let i in raw) {
         raw[i] = raw[i].split(" ");
         raw[i][0] = parseInt(raw[i][0]);
         raw[i][2] = parseInt(raw[i][2]);
     }
-    console.log("*** raw records loaded: ", raw.length);
+    console.log("*** mintue records loaded: ", raw.length);
 
     macSet = new Set();
     var history = new Map();
@@ -122,10 +125,7 @@ export function fetchHistory(numberOfDays) {
         }
     }
     all = history;
-
-    console.log("*** loading time: " + (Date.now() - ts) + " ms");
     return history;
-
 }
 
 
@@ -142,3 +142,90 @@ export function macAndSysupHistoryJson(mac) {
     result.sysup = [...all.get('1000000000000').hours];
     return JSON.stringify(result);
 }
+
+
+function promiseFileRead(fn) {
+    return new Promise(function (resolve, reject) {
+        fs.readFile(fn, function (err, text) {
+            if (err) reject(`reading of ${fn} failed - ${err}`);
+            else resolve(text);
+        });
+    });
+}
+
+
+function processText(raw, text) {
+    var data = text.toString().split("\n");
+    raw.push.apply(raw, data);
+}
+
+
+export function fetchHistoryAsync() {
+    var names = [rootDir + logFileDayRel(0), rootDir + logFileDayRel(1), rootDir + logFileDayRel(2)];
+    var p1 = promiseFileRead(names[0]);
+    var p2 = promiseFileRead(names[1]);
+    var p3 = promiseFileRead(names[2]);
+    var raw = [];
+    p1
+        .then((text)=> {
+            processText(raw, text);
+            p2
+                .then((text)=> {
+                    processText(raw, text);
+                    p3
+                        .then((text)=> {
+                            processText(raw, text);
+                            processRaw(raw);
+                        })
+                        .catch((e)=> {
+                            console.log("--- problem loading file 3: ", e);
+                            processRaw(raw)
+                        })
+                })
+                .catch((e)=> {
+                    console.log("--- problem loading file 2: ", e)
+                    p3
+                        .then((text)=> {
+                            processText(raw, text);
+                            processRaw(raw);
+                        })
+                        .catch((e)=> {
+                            console.log("--- problem loading file 3: ", e);
+                            processRaw(raw);
+                        })
+
+                })
+        })
+        .catch((e)=> {
+            console.log("--- problem loading file 1: ", e);
+            p2
+                .then((text)=> {
+                    processText(raw, text);
+                    p3
+                        .then((text)=> {
+                            processText(raw, text)
+                            processRaw(raw);
+
+                        })
+                        .catch((e)=> {
+                            console.log("--- problem loading file 3: ", e)
+                            processRaw(raw);
+                        })
+
+                })
+                .catch((e)=> {
+                    console.log("--- problem loading file 2: ", e)
+                    p3
+                        .then((text)=> {
+                            processText(raw, text);
+                            processRaw(raw);
+                        })
+                        .catch((e)=> {
+                            console.log("--- problem loading file 3: ", e)
+                            processRaw(raw);
+
+                        })
+                })
+        })
+}
+
