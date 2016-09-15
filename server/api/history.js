@@ -2,11 +2,15 @@
  * Created by thomasnatter on 8/16/16.
  */
 "use strict";
+//to allow async await
+import "babel-core/register";
+import "babel-polyfill";
+
 
 import moment from 'moment';
 
-var fs = require('fs');
-var path = require('path');
+import fs from 'fs';
+import path from 'path';
 
 
 var rootDir = path.normalize(__dirname + '/../../iruka.data/');
@@ -57,10 +61,11 @@ function logFileDayRel(daysBeforeToday = 0) {
     return fileName;
 }
 
-export function fetchLastSeen() {
+
+export var fetchLastSeen = async function() {
     var fileName = rootDir + "allStations.log";
     try {
-        var data = fs.readFileSync(fileName);
+        var data = await promiseFileRead(fileName);
     } catch (e) {
         console.log("*** could not load file ", fileName);
         return;
@@ -71,20 +76,10 @@ export function fetchLastSeen() {
         data[i][1] = parseInt(data[i][1]);
         data[i][2] = parseInt(data[i][2]);
     }
+    console.log("*** number of mac addresses in allMacs: ", data.length);
     prevLastSeen = (lastSeen.length === 0) ? data : lastSeen.slice(0);
     lastSeen = data;
-    //console.log("*** allStations lastSeen loaded");
 }
-
-
-// export function fetchHistory(numberOfDays) {
-//     var raw = [];
-//     for (let i = 0; i < numberOfDays; i++) {
-//         addDay(i, raw);
-//     }
-//
-//     return processRaw(raw)
-// }
 
 
 function processRaw(raw) {
@@ -159,7 +154,7 @@ function processText(raw, text) {
     raw.push.apply(raw, data);
 }
 
-
+// todo: change to async await to simplify
 export function fetchHistoryAsync() {
     var names = [rootDir + logFileDayRel(0), rootDir + logFileDayRel(1), rootDir + logFileDayRel(2)];
     var p1 = promiseFileRead(names[0]);
@@ -229,3 +224,17 @@ export function fetchHistoryAsync() {
         })
 }
 
+
+// var test = async function() {
+//     try {
+//         var p = await promiseFileRead(rootDir + logFileDayRel(0))
+//         console.log("--- async await test, string length: ", p.toString().length);
+//     } catch (e) {
+//         console.log(e)
+//     }
+//     // let url = 'http://api.icndb.com/jokes/random';
+//     // let response = await "string";
+// }
+//
+// test();
+//

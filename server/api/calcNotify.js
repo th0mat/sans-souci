@@ -27,6 +27,7 @@ export default function getPendingNotifications(history) {
         var prev = prevLastSeen.find((e)=> {
             return e[0] === t.macHex
         });
+        if (!last || !prev) continue;
         if (now - last[2] == 600) msg = 'gone since ' + moment(last[2] * 1000).format('LT');
         if (last[2] - prev[2] > 600) msg = 'back at ' + moment(last[2] * 1000).format('LT');
         if (msg !== "") {
