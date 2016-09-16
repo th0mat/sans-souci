@@ -58,7 +58,7 @@ var io = require('socket.io')(server);
 io.on('connection', function (socket) {
     // Create terminal
     let headers = socket.handshake.headers;
-    logger.warn("new socket.io conn: " + headers.host + ', ' + headers.referer + ', '
+    logger.warn("new socket conn: " + headers.host + ', ' + headers.referer + ', '
         + headers['user-agent'].substr(0,60) + '...');
     var term = pty.spawn('sh', ['-c', 'cd ~/Dropbox/ideas/sans-souci; ./iruka json'], {
             name: 'xterm-color', cols: 80, rows: 30, cwd: process.env.HOME, env: process.env
@@ -72,7 +72,7 @@ io.on('connection', function (socket) {
 
     socket.on("disconnect", function () {
         let headers = this.handshake.headers;
-        logger.warn("socket.io disconn: " + headers.host + ', ' + headers.referer + ', '
+        logger.warn("del socket conn: " + headers.host + ', ' + headers.referer + ', '
             + headers['user-agent'].substr(0,60) + '...');
         term.destroy();
     });

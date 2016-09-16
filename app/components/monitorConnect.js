@@ -10,7 +10,6 @@ import Config from '../config/config';
 var url = Config.url;
 
 import socketio from 'socket.io-client';
-var socket = socketio(url);
 
 //import tsec from "../config/macMonitored.js";
 import MonitorTarget from './monitorTarget.js';
@@ -46,9 +45,11 @@ function addPeriod(tsec, justIn) {
 export default class MonitorConnect extends React.Component{
 
 
+
     componentDidMount() {
+        this.socket = socketio(url);
         var that = this;
-        socket.on('output', function (data) {
+        this.socket.on('output', function (data) {
             var justIn = JSON.parse(data);
             addPeriod(that.props.tsec, justIn);
             that.setState({
@@ -58,7 +59,8 @@ export default class MonitorConnect extends React.Component{
     }
 
     componentWillUnmount() {
-        socket.removeAllListeners('output');
+        //socket.removeAllListeners('output');
+        this.socket.destroy();
     }
 
     render() {

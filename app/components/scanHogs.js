@@ -14,7 +14,7 @@ import {Link} from 'react-router';
 import * as actionCreators from '../redux/actions'
 import Config from '../config/config';
 var url = Config.url;
-var socket = socketio(url);
+
 
 
 function mapStateToProps(state) {
@@ -36,17 +36,17 @@ function mapDispatchToProps(dispatch) {
 })
 export default class Hogs extends React.Component {
 
-
     componentDidMount() {
+        this.socket = socketio(url);
         var that = this;
-        socket.on('output', function (data) {
+        this.socket.on('output', function (data) {
             var justIn = JSON.parse(data);
             that.props.dispatch({type: "ADD_LAST_IN", payload: justIn});
         });
     };
 
     componentWillUnmount() {
-        // socket.removeAllListeners('output');
+        this.socket.destroy();
     };
 
     resetHogs(event){
