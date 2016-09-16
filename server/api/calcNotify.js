@@ -7,6 +7,8 @@ import fs from 'fs';
 import path from 'path';
 import moment from 'moment';
 
+import logger from '../log'
+
 var configNotify = path.normalize(__dirname + '/../../server.config/notify.json');
 
 
@@ -31,7 +33,7 @@ export default function getPendingNotifications(history) {
         if (now - last[2] == 600) msg = 'gone since ' + moment(last[2] * 1000).format('LT');
         if (last[2] - prev[2] > 600) msg = 'back at ' + moment(last[2] * 1000).format('LT');
         if (msg !== "") {
-            console.log("+++ mac: " + t.macHex + "  prev: " + prev[2] + " last: " + last[2] + "  msg: " + msg);
+            logger.warn("+++ mac: " + t.macHex + "  prev: " + prev[2] + " last: " + last[2] + "  msg: " + msg);
         }
     }
 }

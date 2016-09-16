@@ -12,6 +12,7 @@ import moment from 'moment';
 import fs from 'fs';
 import path from 'path';
 
+import logger from '../log'
 
 var rootDir = path.normalize(__dirname + '/../../iruka.data/');
 
@@ -46,7 +47,7 @@ function addDay(whichDay, raw) {
     try {
         var data = fs.readFileSync(fileName);
     } catch (e) {
-        console.log("*** could not load file ", fileName);
+        logger.warn("could not load file ", fileName);
         return;
     }
     var array = data.toString().split("\n");
@@ -67,7 +68,7 @@ export var fetchLastSeen = async function() {
     try {
         var data = await promiseFileRead(fileName);
     } catch (e) {
-        console.log("*** could not load file ", fileName);
+        logger.warn("could not load file ", fileName);
         return;
     }
     data = data.toString().split("\n");
@@ -76,7 +77,7 @@ export var fetchLastSeen = async function() {
         data[i][1] = parseInt(data[i][1]);
         data[i][2] = parseInt(data[i][2]);
     }
-    console.log("*** number of mac addresses in allMacs: ", data.length);
+    logger.info("number of mac addresses in allMacs: ", data.length);
     prevLastSeen = (lastSeen.length === 0) ? data : lastSeen.slice(0);
     lastSeen = data;
 }
@@ -88,7 +89,7 @@ function processRaw(raw) {
         raw[i][0] = parseInt(raw[i][0]);
         raw[i][2] = parseInt(raw[i][2]);
     }
-    console.log("*** mintue records loaded: ", raw.length);
+    logger.info("minute records loaded: ", raw.length);
 
     macSet = new Set();
     var history = new Map();
@@ -101,7 +102,7 @@ function processRaw(raw) {
     macSet.delete(undefined);
     macSet.delete(null);
 
-    console.log("*** number of unique mac addresses: ", macSet.size);
+    logger.info("number of unique mac addresses: ", macSet.size);
 
     // add empty hourMaps to macMap
     for (let i of macSet) {
@@ -173,26 +174,26 @@ export function fetchHistoryAsync() {
                             processRaw(raw);
                         })
                         .catch((e)=> {
-                            console.log("--- problem loading file 3: ", e);
+                            logger.warn("--- problem loading file 3: ", e);
                             processRaw(raw)
                         })
                 })
                 .catch((e)=> {
-                    console.log("--- problem loading file 2: ", e)
+                    logger.warn("--- problem loading file 2: ", e)
                     p3
                         .then((text)=> {
                             processText(raw, text);
                             processRaw(raw);
                         })
                         .catch((e)=> {
-                            console.log("--- problem loading file 3: ", e);
+                            logger.warn("--- problem loading file 3: ", e);
                             processRaw(raw);
                         })
 
                 })
         })
         .catch((e)=> {
-            console.log("--- problem loading file 1: ", e);
+            logger.warn("--- problem loading file 1: ", e);
             p2
                 .then((text)=> {
                     processText(raw, text);
@@ -203,20 +204,20 @@ export function fetchHistoryAsync() {
 
                         })
                         .catch((e)=> {
-                            console.log("--- problem loading file 3: ", e)
+                            logger.warn("--- problem loading file 3: ", e)
                             processRaw(raw);
                         })
 
                 })
                 .catch((e)=> {
-                    console.log("--- problem loading file 2: ", e)
+                    logger.warn("--- problem loading file 2: ", e)
                     p3
                         .then((text)=> {
                             processText(raw, text);
                             processRaw(raw);
                         })
                         .catch((e)=> {
-                            console.log("--- problem loading file 3: ", e)
+                            logger.warn("--- problem loading file 3: ", e)
                             processRaw(raw);
 
                         })

@@ -6,6 +6,8 @@
 
 import fs from 'fs';
 import path from 'path';
+import logger from '../log'
+
 
 var configFile = path.normalize(__dirname + '/../../server.config/targets.json');
 var notifyFile = path.normalize(__dirname + '/../../server.config/notify.json');
@@ -14,14 +16,14 @@ export function getTargetsFile() {
     try {
         var data = fs.readFileSync(configFile);
     } catch (e) {
-        console.log("*** could not load config file ", configFile);
-        console.log("*** error message ", e.stack);
+        logger.error("could not load config file ", configFile);
+        logger.error("error message ", e.stack);
         return;
     }
     try {
         var targetsJson = JSON.parse(data);
     } catch (e) {
-        consoloe.log("*** config file is not valid JSON\ncheck file ", configFile);
+        logger.error("*** config file is not valid JSON\ncheck file ", configFile);
         return;
     }
     return targetsJson;

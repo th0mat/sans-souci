@@ -5,6 +5,10 @@ import express from 'express';
 import http from 'http';
 import pty from 'pty.js';
 import bodyParser from 'body-parser';
+import fs from 'fs';
+import path from 'path';
+import morgan from 'morgan';
+import logger from './log'
 
 var app = express();
 var server = http.createServer(app).listen(3000);
@@ -21,6 +25,11 @@ var allowCrossDomain = function(req, res, next) {
 
 
 // apply middleware
+
+// setup the logger
+var logDir = path.normalize(__dirname + '/../log/');
+var accessLogStream = fs.createWriteStream(logDir + 'access.log', {flags: 'a'});
+app.use(morgan('combined', {stream: accessLogStream}));
 
 app.use(express.static('app'));
 app.use(express.static('dist'));
@@ -48,6 +57,9 @@ var io = require('socket.io')(server);
 // When a new socket connects
 io.on('connection', function (socket) {
     // Create terminal
+    let headers = socket.handshake.headers;
+    logger.warn("new socket.io conn: " + headers.host + ', ' + headers.referer + ', '
+        + headers['user-agent'].substr(0,60) + '...');
     var term = pty.spawn('sh', ['-c', 'cd ~/Dropbox/ideas/sans-souci; ./iruka json'], {
             name: 'xterm-color', cols: 80, rows: 30, cwd: process.env.HOME, env: process.env
         }
@@ -59,11 +71,12 @@ io.on('connection', function (socket) {
     });
 
     socket.on("disconnect", function () {
+        let headers = this.handshake.headers;
+        logger.warn("socket.io disconn: " + headers.host + ', ' + headers.referer + ', '
+            + headers['user-agent'].substr(0,60) + '...');
         term.destroy();
-        console.log("disconnected at " + new Date().toString() + "\n");
     });
 });
 
 
-console.log('*** server.js running on port 3000...\n');
-//console.log('__dirname: ' + __dirname);
+logger.info('server.js running on port 3000');

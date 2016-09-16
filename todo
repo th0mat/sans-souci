@@ -1,18 +1,20 @@
-asyncify allMacs history loading
+why two socket connectons for each session?
 more-less component
 reload from non root
 scan traffic number check
-server logging middleware
 trim allMacs to last 14 days
 fix yesterday today midnight minute
 config screen
+express logging via morgan
 help help help
 email notifications
-sys event log
 history differenctiation between away and sys-down
 
 
 DONE
+morgan for server logging
+sys event logging via winston
+asyncify allMacs lastSteen loading
 load history async
 total link fix
 fix history url
