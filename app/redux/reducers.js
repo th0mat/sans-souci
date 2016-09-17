@@ -50,7 +50,8 @@ function reducer(state = initialState, action) {
             break;
         }
         case "FETCH_NEW_HISTORY": {
-            return {...state, macHistory: []}
+            return state;
+            //return {...state, macHistory: []}
             break;
         }
         case "HISTORY_RECEIVED": {

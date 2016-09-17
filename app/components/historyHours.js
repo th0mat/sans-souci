@@ -25,6 +25,12 @@ export default class hours extends React.Component {
     componentDidMount()
     {
         this.props.dispatch(actions.fetchHistory(this.props.user));
+        this.fetch = setInterval(()=>this.props.dispatch(actions.fetchHistory(this.props.user)), 30000);
+    }
+
+
+    componentWillUnmount() {
+        clearInterval(this.fetch);
     }
 
 

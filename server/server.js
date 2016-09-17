@@ -26,7 +26,7 @@ var allowCrossDomain = function(req, res, next) {
 
 // apply middleware
 
-// setup the logger
+// setup the express logger
 var logDir = path.normalize(__dirname + '/../log/');
 var accessLogStream = fs.createWriteStream(logDir + 'access.log', {flags: 'a'});
 app.use(morgan('combined', {stream: accessLogStream}));
@@ -58,7 +58,7 @@ var io = require('socket.io')(server);
 io.on('connection', function (socket) {
     // Create terminal
     let headers = socket.handshake.headers;
-    logger.warn("new socket conn: " + headers.host + ', ' + headers.referer + ', '
+    logger.verbose("new socket conn: " + headers.host + ', ' + headers.referer + ', '
         + headers['user-agent'].substr(0,60) + '...');
     var term = pty.spawn('sh', ['-c', 'cd ~/Dropbox/ideas/sans-souci; ./iruka json'], {
             name: 'xterm-color', cols: 80, rows: 30, cwd: process.env.HOME, env: process.env
@@ -72,11 +72,11 @@ io.on('connection', function (socket) {
 
     socket.on("disconnect", function () {
         let headers = this.handshake.headers;
-        logger.warn("del socket conn: " + headers.host + ', ' + headers.referer + ', '
+        logger.verbose("del socket conn: " + headers.host + ', ' + headers.referer + ', '
             + headers['user-agent'].substr(0,60) + '...');
         term.destroy();
     });
 });
 
 
-logger.info('server.js running on port 3000');
+logger.info('server up on port 3000');

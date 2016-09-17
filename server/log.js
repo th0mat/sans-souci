@@ -32,7 +32,7 @@ const logger = new (winston.Logger)({
             filename: `${logDir}/results.log`,
             timestamp: tsFormat,
             json: false,
-            level: env === 'development' ? 'debug' : 'info'
+            level: 'silly'
         })
     ]
 });

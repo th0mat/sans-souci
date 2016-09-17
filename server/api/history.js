@@ -77,7 +77,7 @@ export var fetchLastSeen = async function() {
         data[i][1] = parseInt(data[i][1]);
         data[i][2] = parseInt(data[i][2]);
     }
-    logger.info("number of mac addresses in allMacs: ", data.length);
+    logger.verbose("number of mac addresses in allMacs: ", data.length);
     prevLastSeen = (lastSeen.length === 0) ? data : lastSeen.slice(0);
     lastSeen = data;
 }
@@ -89,7 +89,7 @@ function processRaw(raw) {
         raw[i][0] = parseInt(raw[i][0]);
         raw[i][2] = parseInt(raw[i][2]);
     }
-    logger.info("minute records loaded: ", raw.length);
+    logger.verbose("minute records loaded: ", raw.length);
 
     macSet = new Set();
     var history = new Map();
@@ -102,7 +102,7 @@ function processRaw(raw) {
     macSet.delete(undefined);
     macSet.delete(null);
 
-    logger.info("number of unique mac addresses: ", macSet.size);
+    logger.verbose("number of unique mac addresses: ", macSet.size);
 
     // add empty hourMaps to macMap
     for (let i of macSet) {

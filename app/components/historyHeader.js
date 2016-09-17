@@ -44,7 +44,7 @@ export default class HistoryHeader extends React.Component {
                 <Link to={this.props.returnToLink}> <img src={"../../" + found.avatar} class="user-pix"
                                                          height="120" width="120"/> </Link>
                 <div id="user-info">
-                    <h2>{found.dname}</h2>
+                    <h2>{found.dname}</h2><span class="label pull-right label-default">auto-updates</span>
                     <p>{sub}</p>
                 </div>
             </div>

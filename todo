@@ -1,4 +1,3 @@
-why two socket connectons for each session?
 more-less component
 reload from non root
 scan traffic number check
@@ -12,6 +11,8 @@ history differenctiation between away and sys-down
 
 
 DONE
+history auto-update
+why two socket connections for each session?
 morgan for server logging
 sys event logging via winston
 asyncify allMacs lastSteen loading
