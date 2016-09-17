@@ -33,7 +33,7 @@ export default function getPendingNotifications(history) {
         if (now - last[2] == 600) msg = 'left at ' + moment(last[2] * 1000).format('LT');
         if (last[2] - prev[2] > 600) msg = 'back at ' + moment(last[2] * 1000).format('LT');
         if (msg !== "") {
-            logger.info("mac " + t.macHex + " " + msg);
+            logger.info(t.dname + " " + msg);
         }
     }
 }

@@ -1,10 +1,10 @@
 more-less component
 reload from non root
+history daily total continuous update
 scan traffic number check
 trim allMacs to last 14 days
 fix yesterday today midnight minute
 config screen
-express logging via morgan
 help help help
 email notifications
 history differenctiation between away and sys-down

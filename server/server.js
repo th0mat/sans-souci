@@ -39,15 +39,8 @@ app.use(allowCrossDomain);
 app.use('/api', apiRouter);
 
 
-// redirects
-app.get('/about*', function(req, res) {
-    res.redirect('/');
-});
-app.get('/history*', function(req, res) {
-    res.redirect('/');
-});
-
-
+// redirects in case user uses page reload
+app.get(/^\/(about|history|search|scan|notify)/, (req, res)=>res.redirect('/'));
 
 
 // SOCKET IO SETUP for live page
