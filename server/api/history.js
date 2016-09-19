@@ -47,7 +47,7 @@ function addDay(whichDay, raw) {
     try {
         var data = fs.readFileSync(fileName);
     } catch (e) {
-        logger.warn("could not load file ", fileName);
+        logger.verbose("could not load file ", fileName);
         return;
     }
     var array = data.toString().split("\n");
@@ -68,7 +68,7 @@ export var fetchLastSeen = async function() {
     try {
         var data = await promiseFileRead(fileName);
     } catch (e) {
-        logger.warn("could not load file ", fileName);
+        logger.verbose("could not load file ", fileName);
         return;
     }
     data = data.toString().split("\n");
@@ -174,26 +174,26 @@ export function fetchHistoryAsync() {
                             processRaw(raw);
                         })
                         .catch((e)=> {
-                            logger.warn("--- problem loading file 3: ", e);
+                            logger.verbose("problem loading file 3: ", e);
                             processRaw(raw)
                         })
                 })
                 .catch((e)=> {
-                    logger.warn("--- problem loading file 2: ", e)
+                    logger.verbose("problem loading file 2: ", e)
                     p3
                         .then((text)=> {
                             processText(raw, text);
                             processRaw(raw);
                         })
                         .catch((e)=> {
-                            logger.warn("--- problem loading file 3: ", e);
+                            logger.verbose("problem loading file 3: ", e);
                             processRaw(raw);
                         })
 
                 })
         })
         .catch((e)=> {
-            logger.warn("--- problem loading file 1: ", e);
+            logger.verbose("problem loading file 1: ", e);
             p2
                 .then((text)=> {
                     processText(raw, text);
@@ -204,38 +204,23 @@ export function fetchHistoryAsync() {
 
                         })
                         .catch((e)=> {
-                            logger.warn("--- problem loading file 3: ", e)
+                            logger.verbose("problem loading file 3: ", e)
                             processRaw(raw);
                         })
 
                 })
                 .catch((e)=> {
-                    logger.warn("--- problem loading file 2: ", e)
+                    logger.verbose("problem loading file 2: ", e)
                     p3
                         .then((text)=> {
                             processText(raw, text);
                             processRaw(raw);
                         })
                         .catch((e)=> {
-                            logger.warn("--- problem loading file 3: ", e)
+                            logger.verbose("problem loading file 3: ", e)
                             processRaw(raw);
 
                         })
                 })
         })
 }
-
-
-// var test = async function() {
-//     try {
-//         var p = await promiseFileRead(rootDir + logFileDayRel(0))
-//         console.log("--- async await test, string length: ", p.toString().length);
-//     } catch (e) {
-//         console.log(e)
-//     }
-//     // let url = 'http://api.icndb.com/jokes/random';
-//     // let response = await "string";
-// }
-//
-// test();
-//

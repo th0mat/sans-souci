@@ -1,16 +1,17 @@
-more-less component
-reload from non root
-history daily total continuous update
+prevent double running of iruka_log via pgrep
+check if iruka is logging
 scan traffic number check
-trim allMacs to last 14 days
-fix yesterday today midnight minute
+history differenctiation between away and sys-down
+more-less component
 config screen
 help help help
 email notifications
-history differenctiation between away and sys-down
 
 
 DONE
+trim allMacs to last x days
+fix yesterday today midnight minute
+reload from non root
 history auto-update
 why two socket connections for each session?
 morgan for server logging
