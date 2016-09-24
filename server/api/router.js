@@ -7,6 +7,17 @@ import * as history from './history.js';
 import {getTargetsJson} from './sendConfig';
 import promiseNotifyUpdate from './updateNotify';
 import calcNotify from './calcNotify'
+import logSysPid from './sysup'
+import logger from '../log'
+
+// check if log sys is running
+var pid = logSysPid();
+if (pid) {
+    logger.info("logSys is running with pid " + pid)
+} else {
+    logger.warn("logSys is not running");
+}
+
 
 // var numberOfDays = 3;
 history.fetchHistoryAsync();
@@ -51,6 +62,11 @@ router.get('/history/:mac', function (req, res, next) {
     var notAvail = JSON.stringify({"request result": "no data available"});
     var response = history.macSet.has(req.params.mac) ? history.macAndSysupHistoryJson(req.params.mac) : notAvail;
     res.json(response);
+
+});
+
+router.get('/sysup', function (req, res, next) {
+
 
 });
 
