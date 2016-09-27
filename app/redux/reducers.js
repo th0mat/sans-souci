@@ -21,7 +21,8 @@ const initialState = {
     targetsOnlyBup: [],
     targets: [total],
     hogs: new Map(),
-    scannerOn: true
+    scannerOn: true,
+    logSysStatus: 'unknown'  // 'unknown', 'on', or 'off'
 }
 
 
@@ -91,10 +92,12 @@ function reducer(state = initialState, action) {
             return state;
             break;
         }
-
-
         case "CANCEL_NOTIFY_CHANGES": {
             return {...state, targetsOnly: JSON.parse(JSON.stringify(state.targetsOnlyBup))};
+            break;
+        }
+        case "LOG_SYS_STATUS_RECEIVED": {
+            return {...state, logSysStatus: action.payload.status};
             break;
         }
         return state;

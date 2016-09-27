@@ -7,11 +7,13 @@ import * as history from './history.js';
 import {getTargetsJson} from './sendConfig';
 import promiseNotifyUpdate from './updateNotify';
 import calcNotify from './calcNotify'
-import logSysPid from './sysup'
+import * as logSys from './logSys'
 import logger from '../log'
+import config from '../config'
+
 
 // check if log sys is running
-var pid = logSysPid();
+var pid = logSys.getLogSysPid();
 if (pid) {
     logger.info("logSys is running with pid " + pid)
 } else {
@@ -65,10 +67,21 @@ router.get('/history/:mac', function (req, res, next) {
 
 });
 
-router.get('/sysup', function (req, res, next) {
-
-
+router.get('/logSysStatus', function (req, res, next) {
+    let onOff = logSys.getLogSysPid() ? 'on' : 'off';
+    res.json({status: onOff })
 });
 
+
+router.post('/logSysStatus', function (req, res, next) {
+    if (req.body.targetStatus === 'on'){
+        logSys.turnLogSysOn()
+        res.json({status: 'on'})
+    }
+    if (req.body.targetStatus === 'off'){
+        logSys.turnLogSysOff()
+        res.json({status: 'off'})
+    }
+});
 
 export default router;

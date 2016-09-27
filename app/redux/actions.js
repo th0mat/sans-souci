@@ -50,7 +50,6 @@ export function fetchHistory(mac){
 
 export function postNotifyChanges(targets) {
     return function(dispatch) {
-
         axios.post( url + "api/config/updateNotify", {
             targets: targets
         }, axiosConfigJson)
@@ -60,6 +59,32 @@ export function postNotifyChanges(targets) {
             })
             .catch((err) => {
                 dispatch({type: "NOTIFY_UPDATE_ERROR", payload: err})
+            })
+    }
+}
+
+export function getLogSysStatus() {
+    return function(dispatch) {
+        axios.get(url + "api/logSysStatus")
+            .then((response) => {
+                dispatch({type: "LOG_SYS_STATUS_RECEIVED", payload: response.data})
+            })
+            .catch((err) => {
+                dispatch({type: "LOG_SYS_ERROR", payload: err})
+            })
+    }
+}
+
+export function switchLogSys(onOff) {
+    return function(dispatch) {
+        axios.post( url + "api/logSysStatus", {
+            targetStatus: onOff
+        }, axiosConfigJson)
+            .then((response) => {
+                dispatch({type: "LOG_SYS_STATUS_RECEIVED", payload: response.data})
+            })
+            .catch((err) => {
+                dispatch({type: "LOG_SYS_ERROR", payload: err})
             })
     }
 }

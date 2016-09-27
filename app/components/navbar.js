@@ -24,7 +24,7 @@ function handleSelect(selectedKey) {
             break
         }
         case 6: {
-            browserHistory.push('/monitor');
+            browserHistory.push('/settings');
             break
         }
         case 3.1: {
