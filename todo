@@ -1,14 +1,18 @@
-prevent double running of iruka_log via pgrep
-check if iruka is logging
+set up server for email notifications
 scan traffic number check
 history differenctiation between away and sys-down
 more-less component
 config screen
+node level error capture
 help help help
 email notifications
 
 
 DONE
+auto-update of logSysStatus
+logSysStatus indicator in navbar
+prevent double running of iruka_log via pgrep
+check if iruka is logging
 trim allMacs to last x days
 fix yesterday today midnight minute
 reload from non root

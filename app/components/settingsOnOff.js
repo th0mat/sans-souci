@@ -12,6 +12,10 @@ import * as actions from '../redux/actions'
 })
 export default class OnOff extends React.Component {
 
+    componentWillMount(){
+        this.props.dispatch(actions.getLogSysStatus())  // to make sure it's updated
+    }
+
     turnLogSysOn(){
         this.props.dispatch(actions.switchLogSys('on'));
     }
