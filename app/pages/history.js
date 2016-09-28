@@ -19,7 +19,7 @@ import HistoryHeader from "../components/historyHeader";
         returnToLink: store.returnToLink
     };
 })
-export default class Hisotry extends React.Component {
+export default class History extends React.Component {
 
     render() {
 

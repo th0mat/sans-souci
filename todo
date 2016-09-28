@@ -1,4 +1,5 @@
 set up server for email notifications
+change notify from redux to component state
 scan traffic number check
 history differenctiation between away and sys-down
 more-less component

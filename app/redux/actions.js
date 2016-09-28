@@ -88,3 +88,18 @@ export function switchLogSys(onOff) {
             })
     }
 }
+
+export function postTargetChanges(targets) {
+    return function(dispatch) {
+        axios.post( url + "api/config/updateTargets", {
+            targets: targets
+        }, axiosConfigJson)
+            .then((response) => {
+                console.log(response);
+                dispatch({type: "TARGETS_UPDATED", payload: response})
+            })
+            .catch((err) => {
+                dispatch({type: "TARGET_UPDATE_ERROR", payload: err})
+            })
+    }
+}

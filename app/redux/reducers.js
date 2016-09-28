@@ -92,7 +92,7 @@ function reducer(state = initialState, action) {
             return state;
             break;
         }
-        case "CANCEL_NOTIFY_CHANGES": {
+        case "CANCEL_TARGET_CHANGES": {
             return {...state, targetsOnly: JSON.parse(JSON.stringify(state.targetsOnlyBup))};
             break;
         }

@@ -8,7 +8,7 @@ import * as actions from '../redux/actions';
 import {connect} from 'react-redux';
 import '../css/iruka.css';
 import {Link} from 'react-router';
-
+import {Button} from 'react-bootstrap';
 
 @connect((store) => {
     return {
@@ -33,7 +33,7 @@ export default class NotifyTargets extends React.Component {
 
     cancelChanges(event) {
         this.props.dispatch({
-            type: "CANCEL_NOTIFY_CHANGES"
+            type: "CANCEL_TARGET_CHANGES"
         })
     }
 
@@ -78,8 +78,8 @@ export default class NotifyTargets extends React.Component {
                     }
                     </tbody>
                 </table>
-                <button class="btn btn-default" onClick={this.cancelChanges}>reset</button>
-                <button class="btn btn-default" onClick={this.saveChanges}>save changes</button>
+                <Button bsStyle="default" bsSize="small" onClick={this.cancelChanges}>reset</Button>
+                <span>&nbsp;&nbsp;</span><Button bsStyle="primary" bsSize="small" onClick={this.saveChanges}>save&nbsp;</Button>
             </div>
         )
     }

@@ -14,6 +14,7 @@ import NotifyTargets from '../components/notifyTargets';
 export default class Notify extends React.Component {
 
     render() {
+
         return (
             <div>
             <Navbar/>

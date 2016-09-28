@@ -38,6 +38,7 @@ function mapDispatchToProps(dispatch) {
 export default class Hogs extends React.Component {
 
     componentDidMount() {
+        this.props.dispatch({type: "SET_RETURN_TO_LINK", payload: "/scan"});
         this.socket = socketio(url);
         var that = this;
         this.socket.on('output', function (data) {
@@ -60,7 +61,7 @@ export default class Hogs extends React.Component {
         var hogs = Array.from(this.props.hogs);
         var targets = this.props.targets;
         this.resetHogs = this.resetHogs.bind(this);
-        this.props.dispatch({type: "SET_RETURN_TO_LINK", payload: "/scan"});
+        //this.props.dispatch({type: "SET_RETURN_TO_LINK", payload: "/scan"});
 
         hogs = hogs.sort((x, y)=>y[1] - x[1]);
 

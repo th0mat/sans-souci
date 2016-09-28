@@ -11,8 +11,8 @@ import About from  './pages/about';
 import Scan from  './pages/scan';
 import Notify from './pages/notify';
 import Monitor from './pages/monitor';
-import Settings from './pages/settings'
-
+import Settings from './pages/settings';
+import EditMac from './pages/editMac';
 
 import store from './redux/store';
 import * as actions from './redux/actions';
@@ -49,6 +49,7 @@ ReactDOM.render(
                 <Route path="notify" component={Notify}/>
                 <Route path="about" component={About}/>
                 <Route path="settings" component={Settings}/>
+                <Route path="edit/:user" component={EditMac}/>
                 <Route path="monitor" component={Monitor}/>
             </Route>
 
