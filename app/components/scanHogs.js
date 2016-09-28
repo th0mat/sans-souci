@@ -10,6 +10,7 @@ import * as actions from '../redux/actions';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import {Link} from 'react-router';
+import {Button} from 'react-bootstrap';
 
 import * as actionCreators from '../redux/actions'
 import Config from '../config/config';
@@ -67,8 +68,8 @@ export default class Hogs extends React.Component {
             <div>
                 < div>
                     <span>Number of devices detected: {hogs.length}</span>
-                    <br/>
-                    <button class="btn btn-primary btn-xs" onClick={this.resetHogs}>reset</button>
+                    <br/><br/>
+                    <Button bsStyle="primary" bsSize="small" onClick={this.resetHogs}>reset</Button>
                     <br/><br/>
                     <table class="table table-striped">
                         <thead>

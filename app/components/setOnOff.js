@@ -46,9 +46,9 @@ export default class OnOff extends React.Component {
     render() {
         return (
             <div>
-                <span>Logging system: </span>
+                <span>Current status: </span>
                 {this.onOffButton(this.props.logSysStatus)[0]}
-                {this.onOffButton(this.props.logSysStatus)[1]}
+                <span>&nbsp;&nbsp;</span> {this.onOffButton(this.props.logSysStatus)[1]}
             </div>
         )
     }
