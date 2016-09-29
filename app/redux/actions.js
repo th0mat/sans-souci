@@ -12,9 +12,8 @@ var axiosConfigJson = {
 };
 
 
-
 export function fetchTargets() {
-    return function(dispatch) {
+    return function (dispatch) {
         axios.get(url + "api/config/targets")
             .then((response) => {
                 dispatch({type: "TARGETS_RECEIVED", payload: response.data})
@@ -26,16 +25,16 @@ export function fetchTargets() {
 }
 
 
-export function fetchHistory(mac){
-    return function(dispatch) {
+export function fetchHistory(mac) {
+    return function (dispatch) {
         dispatch({type: 'FETCH_NEW_HISTORY'});
         axios.get(url + 'api/history/' + mac)
             .then((response) => response.data)
             .then((responseJson) => {
                 var tmp = JSON.parse(responseJson);
-                tmp.mac = tmp.mac.filter((x)=>{
+                tmp.mac = tmp.mac.filter((x)=> {
                     let now = moment();
-                    let one = moment(x[0]*1000);
+                    let one = moment(x[0] * 1000);
                     return !(now.date() == one.date() && now.hour() < one.hour());
                 });
                 tmp.mac = tmp.mac.reverse();
@@ -49,8 +48,8 @@ export function fetchHistory(mac){
 
 
 export function postNotifyChanges(targets) {
-    return function(dispatch) {
-        axios.post( url + "api/config/updateNotify", {
+    return function (dispatch) {
+        axios.post(url + "api/config/updateNotify", {
             targets: targets
         }, axiosConfigJson)
             .then((response) => {
@@ -64,7 +63,7 @@ export function postNotifyChanges(targets) {
 }
 
 export function getLogSysStatus() {
-    return function(dispatch) {
+    return function (dispatch) {
         axios.get(url + "api/logSysStatus")
             .then((response) => {
                 dispatch({type: "LOG_SYS_STATUS_RECEIVED", payload: response.data})
@@ -76,8 +75,8 @@ export function getLogSysStatus() {
 }
 
 export function switchLogSys(onOff) {
-    return function(dispatch) {
-        axios.post( url + "api/logSysStatus", {
+    return function (dispatch) {
+        axios.post(url + "api/logSysStatus", {
             targetStatus: onOff
         }, axiosConfigJson)
             .then((response) => {
@@ -90,16 +89,26 @@ export function switchLogSys(onOff) {
 }
 
 export function postTargetChanges(targets) {
-    console.log("***** targets: ", JSON.stringify(targets))
-    return function(dispatch) {
-        axios.post( url + "api/config/targets", {
+    return function (dispatch) {
+        axios.post(url + "api/config/targets", {
             targets: targets
         }, axiosConfigJson)
             .then((response) => {
                 console.log("***** target update response: ", response);
+                dispatch({type: "TARGETS_RECEIVED", payload: targets})
             })
             .catch((err) => {
                 dispatch({type: "TARGET_UPDATE_ERROR", payload: err})
             })
     }
 }
+
+export function upoadImage(data) {
+    axios.put(url + 'api/server', data, config)
+        .then(function (res) {
+            console.log('***** image upload result: ', res.data);
+        })
+        .catch(function (err) {
+            console.log('***** impage upload error: ', err.message) ;
+        });
+};

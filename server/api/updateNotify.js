@@ -26,7 +26,7 @@ function stripTargets(targets){
 export default function promiseNotifyUpdate(targets) {
     targets = stripTargets(targets);
     return new Promise(function (resolve, reject) {
-        fs.writeFile(configNotify, JSON.stringify(targets), function (err) {
+        fs.writeFile(configNotify, JSON.stringify(targets, null, 4), function (err) {
             if (err) reject('save of notify config data failed');
             else resolve('notify config data was saved');
         });

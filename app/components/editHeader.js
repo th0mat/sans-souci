@@ -62,10 +62,7 @@ export default class EditHeader extends React.Component {
 
     saveChanges(e) {
         let updated = JSON.parse(JSON.stringify(this.props.targets));
-        console.log('***** update: ', updated);
-        console.log("**** index: ", this.state.targetIndex);
         updated[this.state.targetIndex] = this.state.target;
-        console.log("**** updated length: ", updated.length);
         this.props.dispatch(actions.postTargetChanges(updated));
         browserHistory.push('/settings');
     }

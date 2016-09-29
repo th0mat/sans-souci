@@ -1,1 +1,32 @@
-[{"macHex":"4ca56d2e03d5","dname":"Fish","avatar":"img/Nema.jpg","traffic":[0,0,0,0,0,0,0,0,0,0,0,0],"lastSeen":1474996440000,"notifyBack":false,"notifyGone":true},{"macHex":"ac5f3eefd2d3","dname":"Thomas","avatar":"img/Tom.jpg","traffic":[0,0,0,0,0,0,0,0,0,0,0,0],"lastSeen":1474996440000,"notifyBack":false,"notifyGone":true},{"macHex":"28faa0c76b80","dname":"Nim","avatar":"img/Nim.jpg","traffic":[0,0,0,0,0,0,0,0,0,0,0,0],"lastSeen":1474983000000,"notifyBack":false,"notifyGone":true},{"macHex":"08eca9ce83b0","dname":"Mint","avatar":"img/Mint.jpg","traffic":[0,0,240,0,0,0,0,909,0,394,845,1201],"lastSeen":"2016-09-29T05:29:37.016Z","notifyBack":false,"notifyGone":true},{"macHex":"bc8ccdf91ddd","dname":"TV","avatar":"img/TV.jpg","traffic":[0,0,0,0,0,0,0,0,0,0,0,0],"lastSeen":1474992480000,"notifyBack":false,"notifyGone":true},{"macHex":"00d000017c11","dname":"Security","avatar":"img/Camera.jpg","traffic":[0,0,1421,110,110,0,0,0,0,55,0,0],"lastSeen":"2016-09-29T05:29:37.016Z","notifyBack":false,"notifyGone":true}]
+[
+    {
+        "macHex": "4ca56d2e03d5",
+        "dname": "Clown Fish",
+        "avatar": "img/Nema.jpg"
+    },
+    {
+        "macHex": "ac5f3eefd2d3",
+        "dname": "Julia Roberts Fish",
+        "avatar": "img/Tom.jpg"
+    },
+    {
+        "macHex": "28faa0c76b80",
+        "dname": "Parrot Fish",
+        "avatar": "img/Nim.jpg"
+    },
+    {
+        "macHex": "08eca9ce83b0",
+        "dname": "Mint",
+        "avatar": "img/Mint.jpg"
+    },
+    {
+        "macHex": "bc8ccdf91ddd",
+        "dname": "TV",
+        "avatar": "img/TV.jpg"
+    },
+    {
+        "macHex": "00d000017c11",
+        "dname": "Security",
+        "avatar": "img/Camera.jpg"
+    }
+]
