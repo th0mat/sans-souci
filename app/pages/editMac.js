@@ -26,6 +26,10 @@ export default class EditMac extends React.Component {
             <div>
                 <Navbar/>
                 <EditHeader user={this.props.params.user}/>
+
+                <div>
+                    <Link to='/settings'>Back</Link>
+                </div>
             </div>
         )
     }

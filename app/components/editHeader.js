@@ -12,7 +12,8 @@ import Config from '../config/config';
 import '../css/iruka.css';
 import {Link} from 'react-router';
 import {Button} from 'react-bootstrap';
-
+import {browserHistory} from 'react-router';
+import * as actions from '../redux/actions';
 
 @connect((store) => {
     return {
@@ -20,56 +21,84 @@ import {Button} from 'react-bootstrap';
     };
 })
 export default class EditHeader extends React.Component {
-
-    getInitialState(){
-
+    constructor(props) {
+        super(props);
+        this.state = {
+            targetIndex: this.props.targets.indexOf(this.props.targets.find(x=>x.macHex === this.props.user)),
+            target: JSON.parse(JSON.stringify(this.props.targets.find(x=>x.macHex === this.props.user))),
+            };
     }
+
 
 
     cancelChanges(event) {
-        this.props.dispatch({
-            type: "CANCEL_TARGET_CHANGES"
-        })
+        browserHistory.push('/settings');
     }
 
+    handleChange(e) {
+        let updated = this.state.target;
+        updated[e.target.name] = e.target.value;
+        this.setState({target: updated});
+    }
 
     removeTarget(){
 
     }
 
-    target() {
-        for (let i in this.props.targets) {
-            if (this.props.targets[i].macHex === this.props.user) {
-                return this.props.targets[i];
-            }
+    previewFile(){
+        var preview = document.querySelector('img');
+        var file    = document.querySelector('input[type=file]').files[0];
+        var reader  = new FileReader();
+
+        reader.addEventListener("load", function () {
+            preview.src = reader.result;
+        }, false);
+
+        if (file) {
+            reader.readAsDataURL(file);
         }
-        return Config.incognito;
     }
 
-    saveChanges(event) {
-        this.props.dispatch(actions.postNotifyChanges(this.props.targets));
+
+    saveChanges(e) {
+        let updated = JSON.parse(JSON.stringify(this.props.targets));
+        console.log('***** update: ', updated);
+        console.log("**** index: ", this.state.targetIndex);
+        updated[this.state.targetIndex] = this.state.target;
+        console.log("**** updated length: ", updated.length);
+        this.props.dispatch(actions.postTargetChanges(updated));
+        browserHistory.push('/settings');
     }
 
 
 
     render(){
-        this.cancelChanges = this.cancelChanges.bind(this);
         this.saveChanges = this.saveChanges.bind(this);
         this.removeTarget = this.removeTarget.bind(this);
-        var found = this.target();
+        this.handleChange = this.handleChange.bind(this);
+        // var found = this.target();
         return (
             <div>
                 <br/>
-                <Link to='/settings'> <img src={"../../" + found.avatar} class="user-pix"
-                                                         height="120" width="120"/> </Link>
+                <Link to='/settings'> <img src={"../../" + this.state.target.avatar} class="user-pix"
+                                                         height="240" width="240"/> </Link>
                 <div id="user-info">
-                    <h2>{found.dname}</h2>
-                    <p>{this.props.user}</p>
+                    <h2><input name="dname" value={this.state.target.dname} type="text"
+                                               onChange={this.handleChange}/></h2>
+                    <p><input name="macHex" value={this.state.target.macHex} type="text"
+                              onChange={this.handleChange}/></p>
                 </div>
+                <br/>
+
+                <h3>To change picture</h3>
+
+                <input type="file" onChange={this.previewFile}/>
+
                 <br/><br/>
                 <Button bsStyle="default" bsSize="small" onClick={this.cancelChanges}>cancel</Button>
                 <span>&nbsp;&nbsp;</span><Button bsStyle="warning" bsSize="small" onClick={this.removeTarget}>remove</Button>
                 <span>&nbsp;&nbsp;</span><Button bsStyle="primary" bsSize="small" onClick={this.saveChanges}>save&nbsp;</Button>
+                <br/><br/>
             </div>
         )
     }

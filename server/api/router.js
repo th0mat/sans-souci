@@ -6,6 +6,7 @@ var router = express.Router();
 import * as history from './history.js';
 import {getTargetsJson} from './sendConfig';
 import promiseNotifyUpdate from './updateNotify';
+import promiseTargetsUpdate from './updateTargets';
 import calcNotify from './calcNotify'
 import * as logSys from './logSys'
 import logger from '../log'
@@ -49,6 +50,12 @@ setInterval(
 router.get('/config/targets', function (req, res, next) {
     var targetsJson = getTargetsJson(history.lastSeen);
     res.send(targetsJson);
+});
+
+router.post('/config/targets', function (req, res, next) {
+    promiseTargetsUpdate(req.body.targets)
+        .then((result) => {res.send(result)})
+        .catch((error) => {res.send(error)});
 });
 
 
