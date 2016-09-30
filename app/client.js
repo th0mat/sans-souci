@@ -22,7 +22,7 @@ store.dispatch(actions.fetchTargets());
 store.dispatch(actions.getLogSysStatus());
 
 
-setInterval(()=>store.dispatch(actions.getLogSysStatus()), 60000);
+setInterval(()=>store.dispatch(actions.getLogSysStatus()), 300000);
 
 var Layout = React.createClass({
 

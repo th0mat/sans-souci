@@ -34,7 +34,7 @@ app.use(morgan('combined', {stream: accessLogStream}));
 app.use(express.static('app'));
 app.use(express.static('dist'));
 
-app.use(bodyParser.json());
+app.use(bodyParser.json({limit: '5000kb'}));
 app.use(allowCrossDomain);
 app.use('/api', apiRouter);
 

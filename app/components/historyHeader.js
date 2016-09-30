@@ -46,6 +46,7 @@ export default class HistoryHeader extends React.Component {
                 <div id="user-info">
                     <h2>{found.dname}</h2><span class="label pull-right label-default">auto-updates</span>
                     <p>{sub}</p>
+                    <p><Link to={"/edit/" + this.props.user}>edit</Link></p>
                 </div>
             </div>
         )

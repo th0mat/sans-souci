@@ -23,11 +23,28 @@ import * as actions from '../redux/actions';
 export default class EditHeader extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {
-            targetIndex: this.props.targets.indexOf(this.props.targets.find(x=>x.macHex === this.props.user)),
-            target: JSON.parse(JSON.stringify(this.props.targets.find(x=>x.macHex === this.props.user))),
-            file: null,
-        };
+        if (this.props.targets.indexOf(this.props.targets.find(x=>x.macHex === this.props.user)) === -1) {
+            this.index = this.props.targets.length; // one after the last current target
+            this.target = {
+                macHex: this.props.user,
+                dname: 'Incognito',
+                avatar: 'img/Incognito.jpg',
+                lastSeen: null,
+                notifyBack: false,
+                notifyGone: false,
+                traffic: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+            };
+            this.state = {
+                targetIndex: this.index, target: this.target, file: null
+            }
+        } else {
+            this.state = {
+                targetIndex: this.props.targets.indexOf(this.props.targets.find(x=>x.macHex === this.props.user)),
+
+                target: JSON.parse(JSON.stringify(this.props.targets.find(x=>x.macHex === this.props.user))),
+                file: null,
+            };
+        }
     }
 
 
@@ -69,14 +86,16 @@ export default class EditHeader extends React.Component {
 
     saveChanges(e) {
         let updated = JSON.parse(JSON.stringify(this.props.targets));
+        updated[this.state.targetIndex] = this.state.target;
+        // upload image and post target changes
         if (this.state.file !== null) {  // avatar has changed
             console.log('***** saveChanges file ', this.state.file);
             console.log('***** saveChanges index ', this.state.targetIndex);
-            this.props.dispatch(actions.uploadImage(this.state.file, this.state.targetIndex));
+            this.props.dispatch(actions.uploadImage(this.state.file, this.state.targetIndex, updated));
+        } else {
+            // target changes only
+            this.props.dispatch(actions.postTargetChanges(updated));
         }
-        updated[this.state.targetIndex] = this.state.target;
-        // avatar path will be updated via uploadImage action
-        this.props.dispatch(actions.postTargetChanges(updated));
         browserHistory.push('/settings');
     }
 

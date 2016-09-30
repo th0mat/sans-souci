@@ -56,15 +56,25 @@ router.get('/config/targets', function (req, res, next) {
 
 router.post('/config/targets', function (req, res, next) {
     promiseTargetsUpdate(req.body.targets)
-        .then((result) => {res.send(result)})
-        .catch((error) => {res.send(error)});
+        .then((result) => {
+            logger.warn('targets file was updated');
+            res.send(result)
+        })
+        .catch((error) => {
+            logger.error('targets file update failed');
+            res.send(error)
+        });
 });
 
 
 router.post('/config/updateNotify', function (req, res, next) {
     promiseNotifyUpdate(req.body.targets)
-        .then((result) => {res.send(result)})
-        .catch((error) => {res.send(error)});
+        .then((result) => {
+            res.send(result)
+        })
+        .catch((error) => {
+            res.send(error)
+        });
 });
 
 
@@ -78,42 +88,30 @@ router.get('/history/:mac', function (req, res, next) {
 
 router.get('/logSysStatus', function (req, res, next) {
     let onOff = logSys.getLogSysPid() ? 'on' : 'off';
-    res.json({status: onOff })
+    res.json({status: onOff})
 });
 
 
 router.post('/logSysStatus', function (req, res, next) {
-    if (req.body.targetStatus === 'on'){
+    if (req.body.targetStatus === 'on') {
         logSys.turnLogSysOn()
         res.json({status: 'on'})
     }
-    if (req.body.targetStatus === 'off'){
+    if (req.body.targetStatus === 'off') {
         logSys.turnLogSysOff()
         res.json({status: 'off'})
     }
 });
 
 
-var testImg = path.normalize(__dirname + '/../../app/img/test.jpg');
 
 router.put('/image', function (req, res, next) {
-    var data = '';
-
-    req.on('data', function (chunk) {
-        data += chunk;
-    });
-
-    req.on('end', function () {
-        console.log("*****body: ", req.body)
-        console.log('*****File uploaded, data length: ' + data.length);
-        let binary = new Buffer(data, 'base64');
-        fs.writeFileSync(testImg, binary);
-
-        //res.writeHead(200);
-        res.send('image received');
-    });
+    let binary = new Buffer(req.body.content, 'base64');
+    var testImg = path.normalize(__dirname + '/../../app/img/' + req.body.avatar);
+    fs.writeFileSync(testImg, binary);
+    //res.writeHead(200);
+    res.send('image received');
 });
-
 
 
 export default router;

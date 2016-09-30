@@ -94,7 +94,6 @@ export function postTargetChanges(targets) {
             targets: targets
         }, axiosConfigJson)
             .then((response) => {
-                console.log("***** target update response: ", response);
                 dispatch({type: "TARGETS_RECEIVED", payload: targets})
             })
             .catch((err) => {
@@ -103,16 +102,16 @@ export function postTargetChanges(targets) {
     }
 }
 
-export function uploadImage(file, index) {
+export function uploadImage(file, index, targets) {
     return function (dispatch) {
         var reader = new FileReader;
         reader.addEventListener("loadend", function () {
             let base64String = _arrayBufferToBase64(reader.result);
-            axios.put(url + 'api/image', base64String)
+            axios.put(url + 'api/image', {content: base64String, avatar: file.name},  axiosConfigJson)
                 .then(function (res) {
                     dispatch({type: "IMAGE_UPLOADED"});
-                    console.log('***** image upload result: ', res.data);
-
+                    targets[index].avatar = 'img/' + file.name;
+                    dispatch(postTargetChanges(targets))
                 })
                 .catch(function (err) {
                     console.log('***** impage upload error: ', err.message);

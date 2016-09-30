@@ -1,13 +1,13 @@
 [
     {
         "macHex": "4ca56d2e03d5",
-        "dname": "Nema",
+        "dname": "Clown Fish",
         "avatar": "img/Nema.jpg"
     },
     {
         "macHex": "ac5f3eefd2d3",
         "dname": "Wieland",
-        "avatar": "img/Tom.jpg"
+        "avatar": "img/MorningGlory.jpg"
     },
     {
         "macHex": "28faa0c76b80",
@@ -16,8 +16,8 @@
     },
     {
         "macHex": "08eca9ce83b0",
-        "dname": "Mint",
-        "avatar": "img/Mint.jpg"
+        "dname": "Tompad",
+        "avatar": "img/BS copy.gif"
     },
     {
         "macHex": "bc8ccdf91ddd",
@@ -28,5 +28,15 @@
         "macHex": "00d000017c11",
         "dname": "Security",
         "avatar": "img/Camera.jpg"
+    },
+    {
+        "macHex": "7c9122d5a978",
+        "dname": "Mint Maybe",
+        "avatar": "img/silicone toy.jpg"
+    },
+    {
+        "macHex": "00c00017bf23",
+        "dname": "NowIdeaWho",
+        "avatar": "img/Incognito.jpg"
     }
 ]
