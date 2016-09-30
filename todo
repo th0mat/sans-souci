@@ -1,4 +1,5 @@
 bootstrap confirmation alert for delete
+fix hourly data for three day zero (stays with previous history)
 validation for mac addresses
 validation for uploaded images
 set up server for email notifications

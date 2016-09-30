@@ -92,12 +92,20 @@ function reducer(state = initialState, action) {
             return state;
             break;
         }
-        case "CANCEL_TARGET_CHANGES": {
-            return {...state, targetsOnly: JSON.parse(JSON.stringify(state.targetsOnlyBup))};
+        case "NOTIFY_UPDATE_ERROR": {
+            return state;
+            break;
+        }
+        case "IMAGE_UPLOADED": {
+            return state;
             break;
         }
         case "LOG_SYS_STATUS_RECEIVED": {
             return {...state, logSysStatus: action.payload.status};
+            break;
+        }
+        case "LOG_SYS_ERROR": {
+            return {...state, logSysStatus: 'unknown'};
             break;
         }
         return state;

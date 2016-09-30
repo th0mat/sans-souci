@@ -11,6 +11,8 @@ import calcNotify from './calcNotify'
 import * as logSys from './logSys'
 import logger from '../log'
 import config from '../config'
+import path from 'path';
+import fs from 'fs';
 
 
 // check if log sys is running
@@ -90,5 +92,28 @@ router.post('/logSysStatus', function (req, res, next) {
         res.json({status: 'off'})
     }
 });
+
+
+var testImg = path.normalize(__dirname + '/../../app/img/test.jpg');
+
+router.put('/image', function (req, res, next) {
+    var data = '';
+
+    req.on('data', function (chunk) {
+        data += chunk;
+    });
+
+    req.on('end', function () {
+        console.log("*****body: ", req.body)
+        console.log('*****File uploaded, data length: ' + data.length);
+        let binary = new Buffer(data, 'base64');
+        fs.writeFileSync(testImg, binary);
+
+        //res.writeHead(200);
+        res.send('image received');
+    });
+});
+
+
 
 export default router;

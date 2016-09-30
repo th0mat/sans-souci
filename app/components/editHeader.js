@@ -26,9 +26,9 @@ export default class EditHeader extends React.Component {
         this.state = {
             targetIndex: this.props.targets.indexOf(this.props.targets.find(x=>x.macHex === this.props.user)),
             target: JSON.parse(JSON.stringify(this.props.targets.find(x=>x.macHex === this.props.user))),
-            };
+            file: null,
+        };
     }
-
 
 
     cancelChanges(event) {
@@ -41,17 +41,24 @@ export default class EditHeader extends React.Component {
         this.setState({target: updated});
     }
 
-    removeTarget(){
+    removeTarget() {
 
     }
 
-    previewFile(){
+    previewFile() {
         var preview = document.querySelector('img');
-        var file    = document.querySelector('input[type=file]').files[0];
-        var reader  = new FileReader();
-
+        var file = document.querySelector('input[type=file]').files[0];
+        var reader = new FileReader();
+        var that = this;
         reader.addEventListener("load", function () {
+            console.log('***** file obj: ', file)
             preview.src = reader.result;
+            // var tmpTarget = that.state.target;
+            // tmpTarget.avatar = file.name;
+            that.setState({file: file});
+            // var upload = that.state.uploadImage;
+            // upload.append('file', file);
+            // that.setState({uploadImage: upload})
         }, false);
 
         if (file) {
@@ -62,26 +69,36 @@ export default class EditHeader extends React.Component {
 
     saveChanges(e) {
         let updated = JSON.parse(JSON.stringify(this.props.targets));
+        if (this.state.file !== null) {  // avatar has changed
+            console.log('***** saveChanges file ', this.state.file);
+            console.log('***** saveChanges index ', this.state.targetIndex);
+            this.props.dispatch(actions.uploadImage(this.state.file, this.state.targetIndex));
+        }
         updated[this.state.targetIndex] = this.state.target;
+        // avatar path will be updated via uploadImage action
         this.props.dispatch(actions.postTargetChanges(updated));
         browserHistory.push('/settings');
     }
 
 
+    uploadImage() {
+    }
 
-    render(){
+
+    render() {
         this.saveChanges = this.saveChanges.bind(this);
         this.removeTarget = this.removeTarget.bind(this);
         this.handleChange = this.handleChange.bind(this);
+        this.previewFile = this.previewFile.bind(this);
         // var found = this.target();
         return (
             <div>
                 <br/>
                 <Link to='/settings'> <img src={"../../" + this.state.target.avatar} class="user-pix"
-                                                         height="240" width="240"/> </Link>
+                                           height="240" width="240"/> </Link>
                 <div id="user-info">
                     <h2><input name="dname" value={this.state.target.dname} type="text"
-                                               onChange={this.handleChange}/></h2>
+                               onChange={this.handleChange}/></h2>
                     <p><input name="macHex" value={this.state.target.macHex} type="text"
                               onChange={this.handleChange}/></p>
                 </div>
@@ -93,8 +110,10 @@ export default class EditHeader extends React.Component {
 
                 <br/><br/>
                 <Button bsStyle="default" bsSize="small" onClick={this.cancelChanges}>cancel</Button>
-                <span>&nbsp;&nbsp;</span><Button bsStyle="warning" bsSize="small" onClick={this.removeTarget}>remove</Button>
-                <span>&nbsp;&nbsp;</span><Button bsStyle="primary" bsSize="small" onClick={this.saveChanges}>save&nbsp;</Button>
+                <span>&nbsp;&nbsp;</span><Button bsStyle="warning" bsSize="small"
+                                                 onClick={this.removeTarget}>remove</Button>
+                <span>&nbsp;&nbsp;</span><Button bsStyle="primary" bsSize="small"
+                                                 onClick={this.saveChanges}>save&nbsp;</Button>
                 <br/><br/>
             </div>
         )

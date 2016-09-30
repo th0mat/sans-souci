@@ -103,12 +103,33 @@ export function postTargetChanges(targets) {
     }
 }
 
-export function upoadImage(data) {
-    axios.put(url + 'api/server', data, config)
-        .then(function (res) {
-            console.log('***** image upload result: ', res.data);
-        })
-        .catch(function (err) {
-            console.log('***** impage upload error: ', err.message) ;
+export function uploadImage(file, index) {
+    return function (dispatch) {
+        var reader = new FileReader;
+        reader.addEventListener("loadend", function () {
+            let base64String = _arrayBufferToBase64(reader.result);
+            axios.put(url + 'api/image', base64String)
+                .then(function (res) {
+                    dispatch({type: "IMAGE_UPLOADED"});
+                    console.log('***** image upload result: ', res.data);
+
+                })
+                .catch(function (err) {
+                    console.log('***** impage upload error: ', err.message);
+                });
         });
-};
+        reader.readAsArrayBuffer(file);
+
+    };
+}
+
+
+function _arrayBufferToBase64( buffer ) {
+    var binary = '';
+    var bytes = new Uint8Array( buffer );
+    var len = bytes.byteLength;
+    for (var i = 0; i < len; i++) {
+        binary += String.fromCharCode( bytes[ i ] );
+    }
+    return window.btoa( binary );
+}
