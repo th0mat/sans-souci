@@ -39,7 +39,7 @@ export default class NotifyTargets extends React.Component {
 
 
     saveChanges(event) {
-        this.props.dispatch(actions.postNotifyChanges(this.props.targets));
+        this.props.dispatch(actions.postTargetChanges(this.props.targets));
     }
 
     render() {

@@ -5,7 +5,6 @@ import express from 'express';
 var router = express.Router();
 import * as history from './history.js';
 import {getTargetsJson} from './sendConfig';
-import promiseNotifyUpdate from './updateNotify';
 import promiseTargetsUpdate from './updateTargets';
 import calcNotify from './calcNotify'
 import * as logSys from './logSys'
@@ -66,16 +65,6 @@ router.post('/config/targets', function (req, res, next) {
         });
 });
 
-
-router.post('/config/updateNotify', function (req, res, next) {
-    promiseNotifyUpdate(req.body.targets)
-        .then((result) => {
-            res.send(result)
-        })
-        .catch((error) => {
-            res.send(error)
-        });
-});
 
 
 //export default router.get('/history/:day/:mac', function (req, res, next) {

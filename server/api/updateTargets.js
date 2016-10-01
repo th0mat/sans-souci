@@ -27,6 +27,8 @@ function stripTargets(targets) {
         s.macHex = t.macHex;
         s.dname = t.dname;
         s.avatar = t.avatar;
+        s.notifyGone = t.notifyGone;
+        s.notifyBack = t.notifyBack;
         stripped.push(s);
     }
     return stripped;

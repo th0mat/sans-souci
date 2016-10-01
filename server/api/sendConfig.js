@@ -47,34 +47,34 @@ function addTrafficArray(targets){
 
 }
 
-function addNotify(targets) {
-    try {
-        var data = fs.readFileSync(notifyFile);
-        var notifyJson = JSON.parse(data);
-    } catch (e) {
-        notifyJson = [];
-    }
-    for (var t of targets) {
-        var f = notifyJson.find((x)=>{
-            return x.macHex === t.macHex
-        });
-        if (f) {
-            t['notifyBack'] = f.notifyBack;
-            t['notifyGone'] = f.notifyGone;
-        } else {
-            t['notifyBack'] = false;
-            t['notifyGone'] = false;
-        }
-    }
-    return targets;
-
-}
+// function addNotify(targets) {
+//     try {
+//         var data = fs.readFileSync(notifyFile);
+//         var notifyJson = JSON.parse(data);
+//     } catch (e) {
+//         notifyJson = [];
+//     }
+//     for (var t of targets) {
+//         var f = notifyJson.find((x)=>{
+//             return x.macHex === t.macHex
+//         });
+//         if (f) {
+//             t['notifyBack'] = f.notifyBack;
+//             t['notifyGone'] = f.notifyGone;
+//         } else {
+//             t['notifyBack'] = false;
+//             t['notifyGone'] = false;
+//         }
+//     }
+//     return targets;
+//
+// }
 
 
 export function getTargetsJson(history){
     var targets = getTargetsFile();
     targets = addTrafficArray(targets);
     targets = addLastSeen(targets, history);
-    targets = addNotify(targets);
+    // targets = addNotify(targets);
     return targets;
 }

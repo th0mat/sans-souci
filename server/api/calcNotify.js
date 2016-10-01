@@ -9,10 +9,11 @@ import moment from 'moment';
 
 import logger from '../log'
 
-var configNotify = path.normalize(__dirname + '/../../server.config/notify.json');
+//var configNotify = path.normalize(__dirname + '/../../server.config/notify.json');
 var configTargets = path.normalize(__dirname + '/../../server.config/targets.json');
 
-var notify, targets;
+var targets;
+// var notify, targets;
 
 var sysUpFull = false;
 
@@ -20,12 +21,12 @@ var sysUpFull = false;
 export default function getPendingNotifications(history) {
     var lastSeen = history.lastSeen;
     var prevLastSeen = history.prevLastSeen;
-    var notify = JSON.parse(fs.readFileSync(configNotify));
+    //var notify = JSON.parse(fs.readFileSync(configNotify));
     var targets = JSON.parse(fs.readFileSync(configTargets));
     // console.log(targets);
     var now = Math.floor(Date.now() / 1000);
     now = now - (now % 60) + 60; // put on full min
-    for (var t of notify) {
+    for (var t of targets) {
         var msg = "";
         var last = lastSeen.find((e)=> {
             return e[0] === t.macHex
