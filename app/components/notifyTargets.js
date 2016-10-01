@@ -8,6 +8,7 @@ import * as actions from '../redux/actions';
 import {connect} from 'react-redux';
 import '../css/iruka.css';
 import {Link} from 'react-router';
+import {browserHistory} from 'react-router';
 import {Button} from 'react-bootstrap';
 
 @connect((store) => {
@@ -17,38 +18,34 @@ import {Button} from 'react-bootstrap';
 })
 export default class NotifyTargets extends React.Component {
 
-    handleChangeGone(event) {
-        this.props.dispatch({
-            type: 'TOGGLE_NOTIFY_GONE',
-            payload: event.target.name
-        });
+    constructor(props) {
+        super(props);
+        this.state = {
+            targets: JSON.parse(JSON.stringify(this.props.targets))
+        }
     }
 
-    handleChangeBack(event) {
-        this.props.dispatch({
-            type: 'TOGGLE_NOTIFY_BACK',
-            payload: event.target.name
-        });
+    handleChange(goneBack, event) {
+        var t = this.state.targets.find((x)=>x.macHex === event.target.name);
+        t[goneBack] = !t[goneBack];
+        let targets = JSON.parse(JSON.stringify(this.state.targets));
+        this.setState({targets: targets})
     }
+
 
     cancelChanges(event) {
-        this.props.dispatch({
-            type: "CANCEL_TARGET_CHANGES"
-        })
+        browserHistory.push('/');
     }
 
 
     saveChanges(event) {
-        this.props.dispatch(actions.postTargetChanges(this.props.targets));
+        this.props.dispatch(actions.postTargetChanges(this.state.targets));
+        browserHistory.push('/');
     }
 
     render() {
-        this.handleChangeBack = this.handleChangeBack.bind(this);
-        this.handleChangeGone = this.handleChangeGone.bind(this);
-        this.cancelChanges = this.cancelChanges.bind(this);
-        this.saveChanges = this.saveChanges.bind(this);
 
-        var unsaved = this.props.targets;
+        var unsaved = this.state.targets;
         return (
             <div>
                 <h4>Notification targets</h4>
@@ -68,9 +65,9 @@ export default class NotifyTargets extends React.Component {
                                     <tr key={x.macHex}>
                                         <td>{x.dname}</td>
                                         <td><input type="checkbox" checked={x.notifyGone} name={x.macHex}
-                                                   onChange={this.handleChangeGone}/></td>
+                                                   onChange={this.handleChange.bind(this, 'notifyGone')}/></td>
                                         <td><input type="checkbox" checked={x.notifyBack} name={x.macHex}
-                                                   onChange={this.handleChangeBack}/></td>
+                                                   onChange={this.handleChange.bind(this, 'notifyBack')}/></td>
                                     </tr>
                                 )
                             }
@@ -79,7 +76,8 @@ export default class NotifyTargets extends React.Component {
                     </tbody>
                 </table>
                 <Button bsStyle="default" bsSize="small" onClick={this.cancelChanges}>reset</Button>
-                <span>&nbsp;&nbsp;</span><Button bsStyle="primary" bsSize="small" onClick={this.saveChanges}>save&nbsp;</Button>
+                <span>&nbsp;&nbsp;</span><Button bsStyle="primary" bsSize="small"
+                                                 onClick={this.saveChanges.bind(this)}>save&nbsp;</Button>
             </div>
         )
     }

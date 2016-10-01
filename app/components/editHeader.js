@@ -1,6 +1,3 @@
-/**
- * Created by thomasnatter on 9/2/16.
- */
 
 import React from 'react';
 import 'history';

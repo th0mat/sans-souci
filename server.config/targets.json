@@ -3,14 +3,14 @@
         "macHex": "4ca56d2e03d5",
         "dname": "Clown Fish",
         "avatar": "img/Nema.jpg",
-        "notifyGone": true,
+        "notifyGone": false,
         "notifyBack": false
     },
     {
         "macHex": "ac5f3eefd2d3",
         "dname": "Wieland",
         "avatar": "img/BS copy.gif",
-        "notifyGone": true,
+        "notifyGone": false,
         "notifyBack": false
     },
     {
@@ -18,27 +18,27 @@
         "dname": "Somrutai",
         "avatar": "img/Nim.jpg",
         "notifyGone": true,
-        "notifyBack": false
+        "notifyBack": true
     },
     {
         "macHex": "08eca9ce83b0",
         "dname": "Tompad",
         "avatar": "img/BS copy.gif",
-        "notifyGone": true,
+        "notifyGone": false,
         "notifyBack": false
     },
     {
         "macHex": "bc8ccdf91ddd",
         "dname": "TV",
         "avatar": "img/TV.jpg",
-        "notifyGone": true,
+        "notifyGone": false,
         "notifyBack": false
     },
     {
         "macHex": "00d000017c11",
         "dname": "Security",
         "avatar": "img/Camera.jpg",
-        "notifyGone": true,
+        "notifyGone": false,
         "notifyBack": false
     },
     {

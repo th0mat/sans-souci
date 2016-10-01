@@ -49,8 +49,9 @@ export default class OnOff extends React.Component {
                 <span style={ (this.props.logSysStatus !== 'on') ? {color: 'red'} : {}}>{this.onOffButton(this.props.logSysStatus)[0]}</span>
                 <span>&nbsp;&nbsp;</span> {this.onOffButton(this.props.logSysStatus)[1]}
                 <br/><br/>
-                <p>The logging system records history data. While it is turned off, no data
-                will be recorded, but live monitoring is still possible.</p>
+                <p>The logging system records traffic data. While it is turned off, no data
+                will be recorded for the 'history' view, but live monitoring is still possible. The 'notify' function
+                works only when the logging system is running.</p>
 
 
             </div>

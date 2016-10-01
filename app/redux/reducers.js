@@ -72,30 +72,6 @@ function reducer(state = initialState, action) {
             return {...state, hogs: new Map()}
             break;
         }
-        case "TOGGLE_NOTIFY_BACK": {
-            var t = state.targetsOnly.find((x)=>x.macHex === action.payload)
-            t.notifyBack = !t.notifyBack;
-            return {...state, targetsOnly: [...state.targetsOnly]}
-            break;
-        }
-        case "TOGGLE_NOTIFY_GONE": {
-            var t = state.targetsOnly.find((x)=>x.macHex === action.payload)
-            t.notifyGone = !t.notifyGone;
-            return {...state, targetsOnly: [...state.targetsOnly]}
-            break;
-        }
-        case "NOTIFY_UPDATED": {
-            return state;
-            break;
-        }
-        case "NOTIFY_UPDATE_ERROR": {
-            return state;
-            break;
-        }
-        case "NOTIFY_UPDATE_ERROR": {
-            return state;
-            break;
-        }
         case "IMAGE_UPLOADED": {
             return state;
             break;
