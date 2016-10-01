@@ -1,14 +1,10 @@
 /**
  * Created by thomasnatter on 9/2/16.
  */
-/**
- * Created by thomasnatter on 8/13/16.
- */
 
 import React from 'react';
 import 'history';
 import {connect} from 'react-redux';
-import Config from '../config/config';
 import '../css/iruka.css';
 import {Link} from 'react-router';
 import {Button} from 'react-bootstrap';

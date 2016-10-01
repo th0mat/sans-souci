@@ -26,29 +26,33 @@ export default class OnOff extends React.Component {
 
 
     onOffButton(logSysStatus) {
-        var button, second;
+        var status, second;
         switch (logSysStatus) {
             case "unknown" :
-                button = <Button bsStyle="warning" bsSize="small">no connection</Button>;
+                status = 'No connetion to verify system status';
                 second = '';
                 break;
             case "on" :
-                button = <Button bsStyle="success" bsSize="small">running</Button>;
+                status = 'The logging system is running';
                 second = <Button bsStyle="danger" bsSize="small" onClick={this.turnLogSysOff.bind(this)}>turn off</Button>;
                 break;
             case "off" :
-                button = <Button bsStyle="danger" bsSize="small">off</Button>;
-                second = <Button bsStyle="default" bsSize="small" onClick={this.turnLogSysOn.bind(this)}>turn on</Button>;
+                status = 'The logging system is not running';
+                second = <Button bsStyle="primary" bsSize="small" onClick={this.turnLogSysOn.bind(this)}>turn on</Button>;
         }
-        return [ button, second ];
+        return [ status, second ];
     }
 
     render() {
         return (
             <div>
-                <span>Current status: </span>
-                {this.onOffButton(this.props.logSysStatus)[0]}
+                <span style={ (this.props.logSysStatus !== 'on') ? {color: 'red'} : {}}>{this.onOffButton(this.props.logSysStatus)[0]}</span>
                 <span>&nbsp;&nbsp;</span> {this.onOffButton(this.props.logSysStatus)[1]}
+                <br/><br/>
+                <p>The logging system records history data. While it is turned off, no data
+                will be recorded, but live monitoring is still possible.</p>
+
+
             </div>
         )
     }
