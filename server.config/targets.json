@@ -7,7 +7,7 @@
     {
         "macHex": "ac5f3eefd2d3",
         "dname": "Wieland",
-        "avatar": "img/MorningGlory.jpg"
+        "avatar": "img/BS copy.gif"
     },
     {
         "macHex": "28faa0c76b80",
@@ -32,11 +32,16 @@
     {
         "macHex": "7c9122d5a978",
         "dname": "Mint Maybe",
-        "avatar": "img/silicone toy.jpg"
+        "avatar": "img/Mint.jpg"
     },
     {
-        "macHex": "00c00017bf23",
-        "dname": "NowIdeaWho",
+        "macHex": "040ccedde9f2",
+        "dname": "Air",
+        "avatar": "img/Tom.jpg"
+    },
+    {
+        "macHex": "abcdef123456",
+        "dname": "Incognito",
         "avatar": "img/Incognito.jpg"
     }
 ]

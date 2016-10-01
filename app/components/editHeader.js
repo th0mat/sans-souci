@@ -48,7 +48,7 @@ export default class EditHeader extends React.Component {
     }
 
 
-    cancelChanges(event) {
+    cancelChanges(e) {
         browserHistory.push('/settings');
     }
 
@@ -58,8 +58,15 @@ export default class EditHeader extends React.Component {
         this.setState({target: updated});
     }
 
-    removeTarget() {
-
+    removeTarget(e) {
+        if (this.state.targetIndex === this.props.targets.length) {
+            // not in the target list yet anyhow, so nothing to do
+        } else {
+            let targets = JSON.parse(JSON.stringify(this.props.targets));
+            targets.splice(this.state.targetIndex, 1);
+            this.props.dispatch(actions.postTargetChanges(targets))
+        }
+        browserHistory.push('/settings');
     }
 
     previewFile() {
@@ -68,14 +75,8 @@ export default class EditHeader extends React.Component {
         var reader = new FileReader();
         var that = this;
         reader.addEventListener("load", function () {
-            console.log('***** file obj: ', file)
             preview.src = reader.result;
-            // var tmpTarget = that.state.target;
-            // tmpTarget.avatar = file.name;
             that.setState({file: file});
-            // var upload = that.state.uploadImage;
-            // upload.append('file', file);
-            // that.setState({uploadImage: upload})
         }, false);
 
         if (file) {
@@ -89,18 +90,12 @@ export default class EditHeader extends React.Component {
         updated[this.state.targetIndex] = this.state.target;
         // upload image and post target changes
         if (this.state.file !== null) {  // avatar has changed
-            console.log('***** saveChanges file ', this.state.file);
-            console.log('***** saveChanges index ', this.state.targetIndex);
             this.props.dispatch(actions.uploadImage(this.state.file, this.state.targetIndex, updated));
         } else {
             // target changes only
             this.props.dispatch(actions.postTargetChanges(updated));
         }
         browserHistory.push('/settings');
-    }
-
-
-    uploadImage() {
     }
 
 
@@ -130,7 +125,7 @@ export default class EditHeader extends React.Component {
                 <br/><br/>
                 <Button bsStyle="default" bsSize="small" onClick={this.cancelChanges}>cancel</Button>
                 <span>&nbsp;&nbsp;</span><Button bsStyle="warning" bsSize="small"
-                                                 onClick={this.removeTarget}>remove</Button>
+                                                 onClick={this.removeTarget.bind(this)}>remove</Button>
                 <span>&nbsp;&nbsp;</span><Button bsStyle="primary" bsSize="small"
                                                  onClick={this.saveChanges}>save&nbsp;</Button>
                 <br/><br/>
