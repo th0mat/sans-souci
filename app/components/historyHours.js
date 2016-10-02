@@ -11,19 +11,18 @@ import {connect} from 'react-redux';
 import {Link} from 'react-router';
 
 
-
 @connect((store) => {
     return {
         tsec: store.targets,
         mac: store.macHistory,
+        sysup: store.sysupHistory,
         returnToLink: store.returnToLink
     };
 })
 export default class hours extends React.Component {
 
 
-    componentDidMount()
-    {
+    componentDidMount() {
         this.props.dispatch(actions.fetchHistory(this.props.user));
         this.fetch = setInterval(()=>this.props.dispatch(actions.fetchHistory(this.props.user)), 30000);
     }
@@ -33,8 +32,16 @@ export default class hours extends React.Component {
         clearInterval(this.fetch);
     }
 
+    getSysUpHour(hour) {
+        let sysup = this.props.sysup.find((x)=> {
+            return x[0] === hour[0]
+        });
+        return sysup;
+    }
 
-    render(){
+    render() {
+        this.getSysUpHour = this.getSysUpHour.bind(this);
+
         return (
             <div>
                 <h4>Hourly data</h4>
@@ -46,6 +53,7 @@ export default class hours extends React.Component {
                                     key={x[0]}
                                     hour={x[0]}
                                     traffic={x[1]}
+                                    sysup={this.getSysUpHour(x)[1]}
                                 ></Hour>
                             )
                         }

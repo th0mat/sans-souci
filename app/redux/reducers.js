@@ -3,7 +3,7 @@
  */
 
 
-const total = {
+const totalTraffic = {
     macHex: "1000000000000",
     dname: "Total traffic",
     avatar: "img/Wifi.jpg",
@@ -14,9 +14,10 @@ const total = {
 const initialState = {
     returnToLink: '/',
     macHistory: [],
+    sysupHistory: [],
     searchTarget: 'abcdef123456',
-    total: total,
-    targets: [total],
+    total: totalTraffic,
+    targets: [totalTraffic],
     targetsOnly: [],
     scannerOn: true,
     logSysStatus: 'unknown'  // 'unknown', 'on', or 'off'
@@ -47,7 +48,7 @@ function reducer(state = initialState, action) {
             break;
         }
         case "HISTORY_RECEIVED": {
-            return {...state, macHistory: action.payload}
+            return {...state, macHistory: action.payload.mac, sysupHistory: action.payload.sysup};
             break;
         }
         case "SET_RETURN_TO_LINK": {

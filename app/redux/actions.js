@@ -38,7 +38,7 @@ export function fetchHistory(mac) {
                     return !(now.date() == one.date() && now.hour() < one.hour());
                 });
                 tmp.mac = tmp.mac.reverse();
-                dispatch({type: "HISTORY_RECEIVED", payload: tmp.mac})
+                dispatch({type: "HISTORY_RECEIVED", payload: tmp})
             })
             .catch((error) => {
                 console.error(error);

@@ -1,19 +1,19 @@
-bootstrap confirmation alert for delete
+add auto-log-sys
 fix hourly data for three day zero (stays with previous history)
 validation for mac addresses
 validation for uploaded images
 set up server for email notifications
-change notify from redux to component state
 scan traffic number check
-history differenctiation between away and sys-down
 more-less component
-config screen
 node level error capture
 help help help
 email notifications
 
 
 DONE
+history differenctiation between away and sys-down
+config screen
+change notify from redux to component state
 auto-update of logSysStatus
 logSysStatus indicator in navbar
 prevent double running of iruka_log via pgrep

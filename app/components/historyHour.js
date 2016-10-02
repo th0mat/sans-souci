@@ -22,7 +22,9 @@ export default React.createClass({
 
     render() {
         var traffic = this.props.traffic;
-        var colors = traffic.map(x => {
+        var sysup = this.props.sysup;
+        var colors = traffic.map((x, i) => {
+            if (x === 0 && sysup[i] === 0) return 'orange';
             if (x === 0) return palette[0];
             if (x <= 1000) return palette[1];
             if (x <= 10000) return palette[2];
