@@ -12,14 +12,12 @@ const total = {
 };
 
 const initialState = {
-    targetsLoaded: false,
     returnToLink: '/',
     macHistory: [],
     searchTarget: 'abcdef123456',
     total: total,
     targets: [total],
     targetsOnly: [],
-    hogs: new Map(),
     scannerOn: true,
     logSysStatus: 'unknown'  // 'unknown', 'on', or 'off'
 }
@@ -31,8 +29,7 @@ function reducer(state = initialState, action) {
         case "TARGETS_RECEIVED": {
             return {
                 ...state, targets: [...action.payload, state.total],
-                targetsOnly: action.payload,
-                targetsLoaded: true
+                targetsOnly: action.payload
             };
             break;
         }
@@ -53,17 +50,8 @@ function reducer(state = initialState, action) {
             return {...state, macHistory: action.payload}
             break;
         }
-        case "ADD_LAST_IN": {
-            var newHogs = addLastIn(state.hogs, action.payload);
-            return {...state, hogs: newHogs}
-            break;
-        }
         case "SET_RETURN_TO_LINK": {
             return {...state, returnToLink: action.payload}
-            break;
-        }
-        case "RESET_HOGS": {
-            return {...state, hogs: new Map()}
             break;
         }
         case "IMAGE_UPLOADED": {
@@ -84,18 +72,3 @@ function reducer(state = initialState, action) {
 
 export default reducer;
 
-
-function addLastIn(hogs, justIn) {
-    hogs = new Map(hogs);  //clone hogs to maintain immutability
-    for (var x in justIn) {
-        if (justIn.hasOwnProperty(x)) {
-            if (hogs.has(x)) {
-                hogs.set(x, hogs.get(x) + parseInt(justIn[x]));
-            }
-            else {
-                hogs.set(x, parseInt(justIn[x]))
-            }
-        }
-    }
-    return hogs;
-}

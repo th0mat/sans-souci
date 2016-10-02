@@ -3,39 +3,46 @@
  */
 
 
-
 import React from 'react';
 import socketio from 'socket.io-client';
-import * as actions from '../redux/actions';
 import {connect} from 'react-redux';
-import {bindActionCreators} from 'redux';
 import {Link} from 'react-router';
 import {Button} from 'react-bootstrap';
 
-import * as actionCreators from '../redux/actions'
 import Config from '../config/config';
 var url = Config.url;
 
 
-
-function mapStateToProps(state) {
-    return { hogs: state.hogs };
-}
-
-
-function mapDispatchToProps(dispatch) {
-    return { actions: bindActionCreators(actionCreators, dispatch) };
-}
-
-
 @connect((store)=>{
     return {
-        hogs: store.hogs,
         targets: store.targets
-        //hogCount: store.hogs.size
     }
 })
 export default class Hogs extends React.Component {
+
+    constructor(props){
+        super(props);
+        this.state = { hogs: new Map()
+        };
+
+    }
+
+
+    addLastIn(hogs, justIn) {
+        hogs = new Map(hogs);  //clone hogs to maintain immutability
+        for (var x in justIn) {
+            if (justIn.hasOwnProperty(x)) {
+                if (hogs.has(x)) {
+                    hogs.set(x, hogs.get(x) + parseInt(justIn[x]));
+                }
+                else {
+                    hogs.set(x, parseInt(justIn[x]))
+                }
+            }
+        }
+        return hogs;
+    }
+
 
     componentDidMount() {
         this.props.dispatch({type: "SET_RETURN_TO_LINK", payload: "/scan"});
@@ -43,7 +50,7 @@ export default class Hogs extends React.Component {
         var that = this;
         this.socket.on('output', function (data) {
             var justIn = JSON.parse(data);
-            that.props.dispatch({type: "ADD_LAST_IN", payload: justIn});
+            that.setState({hogs: that.addLastIn(that.state.hogs, justIn)});
         });
     };
 
@@ -52,16 +59,13 @@ export default class Hogs extends React.Component {
     };
 
     resetHogs(event){
-        this.props.dispatch({
-            type: 'RESET_HOGS'
-        })
+        this.setState({ hogs: new Map()});
     };
 
     render() {
-        var hogs = Array.from(this.props.hogs);
+        var hogs = Array.from(this.state.hogs);
         var targets = this.props.targets;
         this.resetHogs = this.resetHogs.bind(this);
-        //this.props.dispatch({type: "SET_RETURN_TO_LINK", payload: "/scan"});
 
         hogs = hogs.sort((x, y)=>y[1] - x[1]);
 

@@ -4,10 +4,8 @@
 
 import React from 'react';
 
-var url = "http://171.101.236.255:3000/";
-
 import Navbar from '../components/navbar'
-import AllHogs from '../components/scanHogs';
+import ScanHogs from '../components/scanHogs';
 
 
 
@@ -22,7 +20,7 @@ export default class Hogs extends React.Component {
              <h1>Active devices <small>munching data</small></h1>
              </div>
 
-                <AllHogs></AllHogs>
+                <ScanHogs></ScanHogs>
             </div>
         )
     }

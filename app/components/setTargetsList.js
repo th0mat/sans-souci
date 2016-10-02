@@ -3,7 +3,6 @@ import 'history';
 import {connect} from 'react-redux';
 import '../css/iruka.css';
 import {Button} from 'react-bootstrap';
-import * as actions from '../redux/actions'
 import {Link} from 'react-router';
 import {browserHistory} from 'react-router'
 
