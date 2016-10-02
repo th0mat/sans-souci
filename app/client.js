@@ -17,7 +17,6 @@ import EditMac from './pages/editMac';
 import store from './redux/store';
 import * as actions from './redux/actions';
 
-store.dispatch({type: 'WAKE_UP', payload: 0})
 store.dispatch(actions.fetchTargets());
 store.dispatch(actions.getLogSysStatus());
 

@@ -9,8 +9,7 @@ import {browserHistory} from 'react-router'
 
 @connect((store) => {
     return {
-        targetsOnly: store.targetsOnly,
-        targetsOnlyBup: store.targetsOnlyBup,
+        targetsOnly: store.targetsOnly
     };
 })
 export default class SetTargetsList extends React.Component {

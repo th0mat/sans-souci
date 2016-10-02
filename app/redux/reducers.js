@@ -17,9 +17,8 @@ const initialState = {
     macHistory: [],
     searchTarget: 'abcdef123456',
     total: total,
-    targetsOnly: [],
-    targetsOnlyBup: [],
     targets: [total],
+    targetsOnly: [],
     hogs: new Map(),
     scannerOn: true,
     logSysStatus: 'unknown'  // 'unknown', 'on', or 'off'
@@ -29,15 +28,10 @@ const initialState = {
 function reducer(state = initialState, action) {
 
     switch (action.type) {
-        case "WAKE_UP": {
-            return state;
-            break;
-        }
         case "TARGETS_RECEIVED": {
             return {
                 ...state, targets: [...action.payload, state.total],
                 targetsOnly: action.payload,
-                targetsOnlyBup: JSON.parse(JSON.stringify(action.payload)),
                 targetsLoaded: true
             };
             break;

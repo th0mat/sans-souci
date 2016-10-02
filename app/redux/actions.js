@@ -47,21 +47,6 @@ export function fetchHistory(mac) {
 }
 
 
-// export function postNotifyChanges(targets) {
-//     return function (dispatch) {
-//         axios.post(url + "api/config/updateNotify", {
-//             targets: targets
-//         }, axiosConfigJson)
-//             .then((response) => {
-//                 console.log(response);
-//                 dispatch({type: "NOTIFY_UPDATED", payload: response})
-//             })
-//             .catch((err) => {
-//                 dispatch({type: "NOTIFY_UPDATE_ERROR", payload: err})
-//             })
-//     }
-// }
-
 export function getLogSysStatus() {
     return function (dispatch) {
         axios.get(url + "api/logSysStatus")
