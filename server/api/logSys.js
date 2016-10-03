@@ -22,7 +22,7 @@ export function turnLogSysOn(){
     if (check) logger.warn(config.irukaLogExecutable + " is already running"); // runnning already
     try {
         child_process.exec(config.irukaDir + config.irukaLogExecutable)
-        logger.info('logSys running with pid ' + getLogSysPid())
+        logger.info('logSys started with pid ' + getLogSysPid())
     } catch (e) {
         logger.warn('problem turning on ' + config.irukaLogExecutable + " err msg: " + e)
     }
@@ -34,7 +34,6 @@ export function turnLogSysOff(){
     if (!pid) logger.warn(config.irukaLogExecutable + " was not running");
     try {
        child_process.exec("kill " + pid)
-       logger.warn('logSys was turned off')
     } catch (e) {
         logger.warn('problem turning off ' + config.irukaLogExecutable + " err msg: " + e)
     }

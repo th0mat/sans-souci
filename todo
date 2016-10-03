@@ -1,4 +1,3 @@
-add auto-log-sys
 fix hourly data for three day zero (stays with previous history)
 validation for mac addresses
 validation for uploaded images
@@ -11,6 +10,7 @@ email notifications
 
 
 DONE
+add auto-log-sys
 history differenctiation between away and sys-down
 config screen
 change notify from redux to component state

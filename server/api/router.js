@@ -20,6 +20,7 @@ if (pid) {
     logger.info("logSys is running with pid " + pid)
 } else {
     logger.warn("logSys is not running");
+    logSys.turnLogSysOn();
 }
 
 
