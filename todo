@@ -1,7 +1,5 @@
-fix hourly data for three day zero (stays with previous history)
 validation for mac addresses
 validation for uploaded images
-set up server for email notifications
 scan traffic number check
 more-less component
 node level error capture
@@ -10,6 +8,7 @@ email notifications
 
 
 DONE
+fix hourly data for three day zero (stays with previous history)
 add auto-log-sys
 history differenctiation between away and sys-down
 config screen
