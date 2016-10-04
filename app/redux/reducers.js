@@ -15,7 +15,6 @@ const initialState = {
     returnToLink: '/',
     macHistory: [],
     sysupHistory: [],
-    searchTarget: 'abcdef123456',
     total: totalTraffic,
     targets: [totalTraffic],
     targetsOnly: [],
@@ -36,10 +35,6 @@ function reducer(state = initialState, action) {
         }
         case "FETCH_TARGETS_ERROR": {
             return {...state, error: action.payload}
-            break;
-        }
-        case "UPDATE_SEARCH_TARGET": {
-            return {...state, searchTarget: action.payload}
             break;
         }
         case "FETCH_NEW_HISTORY": {

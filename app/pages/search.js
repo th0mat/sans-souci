@@ -7,30 +7,36 @@ import {Link} from 'react-router';
 import {connect} from 'react-redux';
 import {browserHistory} from 'react-router';
 
-// routed via address of type: history/:day/:user
 
 import Navbar from '../components/navbar';
 
 @connect((store)=>{
     return {
-        searchTarget: store.searchTarget
+        // keep to get this.props.dispatch
     }
 })
 export default class Search extends React.Component {
 
+    constructor(props){
+        super(props);
+        this.state = {
+            searchTarget: 'abcdef123456'
+        }
+    }
+
     lookupMacHistory(event){
         this.props.dispatch({type: "SET_RETURN_TO_LINK", payload: "/search"});
-        browserHistory.push('/history/' + this.props.searchTarget)
+        browserHistory.push('/history/' + this.state.searchTarget)
     };
 
+
     handleChange(event) {
-        this.props.dispatch({type: "UPDATE_SEARCH_TARGET", payload: event.target.value});
+        this.setState({searchTarget: event.target.value});
     };
 
 
     render() {
         this.lookupMacHistory = this.lookupMacHistory.bind(this);
-        this.handleChange = this.handleChange.bind(this);
 
 
         return (
@@ -41,8 +47,8 @@ export default class Search extends React.Component {
                 </div>
 
                 <span>Mac to look-up: </span>
-                <input name="targetMac" value={this.props.searchTarget} type="text"
-                            onChange={this.handleChange}/>
+                <input name="targetMac" value={this.state.searchTarget} type="text"
+                            onChange={this.handleChange.bind(this)}/>
                 <button class="btn btn-primary btn-xs" onClick={this.lookupMacHistory}>go</button>
                 <br/>
                 <br/>

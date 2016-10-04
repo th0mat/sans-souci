@@ -12,8 +12,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5b4af9d7-3b8e-4f6f-a062-9da5a8c437d8" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/api/router.js" afterPath="$PROJECT_DIR$/server/api/router.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/todo" afterPath="$PROJECT_DIR$/todo" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/components/navbar.js" afterPath="$PROJECT_DIR$/app/components/navbar.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/pages/search.js" afterPath="$PROJECT_DIR$/app/pages/search.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/redux/reducers.js" afterPath="$PROJECT_DIR$/app/redux/reducers.js" />
     </list>
     <ignored path="sans-souci.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -40,7 +41,7 @@
       <file leaf-file-name="actions.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/redux/actions.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
+            <state relative-caret-position="450">
               <caret line="34" column="34" selection-start-line="34" selection-start-column="34" selection-end-line="34" selection-end-column="34" />
               <folding />
             </state>
@@ -50,9 +51,33 @@
       <file leaf-file-name="reducers.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/redux/reducers.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-24">
-              <caret line="23" column="1" selection-start-line="23" selection-start-column="1" selection-end-line="23" selection-end-column="1" />
+            <state relative-caret-position="255">
+              <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="navbar.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/components/navbar.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="240">
+              <caret line="72" column="59" selection-start-line="72" selection-start-column="59" selection-end-line="72" selection-end-column="59" />
+              <folding>
+                <element signature="e#0#26#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="search.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/pages/search.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-427">
+              <caret line="16" column="2" selection-start-line="16" selection-start-column="2" selection-end-line="16" selection-end-column="2" />
+              <folding>
+                <element signature="e#47#73#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -79,7 +104,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="todo" pinned="false" current-in-tab="true">
+      <file leaf-file-name="todo" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/todo">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
@@ -106,7 +131,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/outserver/api/live.js" />
         <option value="$PROJECT_DIR$/iruka.data/allStations.log" />
         <option value="$PROJECT_DIR$/iruka.data/2016-09-13.log" />
         <option value="$PROJECT_DIR$/app/components/historyDailyTotals.js" />
@@ -124,7 +148,6 @@
         <option value="$PROJECT_DIR$/app/pages/config.js" />
         <option value="$PROJECT_DIR$/server.config/config.js" />
         <option value="$PROJECT_DIR$/log/access.log" />
-        <option value="$PROJECT_DIR$/app/components/navbar.js" />
         <option value="$PROJECT_DIR$/app/components/settingsOnOff.js" />
         <option value="$PROJECT_DIR$/app/components/settingsTargets.js" />
         <option value="$PROJECT_DIR$/app/components/setTargets.js" />
@@ -152,11 +175,13 @@
         <option value="$PROJECT_DIR$/app/redux/actions.js" />
         <option value="$PROJECT_DIR$/app/components/historyHour.js" />
         <option value="$PROJECT_DIR$/app/components/historyHours.js" />
-        <option value="$PROJECT_DIR$/app/redux/reducers.js" />
         <option value="$PROJECT_DIR$/server/turnOnLogSystem.sh" />
         <option value="$PROJECT_DIR$/server/api/logSys.js" />
         <option value="$PROJECT_DIR$/server/api/router.js" />
         <option value="$PROJECT_DIR$/todo" />
+        <option value="$PROJECT_DIR$/app/components/navbar.js" />
+        <option value="$PROJECT_DIR$/app/redux/reducers.js" />
+        <option value="$PROJECT_DIR$/app/pages/search.js" />
       </list>
     </option>
   </component>
@@ -299,6 +324,24 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="redux" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sans-souci" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.CidrFilesViewHelper$MyProjectTreeStructure$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sans-souci" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pages" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -592,13 +635,13 @@
       <workItem from="1474188355839" duration="9707000" />
       <workItem from="1474458569649" duration="18000" />
       <workItem from="1474603442208" duration="92705000" />
-      <workItem from="1475397756905" duration="17467000" />
+      <workItem from="1475397756905" duration="18683000" />
     </task>
     <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="560655000" />
+    <option name="totallyTimeSpent" value="561871000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -620,7 +663,7 @@
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.17191978" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39684814" sideWeight="0.49626866" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.172761" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.35673353" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21776505" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="DB Browser" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18865925" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -808,14 +851,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/components/navbar.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="44" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="44" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/components/editDropImage.js" />
     <entry file="file://$PROJECT_DIR$/server/api/stripTargets.js" />
     <entry file="file://$PROJECT_DIR$/server.config/targetsBup.json">
@@ -835,20 +870,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/pages/search.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="22" column="66" selection-start-line="22" selection-start-column="8" selection-end-line="22" selection-end-column="66" />
-          <folding>
-            <element signature="e#0#45#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/pages/editMac.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="455">
           <caret line="38" column="0" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
+          <folding>
+            <element signature="e#48#74#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1050,22 +1078,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/redux/reducers.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-24">
-          <caret line="23" column="1" selection-start-line="23" selection-start-column="1" selection-end-line="23" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/redux/actions.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="34" column="34" selection-start-line="34" selection-start-column="34" selection-end-line="34" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/server/api/history.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2565">
@@ -1089,6 +1101,42 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/components/navbar.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="72" column="59" selection-start-line="72" selection-start-column="59" selection-end-line="72" selection-end-column="59" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/redux/actions.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="34" column="34" selection-start-line="34" selection-start-column="34" selection-end-line="34" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/redux/reducers.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/pages/search.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-427">
+          <caret line="16" column="2" selection-start-line="16" selection-start-column="2" selection-end-line="16" selection-end-column="2" />
+          <folding>
+            <element signature="e#47#73#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
