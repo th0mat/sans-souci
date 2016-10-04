@@ -4,73 +4,14 @@
 
 import React from 'react';
 import {Link} from 'react-router';
-import {connect} from 'react-redux';
-import {browserHistory} from 'react-router';
-import {Button} from 'react-bootstrap';
 
+import AddMac from '../components/addMac';
 import Navbar from '../components/navbar';
 
-@connect((store)=> {
-    return {
-        // keep to get this.props.dispatch
-    }
-})
+
 export default class Search extends React.Component {
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            searchTarget: 'abcdef123456',
-            macValid: true
-        }
-    }
-
-    lookupMacHistory(event) {
-        this.props.dispatch({type: "SET_RETURN_TO_LINK", payload: "/search"});
-        browserHistory.push('/history/' + this.strip(this.state.searchTarget))
-    }
-
-
-    handleChange(event) {
-        this.setState({searchTarget: event.target.value});
-    }
-
-
-    strip(mac){
-        let small = mac.toLowerCase();
-        let arr = small.split("");
-        let filtered = arr.filter((x)=>{
-            return (x >= 'a' && x <= 'f') || (x >= 0 && x <= 9 );
-        })
-        return filtered.join('');
-    }
-
-
-    validateMac(mac) {
-        if (~mac.search(/[^a-f0-9A-F\.:-]/)) return false;
-        if (this.strip(mac).length === 12) return true;
-        return false;
-    }
-
-
-    getWarning() {
-        if (this.validateMac(this.state.searchTarget)) {
-            return (<Button bsStyle="primary" bsSize="small" onClick={this.lookupMacHistory.bind(this)}>search</Button>)
-        } else {
-            return (
-                <span>
-                    {/*<Button bsStyle="default" bsSize="small">search</Button> &nbsp;&nbsp;*/}
-                    <span style={{color: 'red'}}>invalid mac address</span>
-                </span>
-            )
-        }
-
-    }
-
-
     render() {
-        //this.lookupMacHistory = this.lookupMacHistory.bind(this);
-
 
         return (
             <div>
@@ -82,9 +23,7 @@ export default class Search extends React.Component {
                 </div>
 
                 <span>Mac to look-up: </span>&nbsp;&nbsp;
-                <input name="targetMac" value={this.state.searchTarget} type="text"
-                       onChange={this.handleChange.bind(this)}/>&nbsp;&nbsp;
-                {this.getWarning()}
+                <AddMac buttonName='search' destination="/history/" invalidMsg="invalid mac address"/>
                 <br/>
                 <br/>
                 <br/>

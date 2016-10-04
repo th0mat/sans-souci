@@ -1,4 +1,5 @@
-turn mac input incl validation into component
+server-side input validation for targets
+server-side input validation for macs
 validation for uploaded images
 scan traffic number check
 more-less component
@@ -8,6 +9,7 @@ email notifications
 
 
 DONE
+turn mac input incl validation into component
 validation for mac addresses
 fix hourly data for three day zero (stays with previous history)
 add auto-log-sys
