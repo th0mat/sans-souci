@@ -1,4 +1,4 @@
-validation for mac addresses
+turn mac input incl validation into component
 validation for uploaded images
 scan traffic number check
 more-less component
@@ -8,6 +8,7 @@ email notifications
 
 
 DONE
+validation for mac addresses
 fix hourly data for three day zero (stays with previous history)
 add auto-log-sys
 history differenctiation between away and sys-down
