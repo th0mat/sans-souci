@@ -1,6 +1,5 @@
 server-side input validation for targets
 server-side input validation for macs
-validation for uploaded images
 scan traffic number check
 more-less component
 node level error capture
@@ -9,6 +8,7 @@ email notifications
 
 
 DONE
+validation for uploaded images
 turn mac input incl validation into component
 validation for mac addresses
 fix hourly data for three day zero (stays with previous history)

@@ -8,8 +8,8 @@
     },
     {
         "macHex": "ac5f3eefd2d3",
-        "dname": "Thomas",
-        "avatar": "img/BS copy.gif",
+        "dname": "Thomasio",
+        "avatar": "img/Tom.jpg",
         "notifyGone": false,
         "notifyBack": false
     },
@@ -45,6 +45,13 @@
         "macHex": "040ccedde9f2",
         "dname": "Tom Air",
         "avatar": "img/Tom.jpg",
+        "notifyGone": false,
+        "notifyBack": false
+    },
+    {
+        "macHex": "6c71d94b75f1",
+        "dname": "Yogi",
+        "avatar": "img/yogi.png",
         "notifyGone": false,
         "notifyBack": false
     }

@@ -28,14 +28,14 @@ export default class EditHeader extends React.Component {
                 traffic: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
             };
             this.state = {
-                targetIndex: this.index, target: this.target, file: null
+                targetIndex: this.index, target: this.target, file: null, fileMsg: ''
             }
         } else {
             this.state = {
                 targetIndex: this.props.targets.indexOf(this.props.targets.find(x=>x.macHex === this.props.user)),
 
                 target: JSON.parse(JSON.stringify(this.props.targets.find(x=>x.macHex === this.props.user))),
-                file: null,
+                file: null, fileMsg: ''
             };
         }
     }
@@ -63,8 +63,20 @@ export default class EditHeader extends React.Component {
     }
 
     previewFile() {
+        this.setState({fileMsg: ''}); // remove msg from previous try
+        const MAX_FILE_SIZE = 500000;
         var preview = document.querySelector('img');
         var file = document.querySelector('input[type=file]').files[0];
+        if (!file.type.match('image.*')){
+            let msg = file.name + ' is not an image file';
+            this.setState({fileMsg: msg, file: null}); // ensure file is not saved
+            return;
+        }
+        if (file.size > MAX_FILE_SIZE){
+            let msg = file.name + ' is larger than 500kb';
+            this.setState({fileMsg: msg, file: null}); // ensure fle is not saved
+            return;
+        }
         var reader = new FileReader();
         var that = this;
         reader.addEventListener("load", function () {
@@ -114,6 +126,8 @@ export default class EditHeader extends React.Component {
                 <h3>To change picture</h3>
 
                 <input type="file" onChange={this.previewFile}/>
+                <br/>
+                <span style={{color: 'red'}}>{this.state.fileMsg}</span>
 
                 <br/><br/>
                 <Button bsStyle="default" bsSize="small" onClick={this.cancelChanges}>cancel</Button>
