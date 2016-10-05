@@ -7,9 +7,7 @@ import 'history';
 import * as actions from '../redux/actions';
 import Hour from "./historyHour";
 import {connect} from 'react-redux';
-//import '../css/hours.css';
-import {Link} from 'react-router';
-
+import LegendHistory from './legendHistory';
 
 @connect((store) => {
     return {
@@ -45,6 +43,7 @@ export default class hours extends React.Component {
         return (
             <div>
                 <h4>Hourly data</h4>
+                <LegendHistory/>
                 <br/>
                 {
                     this.props.mac.map((x) => {

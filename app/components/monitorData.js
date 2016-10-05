@@ -41,18 +41,18 @@ export default React.createClass({
             <div id="trafficBoxContainer">
 
 
-                    <div class="sec" style={{borderColor: borderColor, background: colors[0]}} ></div>
-                    <div class="sec" style={{borderColor: borderColor, background: colors[1]}} ></div>
-                    <div class="sec" style={{borderColor: borderColor, background: colors[2]}} ></div>
-                    <div class="sec" style={{borderColor: borderColor, background: colors[3]}} ></div>
-                    <div class="sec" style={{borderColor: borderColor, background: colors[4]}} ></div>
-                    <div class="sec" style={{borderColor: borderColor, background: colors[5]}} ></div>
-                    <div class="sec" style={{borderColor: borderColor, background: colors[6]}} ></div>
-                    <div class="sec" style={{borderColor: borderColor, background: colors[7]}} ></div>
-                    <div class="sec" style={{borderColor: borderColor, background: colors[8]}} ></div>
-                    <div class="sec" style={{borderColor: borderColor, background: colors[9]}} ></div>
-                    <div class="sec" style={{borderColor: borderColor, background: colors[10]}} ></div>
-                    <div class="sec" style={{borderColor: borderColor, background: colors[11]}} ></div>
+                    <div class="sec" style={{background: colors[0]}} ></div>
+                    <div class="sec" style={{background: colors[1]}} ></div>
+                    <div class="sec" style={{background: colors[2]}} ></div>
+                    <div class="sec" style={{background: colors[3]}} ></div>
+                    <div class="sec" style={{background: colors[4]}} ></div>
+                    <div class="sec" style={{background: colors[5]}} ></div>
+                    <div class="sec" style={{background: colors[6]}} ></div>
+                    <div class="sec" style={{background: colors[7]}} ></div>
+                    <div class="sec" style={{background: colors[8]}} ></div>
+                    <div class="sec" style={{background: colors[9]}} ></div>
+                    <div class="sec" style={{background: colors[10]}} ></div>
+                    <div class="sec" style={{background: colors[11]}} ></div>
 
 
 

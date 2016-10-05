@@ -26,11 +26,14 @@ export default class Monitor extends React.Component {
                 <Navbar/>
                 <div class="page-header">
                     <h1>Live
-                        <small>realtime monitoring</small>
+                        <small> realtime monitoring</small>
                     </h1>
                 </div>
+                <div><LegendLive/></div>
+
+                <br/><br/>
                 <MonitorConnect />
-                <LegendLive/>
+                <br/><br/>
             </div>
         )
     }

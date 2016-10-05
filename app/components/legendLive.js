@@ -20,14 +20,16 @@ export default class LegendLive extends React.Component {
 
         return (
             <div>
-                <br/><br/>
-                <div id="legendLive">
+                <div id="legendLive" className="pull-right">
+                    <span style={{float: 'left'}}><small>less&nbsp;&nbsp;</small></span>
                     <div class="trafficColor" style={{background: palette[0]}} ></div>
                     <div class="trafficColor" style={{background: palette[1]}} ></div>
                     <div class="trafficColor" style={{background: palette[2]}} ></div>
                     <div class="trafficColor" style={{background: palette[4]}} ></div>
                     <div class="trafficColor" style={{background: palette[5]}} ></div>
+                    <span style={{float: 'left'}}><small>&nbsp;&nbsp;more&nbsp;</small></span>
                 </div>
+                {/*<br/>*/}
             </div>
 
         );
