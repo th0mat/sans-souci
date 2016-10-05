@@ -22,11 +22,11 @@ export default class LegendHistory extends React.Component {
             <div>
                 <div id="legendHistory" className="pull-right">
                     <div class="trafficColor" style={{background: sysDown}} ></div>
-                    <span style={{float: 'left'}}><small>system down&nbsp;&nbsp;</small></span>
+                    <span style={{float: 'left'}}><small>&nbsp;system down&nbsp;&nbsp;</small></span>
                     <div class="trafficColor" style={{background: gone}} ></div>
-                    <span style={{float: 'left'}}><small>device gone&nbsp;&nbsp;</small></span>
+                    <span style={{float: 'left'}}><small>&nbsp;device gone&nbsp;&nbsp;</small></span>
                     <div class="trafficColor" style={{background: notYet}} ></div>
-                    <span style={{float: 'left'}}><small>&nbsp;&nbsp;not yet&nbsp;</small></span>
+                    <span style={{float: 'left'}}><small>&nbsp;not yet&nbsp;</small></span>
                 </div>
                 <br/>
             </div>

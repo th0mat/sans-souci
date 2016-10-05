@@ -33,11 +33,23 @@ export function fetchHistory(mac) {
             .then((responseJson) => {
                 var tmp = JSON.parse(responseJson);
                 tmp.mac = tmp.mac.filter((x)=> {
-                    let now = moment();
+                    var now = moment();
                     let one = moment(x[0] * 1000);
                     return !(now.date() == one.date() && now.hour() < one.hour());
                 });
                 tmp.mac = tmp.mac.reverse();
+                // mark future 5 min slots with -1
+                // how many slots to full hour?
+                let minNow = moment().minutes();
+                let slotsPassed = Math.floor(((minNow)/ 5));
+                // mark the remaining slots of the first hour -1
+                for (let mark = slotsPassed; mark <= 11; mark++) {
+
+                    tmp.mac[0][1][mark] = tmp.mac[0][1][mark] || -1;
+                }
+                console.log('tmp.mac[0]: ', tmp.mac[0])
+                console.log('slotsPassed ', slotsPassed)
+
                 dispatch({type: "HISTORY_RECEIVED", payload: tmp})
             })
             .catch((error) => {
@@ -92,7 +104,7 @@ export function uploadImage(file, index, targets) {
         var reader = new FileReader;
         reader.addEventListener("loadend", function () {
             let base64String = _arrayBufferToBase64(reader.result);
-            axios.put(url + 'api/image', {content: base64String, avatar: file.name},  axiosConfigJson)
+            axios.put(url + 'api/image', {content: base64String, avatar: file.name}, axiosConfigJson)
                 .then(function (res) {
                     dispatch({type: "IMAGE_UPLOADED"});
                     targets[index].avatar = 'img/' + file.name;
@@ -108,12 +120,12 @@ export function uploadImage(file, index, targets) {
 }
 
 
-function _arrayBufferToBase64( buffer ) {
+function _arrayBufferToBase64(buffer) {
     var binary = '';
-    var bytes = new Uint8Array( buffer );
+    var bytes = new Uint8Array(buffer);
     var len = bytes.byteLength;
     for (var i = 0; i < len; i++) {
-        binary += String.fromCharCode( bytes[ i ] );
+        binary += String.fromCharCode(bytes[i]);
     }
-    return window.btoa( binary );
+    return window.btoa(binary);
 }
