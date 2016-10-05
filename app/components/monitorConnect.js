@@ -77,7 +77,6 @@ export default class MonitorConnect extends React.Component{
                         )
                     })
                 } </div>
-                <div><br/><small><Link to='about'>About Sans-Souci</Link></small></div>
             </div>
         )
     }

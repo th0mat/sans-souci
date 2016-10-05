@@ -17,9 +17,11 @@ export default React.createClass({
 
 
     render() {
+
+        var borderColor = 'silver'; // '#E7E7E7'; // same as navbar
         var traffic = this.props.traffic;
         var colors = traffic.map(x => {
-            if (x === 0) return palette[0];
+            if (x === 0) return '#F8F8F8'; // same as navbar
             if (x <= 1000) return palette[1];
             if (x <= 10000) return palette[2];
             if (x <= 100000) return palette[3];
@@ -39,18 +41,18 @@ export default React.createClass({
             <div id="trafficBoxContainer">
 
 
-                    <div class="sec" style={{background: colors[0]}} ></div>
-                    <div class="sec" style={{background: colors[1]}} ></div>
-                    <div class="sec" style={{background: colors[2]}} ></div>
-                    <div class="sec" style={{background: colors[3]}} ></div>
-                    <div class="sec" style={{background: colors[4]}} ></div>
-                    <div class="sec" style={{background: colors[5]}} ></div>
-                    <div class="sec" style={{background: colors[6]}} ></div>
-                    <div class="sec" style={{background: colors[7]}} ></div>
-                    <div class="sec" style={{background: colors[8]}} ></div>
-                    <div class="sec" style={{background: colors[9]}} ></div>
-                    <div class="sec" style={{background: colors[10]}} ></div>
-                    <div class="sec" style={{background: colors[11]}} ></div>
+                    <div class="sec" style={{borderColor: borderColor, background: colors[0]}} ></div>
+                    <div class="sec" style={{borderColor: borderColor, background: colors[1]}} ></div>
+                    <div class="sec" style={{borderColor: borderColor, background: colors[2]}} ></div>
+                    <div class="sec" style={{borderColor: borderColor, background: colors[3]}} ></div>
+                    <div class="sec" style={{borderColor: borderColor, background: colors[4]}} ></div>
+                    <div class="sec" style={{borderColor: borderColor, background: colors[5]}} ></div>
+                    <div class="sec" style={{borderColor: borderColor, background: colors[6]}} ></div>
+                    <div class="sec" style={{borderColor: borderColor, background: colors[7]}} ></div>
+                    <div class="sec" style={{borderColor: borderColor, background: colors[8]}} ></div>
+                    <div class="sec" style={{borderColor: borderColor, background: colors[9]}} ></div>
+                    <div class="sec" style={{borderColor: borderColor, background: colors[10]}} ></div>
+                    <div class="sec" style={{borderColor: borderColor, background: colors[11]}} ></div>
 
 
 

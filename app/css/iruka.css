@@ -96,6 +96,24 @@
     margin-right: 3px;
 }
 
+
+#legendLive {
+    float: left;
+    width: 100px;
+}
+
+.trafficColor {
+    float: left;
+    margin: 1px;
+    padding: 1px;
+    border-style: solid;
+    border-color: grey;
+    border-width: 1px;
+    width: 15px;
+    height: 15px;
+}
+
+
 @media (min-width: 1200px) {
     .container{
         max-width: 970px;

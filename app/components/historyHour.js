@@ -24,8 +24,8 @@ export default React.createClass({
         var traffic = this.props.traffic;
         var sysup = this.props.sysup;
         var colors = traffic.map((x, i) => {
-            if (x === 0 && sysup[i] === 0) return 'orange';
-            if (x === 0) return palette[0];
+            if (x === 0 && sysup[i] === 0) return '#fcd276';
+            if (x === 0) return '#F8F8F8';
             if (x <= 1000) return palette[1];
             if (x <= 10000) return palette[2];
             if (x <= 100000) return palette[3];
