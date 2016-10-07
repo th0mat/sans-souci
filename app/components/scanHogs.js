@@ -43,29 +43,46 @@ export default class Hogs extends React.Component {
         return hogs;
     }
 
-
-    componentDidMount() {
-        this.props.dispatch({type: "SET_RETURN_TO_LINK", payload: "/scan"});
+    turnOnScanning(){
+        if (this.socket) this.socket.destroy();
         this.socket = socketio(url);
         var that = this;
         this.socket.on('output', function (data) {
             var justIn = JSON.parse(data);
             that.setState({hogs: that.addLastIn(that.state.hogs, justIn)});
         });
+    }
+
+
+    componentDidMount() {
+        this.props.dispatch({type: "SET_RETURN_TO_LINK", payload: "/scan"});
+        this.turnOnScanning();
     };
+
 
     componentWillUnmount() {
         this.socket.destroy();
     };
 
-    resetHogs(event){
+    restartScan(event){
+        this.turnOnScanning();
         this.setState({ hogs: new Map()});
+    };
+
+    stopScan(event){
+        this.socket.destroy();
+    };
+
+    continueScan(event){
+        this.turnOnScanning();
     };
 
     render() {
         var hogs = Array.from(this.state.hogs);
         var targets = this.props.targets;
-        this.resetHogs = this.resetHogs.bind(this);
+        this.restartScan = this.restartScan.bind(this);
+        this.stopScan = this.stopScan.bind(this);
+        this.continueScan = this.continueScan.bind(this);
 
         hogs = hogs.sort((x, y)=>y[1] - x[1]);
 
@@ -74,7 +91,9 @@ export default class Hogs extends React.Component {
                 < div>
                     <span>Number of devices detected: {hogs.length}</span>
                     <br/><br/>
-                    <Button bsStyle="primary" bsSize="small" onClick={this.resetHogs}>reset</Button>
+                    <Button bsStyle="primary" bsSize="small" onClick={this.stopScan}>stop</Button>&nbsp;&nbsp;
+                    <Button bsStyle="primary" bsSize="small" onClick={this.continueScan}>continue</Button>&nbsp;&nbsp;
+                    <Button bsStyle="primary" bsSize="small" onClick={this.restartScan}>restart</Button>
                     <br/><br/>
                     <table class="table table-striped">
                         <thead>

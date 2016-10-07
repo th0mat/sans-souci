@@ -109,7 +109,6 @@ router.get('/config/imageBank', function (req, res, next) {
             res.send('Error retrieving image bank: ' + err.stack);
             return;
         }
-        console.log('**** imgBank: ', result)
         res.send(result);
     });
 });

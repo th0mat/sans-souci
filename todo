@@ -1,3 +1,4 @@
+oui lookup for scan
 history link from profile
 server-side input validation for targets
 server-side input validation for macs
@@ -8,6 +9,7 @@ email notifications
 
 
 DONE
+add stop and continue button to scan
 option to change monitor sorting order
 change cursor on hover
 legend component for live view
