@@ -29,6 +29,7 @@ function stripTargets(targets) {
         s.avatar = t.avatar;
         s.notifyGone = t.notifyGone;
         s.notifyBack = t.notifyBack;
+        s.sortOrder = t.sortOrder;
         stripped.push(s);
     }
     return stripped;

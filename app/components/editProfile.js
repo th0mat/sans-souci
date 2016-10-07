@@ -27,6 +27,7 @@ export default class EditHeader extends React.Component {
                 lastSeen: null,
                 notifyBack: false,
                 notifyGone: false,
+                sortOrder: this.props.targets.length + 1,
                 traffic: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
             };
             this.state = {

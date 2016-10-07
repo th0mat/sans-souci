@@ -1,5 +1,4 @@
-change cursor on hover
-option to change monitor sorting order
+history link from profile
 server-side input validation for targets
 server-side input validation for macs
 scan traffic number check
@@ -9,6 +8,8 @@ email notifications
 
 
 DONE
+option to change monitor sorting order
+change cursor on hover
 legend component for live view
 imageBank to select avatar
 more-less component
