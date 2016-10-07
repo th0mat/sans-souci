@@ -12,15 +12,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5b4af9d7-3b8e-4f6f-a062-9da5a8c437d8" name="Default" comment="">
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/components/editHeader.js" afterPath="$PROJECT_DIR$/app/components/editProfile.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/pages/editMac.js" afterPath="$PROJECT_DIR$/app/pages/profile.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/client.js" afterPath="$PROJECT_DIR$/app/client.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/components/editHeader.js" afterPath="$PROJECT_DIR$/app/components/editHeader.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/config/config.js" afterPath="$PROJECT_DIR$/app/config/config.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/components/historyHeader.js" afterPath="$PROJECT_DIR$/app/components/historyHeader.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/components/setTargetsList.js" afterPath="$PROJECT_DIR$/app/components/setTargetsList.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/css/iruka.css" afterPath="$PROJECT_DIR$/app/css/iruka.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/redux/actions.js" afterPath="$PROJECT_DIR$/app/redux/actions.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/redux/reducers.js" afterPath="$PROJECT_DIR$/app/redux/reducers.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/api/router.js" afterPath="$PROJECT_DIR$/server/api/router.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/todo" afterPath="$PROJECT_DIR$/todo" />
     </list>
     <ignored path="sans-souci.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -47,8 +45,8 @@
       <file leaf-file-name="iruka.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/css/iruka.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="220">
-              <caret line="140" column="17" selection-start-line="140" selection-start-column="17" selection-end-line="140" selection-end-column="17" />
+            <state relative-caret-position="75">
+              <caret line="103" column="0" selection-start-line="103" selection-start-column="0" selection-end-line="103" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -74,11 +72,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="setTargetsList.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="setTargetsList.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/components/setTargetsList.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-30">
-              <caret line="21" column="30" selection-start-line="21" selection-start-column="30" selection-end-line="21" selection-end-column="30" />
+            <state relative-caret-position="240">
+              <caret line="37" column="36" selection-start-line="37" selection-start-column="36" selection-end-line="37" selection-end-column="36" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -86,7 +84,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="todo" pinned="false" current-in-tab="true">
+      <file leaf-file-name="todo" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/todo">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="120">
@@ -109,18 +107,42 @@
       <file leaf-file-name="client.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/client.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+            <state relative-caret-position="250">
+              <caret line="36" column="0" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
+              <folding>
+                <element signature="e#0#25#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="historyHeader.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/components/historyHeader.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="405">
+              <caret line="40" column="16" selection-start-line="40" selection-start-column="16" selection-end-line="40" selection-end-column="16" />
+              <folding>
+                <element signature="e#94#120#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="editProfile.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/components/editProfile.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1790">
+              <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="editHeader.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/components/editHeader.js">
+      <file leaf-file-name="profile.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/pages/profile.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+            <state relative-caret-position="135">
+              <caret line="11" column="9" selection-start-line="11" selection-start-column="9" selection-end-line="11" selection-end-column="9" />
               <folding />
             </state>
           </provider>
@@ -156,10 +178,8 @@
         <option value="$PROJECT_DIR$/app/pages/history.js" />
         <option value="$PROJECT_DIR$/app/pages/notify.js" />
         <option value="$PROJECT_DIR$/app/components/editDropImage.js" />
-        <option value="$PROJECT_DIR$/app/pages/editMac.js" />
         <option value="$PROJECT_DIR$/server/api/stripTargets.js" />
         <option value="$PROJECT_DIR$/server/server.js" />
-        <option value="$PROJECT_DIR$/app/components/historyHeader.js" />
         <option value="$PROJECT_DIR$/server/api/updateTargets.js" />
         <option value="$PROJECT_DIR$/server/api/sendConfig.js" />
         <option value="$PROJECT_DIR$/server/api/updateNotify.js" />
@@ -173,7 +193,6 @@
         <option value="$PROJECT_DIR$/server/api/logSys.js" />
         <option value="$PROJECT_DIR$/app/components/navbar.js" />
         <option value="$PROJECT_DIR$/app/components/addMac.js" />
-        <option value="$PROJECT_DIR$/app/components/setTargetsList.js" />
         <option value="$PROJECT_DIR$/app/pages/search.js" />
         <option value="$PROJECT_DIR$/app/components/monitorConnect.js" />
         <option value="$PROJECT_DIR$/app/components/legendLive.js" />
@@ -189,11 +208,14 @@
         <option value="$PROJECT_DIR$/app/redux/actions.js" />
         <option value="$PROJECT_DIR$/app/redux/reducers.js" />
         <option value="$PROJECT_DIR$/app/components/selectPicture.js" />
-        <option value="$PROJECT_DIR$/app/client.js" />
-        <option value="$PROJECT_DIR$/app/css/iruka.css" />
         <option value="$PROJECT_DIR$/app/components/imageBank.js" />
         <option value="$PROJECT_DIR$/app/components/editHeader.js" />
         <option value="$PROJECT_DIR$/todo" />
+        <option value="$PROJECT_DIR$/app/css/iruka.css" />
+        <option value="$PROJECT_DIR$/app/pages/editMac.js" />
+        <option value="$PROJECT_DIR$/app/client.js" />
+        <option value="$PROJECT_DIR$/app/components/historyHeader.js" />
+        <option value="$PROJECT_DIR$/app/components/setTargetsList.js" />
       </list>
     </option>
   </component>
@@ -318,6 +340,24 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sans-souci" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.CidrFilesViewHelper$MyProjectTreeStructure$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sans-souci" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pages" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -647,13 +687,13 @@
       <workItem from="1474188355839" duration="9707000" />
       <workItem from="1474458569649" duration="18000" />
       <workItem from="1474603442208" duration="92705000" />
-      <workItem from="1475397756905" duration="57332000" />
+      <workItem from="1475397756905" duration="58061000" />
     </task>
     <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="600520000" />
+    <option name="totallyTimeSpent" value="601249000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -666,9 +706,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1366" height="768" extended-state="0" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24758364" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24758364" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3283582" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="CMake" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23352435" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24160448" sideWeight="0.50373137" order="11" side_tool="true" content_ui="tabs" />
@@ -804,16 +844,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/pages/editMac.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="455">
-          <caret line="38" column="0" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
-          <folding>
-            <element signature="e#48#74#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1069,16 +1099,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/components/historyHeader.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="22" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
-          <folding>
-            <element signature="e#94#120#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="360">
@@ -1095,14 +1115,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/client.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/components/historyHours.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="199">
@@ -1113,28 +1125,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/components/setTargetsList.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-30">
-          <caret line="21" column="30" selection-start-line="21" selection-start-column="30" selection-end-line="21" selection-end-column="30" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/components/imageBank.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="64">
           <caret line="22" column="5" selection-start-line="19" selection-start-column="0" selection-end-line="22" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/css/iruka.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="140" column="17" selection-start-line="140" selection-start-column="17" selection-end-line="140" selection-end-column="17" />
           <folding />
         </state>
       </provider>
@@ -1155,7 +1149,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/components/editHeader.js">
+    <entry file="file://$PROJECT_DIR$/todo">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
           <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
@@ -1163,11 +1157,57 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/todo">
+    <entry file="file://$PROJECT_DIR$/app/css/iruka.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
+        <state relative-caret-position="75">
+          <caret line="103" column="0" selection-start-line="103" selection-start-column="0" selection-end-line="103" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/components/editProfile.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1790">
           <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/pages/profile.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="11" column="9" selection-start-line="11" selection-start-column="9" selection-end-line="11" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/client.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="250">
+          <caret line="36" column="0" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#25#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/components/historyHeader.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="40" column="16" selection-start-line="40" selection-start-column="16" selection-end-line="40" selection-end-column="16" />
+          <folding>
+            <element signature="e#94#120#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/components/setTargetsList.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="37" column="36" selection-start-line="37" selection-start-column="36" selection-end-line="37" selection-end-column="36" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

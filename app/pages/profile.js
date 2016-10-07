@@ -9,7 +9,7 @@ import {connect} from 'react-redux';
 
 
 import Navbar from '../components/navbar';
-import EditHeader from "../components/editHeader";
+import EditProfile from "../components/editProfile";
 
 @connect((store) => {
     return {
@@ -25,11 +25,7 @@ export default class EditMac extends React.Component {
 
             <div>
                 <Navbar/>
-                <EditHeader user={this.props.params.user}/>
-
-                <div>
-                    <Link to='/settings'>Back</Link>
-                </div>
+                <EditProfile user={this.props.params.user}/>
             </div>
         )
     }

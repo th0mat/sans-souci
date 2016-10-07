@@ -101,28 +101,16 @@
 
 #legendLive {
 
-    /*float: left;*/
-    /*display: block;*/
-    /*width: 200px;*/
     margin: 0px;
     padding: 0px;
     color:  grey;
-    /*border-style: solid;*/
-    /*border-color: grey;*/
-    /*border-width: 1px;*/
 }
 
 #legendHistory {
 
-    /*float: left;*/
-    /*display: block;*/
-    /*width: 300px;*/
     margin: 0px;
     padding: 0px;
     color:  grey;
-    /*border-style: solid;*/
-    /*border-color: grey;*/
-    /*border-width: 1px;*/
 }
 
 
@@ -139,6 +127,7 @@
 .bankPix {
     float: left;
     margin: 10px;
+    cursor: pointer;
 }
 
 

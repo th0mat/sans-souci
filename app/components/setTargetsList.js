@@ -47,7 +47,7 @@ export default class SetTargetsList extends React.Component {
                                               alt={x.dname}/></td>
                                     <td>{x.dname}</td>
                                     <td style={{fontFamily: "monospace"}}>{x.macHex}</td>
-                                    <td><Link to={"edit/" + x.macHex}>edit/remove</Link></td>
+                                    <td><Link to={"profile/" + x.macHex}>edit/remove</Link></td>
                                 </tr>
                             )
                         })}

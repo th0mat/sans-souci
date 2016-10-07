@@ -12,7 +12,7 @@ import Scan from  './pages/scan';
 import Notify from './pages/notify';
 import Monitor from './pages/monitor';
 import Settings from './pages/settings';
-import EditMac from './pages/editMac';
+import Profile from './pages/profile';
 
 import store from './redux/store';
 import * as actions from './redux/actions';
@@ -49,7 +49,7 @@ ReactDOM.render(
                 <Route path="notify" component={Notify}/>
                 <Route path="about" component={About}/>
                 <Route path="settings" component={Settings}/>
-                <Route path="edit/:user" component={EditMac}/>
+                <Route path="profile/:user" component={Profile}/>
                 <Route path="monitor" component={Monitor}/>
             </Route>
 
