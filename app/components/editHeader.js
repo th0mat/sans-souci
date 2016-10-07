@@ -8,9 +8,11 @@ import {Button} from 'react-bootstrap';
 import {browserHistory} from 'react-router';
 import * as actions from '../redux/actions';
 
+
 @connect((store) => {
     return {
-        targets: store.targetsOnly
+        targets: store.targetsOnly,
+        imageBank: store.imageBank
     };
 })
 export default class EditHeader extends React.Component {
@@ -45,6 +47,14 @@ export default class EditHeader extends React.Component {
         browserHistory.push('/settings');
     }
 
+
+    swapImg(e){
+        let target = JSON.parse(JSON.stringify(this.state.target));
+        target.avatar = 'img/' + e.target.name;
+        this.setState({target: target});
+        this.setState({file: null});
+    }
+
     handleChange(e) {
         let updated = this.state.target;
         updated[e.target.name] = e.target.value;
@@ -65,7 +75,7 @@ export default class EditHeader extends React.Component {
     previewFile() {
         this.setState({fileMsg: ''}); // remove msg from previous try
         const MAX_FILE_SIZE = 500000;
-        var preview = document.querySelector('img');
+        var preview = document.querySelector('.user-pix');
         var file = document.querySelector('input[type=file]').files[0];
         if (!file.type.match('image.*')){
             let msg = file.name + ' is not an image file';
@@ -123,7 +133,7 @@ export default class EditHeader extends React.Component {
                 </div>
                 <br/>
 
-                <h3>To change picture</h3>
+                <h3>Upload new picture</h3>
 
                 <input type="file" onChange={this.previewFile}/>
                 <br/>
@@ -136,6 +146,17 @@ export default class EditHeader extends React.Component {
                 <span>&nbsp;&nbsp;</span><Button bsStyle="primary" bsSize="small"
                                                  onClick={this.saveChanges}>save&nbsp;</Button>
                 <br/><br/>
+                <h3>Or select from below</h3>
+                <div>
+                    {this.props.imageBank.map(x=>{
+                        return (
+                            <img src={"/imgBank/" + x} key={x} class="bankPix" name={x}
+                                 height="50" width="50" onClick={this.swapImg.bind(this)}/>
+                        )
+                    })}
+
+
+                </div>
             </div>
         )
     }

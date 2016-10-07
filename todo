@@ -1,13 +1,19 @@
+change cursor on hover
+option to change monitor sorting order
 server-side input validation for targets
 server-side input validation for macs
 scan traffic number check
-more-less component
 node level error capture
 help help help
 email notifications
 
 
 DONE
+legend component for live view
+imageBank to select avatar
+more-less component
+legend component for history view
+new color for future in history view
 validation for uploaded images
 turn mac input incl validation into component
 validation for mac addresses

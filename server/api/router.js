@@ -94,14 +94,26 @@ router.post('/logSysStatus', function (req, res, next) {
 });
 
 
-
 router.put('/image', function (req, res, next) {
     let binary = new Buffer(req.body.content, 'base64');
-    var testImg = path.normalize(__dirname + '/../../app/img/' + req.body.avatar);
-    fs.writeFileSync(testImg, binary);
-    //res.writeHead(200);
+    var imgName = path.normalize(__dirname + '/../../app/img/' + req.body.avatar);
+    fs.writeFileSync(imgName, binary);
     res.send('image received');
 });
+
+
+router.get('/config/imageBank', function (req, res, next) {
+    var imgBankDir = path.normalize(__dirname + '/../../app/imgBank');
+    fs.readdir(imgBankDir, (err, result)=>{
+        if (err) {
+            res.send('Error retrieving image bank: ' + err.stack);
+            return;
+        }
+        console.log('**** imgBank: ', result)
+        res.send(result);
+    });
+});
+
 
 
 export default router;

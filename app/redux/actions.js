@@ -120,6 +120,21 @@ export function uploadImage(file, index, targets) {
 }
 
 
+export function getImageBankArray() {
+    return function (dispatch) {
+        axios.get(url + "api/config/imageBank")
+            .then((response) => {
+                dispatch({type: "IMAGE_BANK_RECEIVED", payload: response.data})
+            })
+            .catch((err) => {
+                console.log('*** loading of image Bank failed');
+            })
+    }
+}
+
+
+
+
 function _arrayBufferToBase64(buffer) {
     var binary = '';
     var bytes = new Uint8Array(buffer);
