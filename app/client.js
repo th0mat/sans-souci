@@ -20,7 +20,7 @@ import * as actions from './redux/actions';
 store.dispatch(actions.fetchTargets());
 store.dispatch(actions.getLogSysStatus());
 store.dispatch(actions.getImageBankArray());
-
+store.dispatch(actions.getOui());
 
 setInterval(()=>store.dispatch(actions.getLogSysStatus()), 300000);
 

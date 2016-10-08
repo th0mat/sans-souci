@@ -132,6 +132,18 @@ export function getImageBankArray() {
     }
 }
 
+export function getOui() {
+    return function (dispatch) {
+        axios.get(url + "api/config/oui")
+            .then((response) => {
+                dispatch({type: "OUI_RECEIVED", payload: response.data})
+            })
+            .catch((err) => {
+                console.log('*** loading of oui failed');
+            })
+    }
+}
+
 
 
 

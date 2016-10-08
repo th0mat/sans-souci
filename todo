@@ -1,4 +1,4 @@
-oui lookup for scan
+correct daily total today -4 (from future marking)
 history link from profile
 server-side input validation for targets
 server-side input validation for macs
@@ -9,6 +9,7 @@ email notifications
 
 
 DONE
+oui lookup for scan
 add stop and continue button to scan
 option to change monitor sorting order
 change cursor on hover

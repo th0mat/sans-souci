@@ -8,7 +8,9 @@ import bodyParser from 'body-parser';
 import fs from 'fs';
 import path from 'path';
 import morgan from 'morgan';
-import logger from './log'
+import logger from './log';
+
+
 
 var app = express();
 var server = http.createServer(app).listen(3000);
@@ -73,3 +75,4 @@ io.on('connection', function (socket) {
 
 
 logger.info('server up on port 3000');
+

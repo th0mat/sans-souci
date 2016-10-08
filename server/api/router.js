@@ -14,6 +14,10 @@ import path from 'path';
 import fs from 'fs';
 
 
+var ouiPath = path.normalize(__dirname + '/../../server.config/oui.json');
+var oui = JSON.parse(fs.readFileSync(ouiPath));
+console.log("*** oui length: ", Object.keys(oui).length);
+
 // check if log sys is running
 var pid = logSys.getLogSysPid();
 if (pid) {
@@ -113,6 +117,9 @@ router.get('/config/imageBank', function (req, res, next) {
     });
 });
 
+router.get('/config/oui', function (req, res, next) {
+    res.json(oui)
+});
 
 
 export default router;

@@ -17,6 +17,7 @@ import {Link} from 'react-router';
 @connect((store) => {
     return {
         tsec: store.targets,
+        oui: store.oui,
         returnToLink: store.returnToLink
     };
 })
@@ -37,15 +38,16 @@ export default class HistoryHeader extends React.Component {
         var found = this.target();
         var sub = (this.props.user === '1000000000000')
             ? 'System uptime data'
-            : 'Device mac address: ' + this.props.user;
+            : 'Mac address: ' + this.props.user;
         return (
             <div>
                 <br/>
                 <Link to={this.props.returnToLink}> <img src={"../../" + found.avatar} class="user-pix"
-                                                         height="120" width="120"/> </Link>
+                                                         height="160" width="160"/> </Link>
                 <div id="user-info">
                     <h2>{found.dname}</h2><span class="label pull-right label-default">auto-updates</span>
                     <p>{sub}</p>
+                    <p>Maker: {this.props.oui[this.props.user.substr(0,6)]}</p>
                     <p><Link to={"/profile/" + this.props.user}>edit</Link></p>
                 </div>
             </div>

@@ -19,7 +19,7 @@ const initialState = {
     targets: [totalTraffic],
     targetsOnly: [],
     imageBank: [],
-    // scannerOn: true,
+    oui: {},
     logSysStatus: 'unknown'  // 'unknown', 'on', or 'off'
 }
 
@@ -57,6 +57,10 @@ function reducer(state = initialState, action) {
         }
         case "IMAGE_BANK_RECEIVED": {
             return {...state, imageBank: action.payload};
+            break;
+        }
+        case "OUI_RECEIVED": {
+            return {...state, oui: action.payload};
             break;
         }
         case "LOG_SYS_STATUS_RECEIVED": {

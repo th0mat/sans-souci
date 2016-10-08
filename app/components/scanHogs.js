@@ -15,7 +15,8 @@ var url = Config.url;
 
 @connect((store)=>{
     return {
-        targets: store.targets
+        targets: store.targets,
+        oui: store.oui
     }
 })
 export default class Hogs extends React.Component {
@@ -100,6 +101,7 @@ export default class Hogs extends React.Component {
                         <tr>
                             <th>Name</th>
                             <th>Mac</th>
+                            <th>Manufacturer</th>
                             <th class="text-right">Bytes</th>
                         </tr>
                         </thead>
@@ -111,6 +113,7 @@ export default class Hogs extends React.Component {
                             <tr key={x[0]}>
                                 <td>< Link to={"history/" + x[0]}>{dname}</Link></td>
                                 <td style={{fontFamily: "monospace"}}>{x[0]}</td>
+                                <td>{this.props.oui[x[0].substr(0,6)]}</td>
                                 <td class="text-right">{x[1].toLocaleString()}</td>
                             </tr>
                         )

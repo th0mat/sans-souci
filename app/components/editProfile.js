@@ -12,6 +12,7 @@ import * as actions from '../redux/actions';
 @connect((store) => {
     return {
         targets: store.targetsOnly,
+        oui: store.oui,
         imageBank: store.imageBank
     };
 })
@@ -131,6 +132,7 @@ export default class EditHeader extends React.Component {
                                onChange={this.handleChange}/></h2>
                     <p><input name="macHex" value={this.state.target.macHex} type="text"
                               onChange={this.handleChange}/></p>
+                    <p>{this.props.oui[this.state.target.macHex.substr(0,6)]}</p>
                 </div>
                 <br/>
 

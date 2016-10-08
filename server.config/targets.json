@@ -24,17 +24,17 @@
         "sortOrder": 2
     },
     {
-        "macHex": "040ccedde9f2",
-        "dname": "Tom Air",
-        "avatar": "img/Tom.jpg",
+        "macHex": "6c71d94b75f1",
+        "dname": "Yogi",
+        "avatar": "img/yogi.png",
         "notifyGone": false,
         "notifyBack": false,
         "sortOrder": 3
     },
     {
-        "macHex": "6c71d94b75f1",
-        "dname": "Yogi",
-        "avatar": "img/yogi.png",
+        "macHex": "040ccedde9f2",
+        "dname": "Tom Air",
+        "avatar": "img/Tom.jpg",
         "notifyGone": false,
         "notifyBack": false,
         "sortOrder": 4
@@ -62,5 +62,13 @@
         "notifyGone": false,
         "notifyBack": false,
         "sortOrder": 7
+    },
+    {
+        "macHex": "18e2c23dfd9c",
+        "dname": "Big Traffic",
+        "avatar": "img/Incognito.jpg",
+        "notifyGone": false,
+        "notifyBack": false,
+        "sortOrder": 8
     }
 ]
