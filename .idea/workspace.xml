@@ -12,17 +12,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5b4af9d7-3b8e-4f6f-a062-9da5a8c437d8" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/server.config/prepareOui.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/client.js" afterPath="$PROJECT_DIR$/app/client.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/components/editProfile.js" afterPath="$PROJECT_DIR$/app/components/editProfile.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/components/historyHeader.js" afterPath="$PROJECT_DIR$/app/components/historyHeader.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/components/scanHogs.js" afterPath="$PROJECT_DIR$/app/components/scanHogs.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/components/historyDailyTotals.js" afterPath="$PROJECT_DIR$/app/components/historyDailyTotals.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/components/historyHour.js" afterPath="$PROJECT_DIR$/app/components/historyHour.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/redux/actions.js" afterPath="$PROJECT_DIR$/app/redux/actions.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/redux/reducers.js" afterPath="$PROJECT_DIR$/app/redux/reducers.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server.config/targets.json" afterPath="$PROJECT_DIR$/server.config/targets.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/api/router.js" afterPath="$PROJECT_DIR$/server/api/router.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/server.js" afterPath="$PROJECT_DIR$/server/server.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/todo" afterPath="$PROJECT_DIR$/todo" />
     </list>
     <ignored path="sans-souci.iws" />
@@ -57,26 +49,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="reducers.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/redux/reducers.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="363">
-              <caret line="65" column="38" selection-start-line="65" selection-start-column="38" selection-end-line="65" selection-end-column="38" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="client.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/client.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="server.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/server/server.js">
           <provider selected="true" editor-type-id="text-editor">
@@ -92,9 +64,21 @@
       <file leaf-file-name="todo" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/todo">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+            <state relative-caret-position="255">
+              <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="historyDailyTotals.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/components/historyDailyTotals.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="104">
+              <caret line="9" column="22" selection-start-line="9" selection-start-column="22" selection-end-line="9" selection-end-column="22" />
+              <folding>
+                <element signature="e#47#73#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -102,18 +86,30 @@
       <file leaf-file-name="actions.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/redux/actions.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="363">
-              <caret line="147" column="0" selection-start-line="147" selection-start-column="0" selection-end-line="147" selection-end-column="0" />
+            <state relative-caret-position="296">
+              <caret line="47" column="114" selection-start-line="47" selection-start-column="114" selection-end-line="47" selection-end-column="114" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="updateTargets.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/server/api/updateTargets.js">
+      <file leaf-file-name="historyHours.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/components/historyHours.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="9" column="84" selection-start-line="9" selection-start-column="24" selection-end-line="9" selection-end-column="84" />
+            <state relative-caret-position="645">
+              <caret line="45" column="31" selection-start-line="45" selection-start-column="31" selection-end-line="45" selection-end-column="31" />
+              <folding>
+                <element signature="e#48#74#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="historyHour.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/components/historyHour.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="450">
+              <caret line="33" column="48" selection-start-line="33" selection-start-column="48" selection-end-line="33" selection-end-column="48" />
               <folding />
             </state>
           </provider>
@@ -143,10 +139,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="historyHeader.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="historyHeader.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/components/historyHeader.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="266">
+            <state relative-caret-position="630">
               <caret line="49" column="30" selection-start-line="49" selection-start-column="30" selection-end-line="49" selection-end-column="30" />
               <folding />
             </state>
@@ -170,7 +166,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/components/configOnOff.js" />
         <option value="$PROJECT_DIR$/app/pages/config.js" />
         <option value="$PROJECT_DIR$/server.config/config.js" />
         <option value="$PROJECT_DIR$/app/components/settingsOnOff.js" />
@@ -199,7 +194,6 @@
         <option value="$PROJECT_DIR$/app/components/monitorData.js" />
         <option value="$PROJECT_DIR$/app/components/historyHours.js" />
         <option value="$PROJECT_DIR$/app/components/legendHistory.js" />
-        <option value="$PROJECT_DIR$/app/components/historyHour.js" />
         <option value="$PROJECT_DIR$/app/config/config.js" />
         <option value="$PROJECT_DIR$/log/results.log" />
         <option value="$PROJECT_DIR$/log/access.log" />
@@ -213,14 +207,16 @@
         <option value="$PROJECT_DIR$/server/api/updateTargets.js" />
         <option value="$PROJECT_DIR$/server.config/prepareOui.js" />
         <option value="$PROJECT_DIR$/app/redux/reducers.js" />
-        <option value="$PROJECT_DIR$/app/redux/actions.js" />
         <option value="$PROJECT_DIR$/app/client.js" />
         <option value="$PROJECT_DIR$/server/server.js" />
         <option value="$PROJECT_DIR$/server/api/router.js" />
         <option value="$PROJECT_DIR$/app/components/scanHogs.js" />
         <option value="$PROJECT_DIR$/app/components/editProfile.js" />
-        <option value="$PROJECT_DIR$/todo" />
         <option value="$PROJECT_DIR$/app/components/historyHeader.js" />
+        <option value="$PROJECT_DIR$/app/redux/actions.js" />
+        <option value="$PROJECT_DIR$/app/components/historyHour.js" />
+        <option value="$PROJECT_DIR$/todo" />
+        <option value="$PROJECT_DIR$/app/components/historyDailyTotals.js" />
       </list>
     </option>
   </component>
@@ -710,13 +706,13 @@
       <workItem from="1474188355839" duration="9707000" />
       <workItem from="1474458569649" duration="18000" />
       <workItem from="1474603442208" duration="92705000" />
-      <workItem from="1475397756905" duration="72071000" />
+      <workItem from="1475397756905" duration="73236000" />
     </task>
     <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="615259000" />
+    <option name="totallyTimeSpent" value="616424000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -811,7 +807,7 @@
           <option name="timeStamp" value="4" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="5" />
+      <option name="time" value="6" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -905,14 +901,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
           <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/components/historyDailyTotals.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1048,29 +1036,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/components/historyHour.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="26" column="49" selection-start-line="26" selection-start-column="49" selection-end-line="26" selection-end-column="49" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="360">
           <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/components/historyHours.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="199">
-          <caret line="45" column="31" selection-start-line="45" selection-start-column="31" selection-end-line="45" selection-end-column="31" />
-          <folding>
-            <element signature="e#48#74#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1154,14 +1124,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/redux/actions.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="363">
-          <caret line="147" column="0" selection-start-line="147" selection-start-column="0" selection-end-line="147" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/client.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
@@ -1216,14 +1178,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/todo">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/components/scanHogs.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1425">
@@ -1234,9 +1188,53 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/components/historyHeader.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
+        <state relative-caret-position="630">
           <caret line="49" column="30" selection-start-line="49" selection-start-column="30" selection-end-line="49" selection-end-column="30" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/redux/actions.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="296">
+          <caret line="47" column="114" selection-start-line="47" selection-start-column="114" selection-end-line="47" selection-end-column="114" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/components/historyHours.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="645">
+          <caret line="45" column="31" selection-start-line="45" selection-start-column="31" selection-end-line="45" selection-end-column="31" />
+          <folding>
+            <element signature="e#48#74#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/components/historyHour.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="33" column="48" selection-start-line="33" selection-start-column="48" selection-end-line="33" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/todo">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/components/historyDailyTotals.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="104">
+          <caret line="9" column="22" selection-start-line="9" selection-start-column="22" selection-end-line="9" selection-end-column="22" />
+          <folding>
+            <element signature="e#47#73#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

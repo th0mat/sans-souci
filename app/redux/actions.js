@@ -45,7 +45,7 @@ export function fetchHistory(mac) {
                 // mark the remaining slots of the first hour -1
                 for (let mark = slotsPassed; mark <= 11; mark++) {
 
-                    tmp.mac[0][1][mark] = tmp.mac[0][1][mark] || -1;
+                    tmp.mac[0][1][mark] = tmp.mac[0][1][mark] || -0.01; // small enough to disappear with rounding
                 }
                 console.log('tmp.mac[0]: ', tmp.mac[0])
                 console.log('slotsPassed ', slotsPassed)

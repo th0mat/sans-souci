@@ -12,7 +12,7 @@ Number.prototype.formatMoney = function(decPlaces, thouSeparator, decSeparator) 
         decPlaces = isNaN(decPlaces = Math.abs(decPlaces)) ? 2 : decPlaces,
         decSeparator = decSeparator == undefined ? "." : decSeparator,
         thouSeparator = thouSeparator == undefined ? "," : thouSeparator,
-        sign = n < 0 ? "-" : "",
+        sign = n < 0 ? "" : "", // removed - sign to avoid -0 in case of -0.01 rounding
         i = parseInt(n = Math.abs(+n || 0).toFixed(decPlaces)) + "",
         j = (j = i.length) > 3 ? j % 3 : 0;
     return sign + (j ? i.substr(0, j) + thouSeparator : "") + i.substr(j).replace(/(\d{3})(?=\d)/g,

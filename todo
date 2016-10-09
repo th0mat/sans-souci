@@ -1,4 +1,4 @@
-correct daily total today -4 (from future marking)
+
 history link from profile
 server-side input validation for targets
 server-side input validation for macs
@@ -8,7 +8,14 @@ help help help
 email notifications
 
 
+CPP
+sort out http://stackoverflow.com/questions/21416938/strange-mac-addresses-in-wireless-sniffing
+sort out https://tools.ietf.org/html/rfc7042
+
+
+
 DONE
+correct daily total today -4 (from future marking)
 oui lookup for scan
 add stop and continue button to scan
 option to change monitor sorting order
